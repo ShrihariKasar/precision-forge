@@ -10,14 +10,28 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as QualityRouteImport } from './routes/quality'
 import { Route as CapabilitiesIndexRouteImport } from './routes/capabilities.index'
 import { Route as CapabilitiesSlugRouteImport } from './routes/capabilities.$slug'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
+import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QualityRoute = QualityRouteImport.update({
+  id: '/quality',
+  path: '/quality',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CapabilitiesIndexRoute = CapabilitiesIndexRouteImport.update({
@@ -28,6 +42,16 @@ const CapabilitiesIndexRoute = CapabilitiesIndexRouteImport.update({
 const CapabilitiesSlugRoute = CapabilitiesSlugRouteImport.update({
   id: '/capabilities/$slug',
   path: '/capabilities/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/industries/',
+  path: '/industries/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
+  id: '/industries/$slug',
+  path: '/industries/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
@@ -43,55 +67,83 @@ const ProductsSlugRoute = ProductsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/gallery': typeof GalleryRoute
+  '/quality': typeof QualityRoute
   '/capabilities/$slug': typeof CapabilitiesSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/capabilities/': typeof CapabilitiesIndexRoute
+  '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/gallery': typeof GalleryRoute
+  '/quality': typeof QualityRoute
   '/capabilities/$slug': typeof CapabilitiesSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/capabilities': typeof CapabilitiesIndexRoute
+  '/industries': typeof IndustriesIndexRoute
   '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/gallery': typeof GalleryRoute
+  '/quality': typeof QualityRoute
   '/capabilities/$slug': typeof CapabilitiesSlugRoute
+  '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
   '/capabilities/': typeof CapabilitiesIndexRoute
+  '/industries/': typeof IndustriesIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/gallery'
+    | '/quality'
     | '/capabilities/$slug'
+    | '/industries/$slug'
     | '/products/$slug'
     | '/capabilities/'
+    | '/industries/'
     | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/gallery'
+    | '/quality'
     | '/capabilities/$slug'
+    | '/industries/$slug'
     | '/products/$slug'
     | '/capabilities'
+    | '/industries'
     | '/products'
   id:
     | '__root__'
     | '/'
+    | '/gallery'
+    | '/quality'
     | '/capabilities/$slug'
+    | '/industries/$slug'
     | '/products/$slug'
     | '/capabilities/'
+    | '/industries/'
     | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GalleryRoute: typeof GalleryRoute
+  QualityRoute: typeof QualityRoute
   CapabilitiesSlugRoute: typeof CapabilitiesSlugRoute
+  IndustriesSlugRoute: typeof IndustriesSlugRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
   CapabilitiesIndexRoute: typeof CapabilitiesIndexRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
@@ -102,6 +154,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quality': {
+      id: '/quality'
+      path: '/quality'
+      fullPath: '/quality'
+      preLoaderRoute: typeof QualityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/capabilities/': {
@@ -116,6 +182,20 @@ declare module '@tanstack/react-router' {
       path: '/capabilities/$slug'
       fullPath: '/capabilities/$slug'
       preLoaderRoute: typeof CapabilitiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/': {
+      id: '/industries/'
+      path: '/industries'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/$slug': {
+      id: '/industries/$slug'
+      path: '/industries/$slug'
+      fullPath: '/industries/$slug'
+      preLoaderRoute: typeof IndustriesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/products/': {
@@ -137,9 +217,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GalleryRoute: GalleryRoute,
+  QualityRoute: QualityRoute,
   CapabilitiesSlugRoute: CapabilitiesSlugRoute,
+  IndustriesSlugRoute: IndustriesSlugRoute,
   ProductsSlugRoute: ProductsSlugRoute,
   CapabilitiesIndexRoute: CapabilitiesIndexRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
   ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport
