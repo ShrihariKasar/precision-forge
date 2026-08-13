@@ -13,8 +13,10 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as QualityRouteImport } from './routes/quality'
 import { Route as RequestQuoteRouteImport } from './routes/request-quote'
+import { Route as TermsRouteImport } from './routes/terms'
 import { Route as CapabilitiesIndexRouteImport } from './routes/capabilities.index'
 import { Route as CapabilitiesSlugRouteImport } from './routes/capabilities.$slug'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
@@ -42,6 +44,11 @@ const GalleryRoute = GalleryRouteImport.update({
   path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QualityRoute = QualityRouteImport.update({
   id: '/quality',
   path: '/quality',
@@ -50,6 +57,11 @@ const QualityRoute = QualityRouteImport.update({
 const RequestQuoteRoute = RequestQuoteRouteImport.update({
   id: '/request-quote',
   path: '/request-quote',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CapabilitiesIndexRoute = CapabilitiesIndexRouteImport.update({
@@ -88,8 +100,10 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/quality': typeof QualityRoute
   '/request-quote': typeof RequestQuoteRoute
+  '/terms': typeof TermsRoute
   '/capabilities/$slug': typeof CapabilitiesSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -102,8 +116,10 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/quality': typeof QualityRoute
   '/request-quote': typeof RequestQuoteRoute
+  '/terms': typeof TermsRoute
   '/capabilities/$slug': typeof CapabilitiesSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -117,8 +133,10 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/quality': typeof QualityRoute
   '/request-quote': typeof RequestQuoteRoute
+  '/terms': typeof TermsRoute
   '/capabilities/$slug': typeof CapabilitiesSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -133,8 +151,10 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/gallery'
+    | '/privacy-policy'
     | '/quality'
     | '/request-quote'
+    | '/terms'
     | '/capabilities/$slug'
     | '/industries/$slug'
     | '/products/$slug'
@@ -147,8 +167,10 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/gallery'
+    | '/privacy-policy'
     | '/quality'
     | '/request-quote'
+    | '/terms'
     | '/capabilities/$slug'
     | '/industries/$slug'
     | '/products/$slug'
@@ -161,8 +183,10 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/gallery'
+    | '/privacy-policy'
     | '/quality'
     | '/request-quote'
+    | '/terms'
     | '/capabilities/$slug'
     | '/industries/$slug'
     | '/products/$slug'
@@ -176,8 +200,10 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   QualityRoute: typeof QualityRoute
   RequestQuoteRoute: typeof RequestQuoteRoute
+  TermsRoute: typeof TermsRoute
   CapabilitiesSlugRoute: typeof CapabilitiesSlugRoute
   IndustriesSlugRoute: typeof IndustriesSlugRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
@@ -216,6 +242,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/quality': {
       id: '/quality'
       path: '/quality'
@@ -228,6 +261,13 @@ declare module '@tanstack/react-router' {
       path: '/request-quote'
       fullPath: '/request-quote'
       preLoaderRoute: typeof RequestQuoteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/capabilities/': {
@@ -280,8 +320,10 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   QualityRoute: QualityRoute,
   RequestQuoteRoute: RequestQuoteRoute,
+  TermsRoute: TermsRoute,
   CapabilitiesSlugRoute: CapabilitiesSlugRoute,
   IndustriesSlugRoute: IndustriesSlugRoute,
   ProductsSlugRoute: ProductsSlugRoute,
