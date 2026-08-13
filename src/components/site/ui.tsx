@@ -24,7 +24,7 @@ export function ActionLink({
   className,
   arrow = true,
 }: {
-  to: LinkProps["to"];
+  to: NonNullable<LinkProps["to"]>;
   children: ReactNode;
   variant?: ButtonVariant;
   className?: string;
@@ -57,7 +57,7 @@ export function ActionButton({
   );
 }
 
-export function TextLink({ to, children }: { to: LinkProps["to"]; children: ReactNode }) {
+export function TextLink({ to, children }: { to: NonNullable<LinkProps["to"]>; children: ReactNode }) {
   return (
     <Link
       to={to}
@@ -163,7 +163,7 @@ function useCountUp(target: number, start: boolean, duration = 1400) {
 
 /* ------------------------------------------------------------- Breadcrumb */
 
-export function Breadcrumb({ items }: { items: { label: string; to?: LinkProps["to"] }[] }) {
+export function Breadcrumb({ items }: { items: { label: string; to?: NonNullable<LinkProps["to"]> }[] }) {
   return (
     <nav aria-label="Breadcrumb" className="label-xs text-muted-foreground">
       <ol className="flex flex-wrap items-center gap-2">

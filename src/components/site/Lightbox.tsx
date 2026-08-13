@@ -39,8 +39,8 @@ export function Lightbox({
     };
   }, [open, go, onClose]);
 
-  if (index === null) return null;
-  const current = images[index];
+  const current = index === null ? undefined : images[index];
+  if (!current) return null;
 
   return (
     <div
