@@ -120,18 +120,20 @@ export function StatCounter({
   suffix = "",
   label,
 }: {
-  value: number;
+  value: number | string;
   suffix?: string;
   label: string;
 }) {
   const { ref, visible } = useInView<HTMLDivElement>(0.4);
-  const display = useCountUp(value, visible);
+  const numericVal = typeof value === "number" ? value : parseInt(String(value).replace(/[^0-9]/g, ""), 10);
+  const isNumeric = !isNaN(numericVal) && typeof value === "number";
+  const display = isNumeric ? useCountUp(numericVal, visible) : value;
 
   return (
     <div ref={ref} className="border-t border-border pt-6">
-      <div className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-none font-medium tabular-nums">
+      <div className="font-display text-[clamp(2rem,4.5vw,3.8rem)] leading-none font-medium text-foreground">
         {display}
-        <span className="text-accent">{suffix}</span>
+        {suffix && <span className="text-accent">{suffix}</span>}
       </div>
       <p className="mt-4 max-w-[16rem] text-sm text-muted-foreground">{label}</p>
     </div>

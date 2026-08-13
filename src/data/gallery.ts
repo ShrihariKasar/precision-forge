@@ -1,43 +1,91 @@
-import hero from "@/assets/hero-factory.jpg";
-import facility from "@/assets/facility.jpg";
-import laser from "@/assets/cap-laser.jpg";
-import bending from "@/assets/cap-bending.jpg";
-import coating from "@/assets/cap-coating.jpg";
-import quality from "@/assets/cap-quality.jpg";
-import sheetMetal from "@/assets/prod-sheet-metal.jpg";
-import stamping from "@/assets/prod-stamping.jpg";
-import cnc from "@/assets/prod-cnc.jpg";
-import enclosures from "@/assets/prod-enclosures.jpg";
-import welded from "@/assets/prod-welded.jpg";
-import brackets from "@/assets/prod-brackets.jpg";
+import heroPlantImg from "@/assets/spipl/hero_plant.png";
+import shopFloorImg from "@/assets/spipl/shop_floor.png";
+import automotiveClipsImg from "@/assets/spipl/automotive_clips.png";
+import applianceComponentsImg from "@/assets/spipl/appliance_components.png";
+import defenceComponentsImg from "@/assets/spipl/defence_components.png";
 
-export type GalleryItem = {
-  src: string;
-  alt: string;
-  category: string;
-  span?: "tall" | "wide";
-};
+export interface GalleryItem {
+  id: string;
+  title: string;
+  category: "AUTOMOTIVE" | "APPLIANCES" | "DEFENCE" | "FACILITY";
+  aspect: "landscape" | "portrait" | "square" | "wide";
+  image: string;
+  caption: string;
+}
 
-export const galleryCategories = [
-  "All",
-  "Factory",
-  "Machinery",
-  "Products",
-  "Production",
-  "Quality",
-];
+export const galleryCategories = ["ALL", "AUTOMOTIVE", "APPLIANCES", "DEFENCE", "FACILITY"] as const;
 
 export const galleryItems: GalleryItem[] = [
-  { src: hero, alt: "Press brake and laser cutting bays on the production floor", category: "Factory", span: "wide" },
-  { src: sheetMetal, alt: "Laser-cut sheet metal components on a workbench", category: "Products" },
-  { src: laser, alt: "Fiber laser cutting steel sheet", category: "Machinery", span: "tall" },
-  { src: brackets, alt: "Formed steel mounting brackets", category: "Products" },
-  { src: bending, alt: "Sheet being formed on a press brake", category: "Production" },
-  { src: facility, alt: "Manufacturing bay with overhead crane", category: "Factory", span: "wide" },
-  { src: cnc, alt: "CNC machined components with digital caliper", category: "Products" },
-  { src: coating, alt: "Powder coating conveyor line", category: "Production", span: "tall" },
-  { src: quality, alt: "Inspector measuring a component on a measuring machine", category: "Quality" },
-  { src: enclosures, alt: "Powder coated industrial enclosures", category: "Products" },
-  { src: welded, alt: "Welded steel frame assembly on a jig table", category: "Production" },
-  { src: stamping, alt: "Tray of stamped and machined metal parts", category: "Products" },
+  {
+    id: "g-auto-1",
+    title: "Automotive Bumper Clips & Body Plugs",
+    category: "AUTOMOTIVE",
+    aspect: "landscape",
+    image: automotiveClipsImg,
+    caption: "Injection moulded automotive clips, body plugs and fir tree fasteners for vehicle assembly.",
+  },
+  {
+    id: "g-auto-2",
+    title: "Verus Type Clamps & Cable Ties",
+    category: "AUTOMOTIVE",
+    aspect: "square",
+    image: automotiveClipsImg,
+    caption: "High-tensile nylon cable ties and hose clamping components produced for automotive OEMs.",
+  },
+  {
+    id: "g-auto-3",
+    title: "Grab Handle Flexible & Beige Trim",
+    category: "AUTOMOTIVE",
+    aspect: "portrait",
+    image: automotiveClipsImg,
+    caption: "Class-A surface finish interior grab handles and screw caps.",
+  },
+  {
+    id: "g-app-1",
+    title: "AC Fan Components",
+    category: "APPLIANCES",
+    aspect: "wide",
+    image: applianceComponentsImg,
+    caption: "Precision moulded plastic AC fan components for home appliance and air handler applications.",
+  },
+  {
+    id: "g-def-1",
+    title: "Defence Radome Enclosure",
+    category: "DEFENCE",
+    aspect: "landscape",
+    image: defenceComponentsImg,
+    caption: "RF-transparent defence radome housing component moulded from engineering polycarbonate.",
+  },
+  {
+    id: "g-def-2",
+    title: "Switch Housing & Timer Plug",
+    category: "DEFENCE",
+    aspect: "square",
+    image: defenceComponentsImg,
+    caption: "Ruggedized defence electronic switch housing and high-precision timer plug components.",
+  },
+  {
+    id: "g-fac-1",
+    title: "SPIPL Manufacturing Plant Exterior",
+    category: "FACILITY",
+    aspect: "wide",
+    image: heroPlantImg,
+    caption: "9,000 sq. ft. built-up plastic injection moulding manufacturing facility in Koregaon Bhima, Pune.",
+  },
+  {
+    id: "g-fac-2",
+    title: "Injection Moulding Shop Floor",
+    category: "FACILITY",
+    aspect: "landscape",
+    image: shopFloorImg,
+    caption: "Automated injection moulding machine shop floor operating 100T to 250T presses.",
+  },
+  {
+    id: "g-fac-3",
+    title: "Quality Assurance Laboratory",
+    category: "FACILITY",
+    aspect: "portrait",
+    image: shopFloorImg,
+    caption: "QA lab equipped with digital verniers, micrometers, pin gauges and digital lux meters.",
+  },
 ];

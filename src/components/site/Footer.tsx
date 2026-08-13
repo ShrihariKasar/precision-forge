@@ -15,7 +15,7 @@ export function Footer() {
               <span className="block size-2.5 bg-accent" />
             </span>
             <span className="font-display text-sm font-semibold tracking-[0.18em] uppercase">
-              {company.shortName} Metalform
+              SANCHIT POLYMER
             </span>
           </div>
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-muted-foreground">
@@ -24,14 +24,15 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="label-xs text-muted-foreground">Company</h2>
+          <h2 className="label-xs text-muted-foreground uppercase">Navigation</h2>
           <ul className="mt-6 space-y-3 text-sm">
             {[
-              { label: "About", to: "/about" },
+              { label: "About SPIPL", to: "/about" },
+              { label: "Our Team", to: "/about/team" },
               { label: "Capabilities", to: "/capabilities" },
-              { label: "Quality", to: "/quality" },
-              { label: "Industries", to: "/industries" },
-              { label: "Gallery", to: "/gallery" },
+              { label: "Tool Room", to: "/capabilities/tool-room" },
+              { label: "Infrastructure", to: "/infrastructure" },
+              { label: "Machinery", to: "/infrastructure/machinery" },
             ].map((l) => (
               <li key={l.to}>
                 <Link to={l.to} className="text-muted-foreground transition-colors hover:text-accent">
@@ -43,9 +44,9 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="label-xs text-muted-foreground">Products</h2>
+          <h2 className="label-xs text-muted-foreground uppercase">Products & Quality</h2>
           <ul className="mt-6 space-y-3 text-sm">
-            {productCategories.slice(1, 6).map((c) => (
+            {productCategories.slice(1).map((c) => (
               <li key={c.slug}>
                 <Link to="/products" className="text-muted-foreground transition-colors hover:text-accent">
                   {c.label}
@@ -53,17 +54,27 @@ export function Footer() {
               </li>
             ))}
             <li>
-              <Link to="/capabilities" className="text-muted-foreground transition-colors hover:text-accent">
-                {capabilities.length} manufacturing processes
+              <Link to="/quality/certifications" className="text-muted-foreground transition-colors hover:text-accent">
+                IATF 16949 & ISO 9001
+              </Link>
+            </li>
+            <li>
+              <Link to="/customers" className="text-muted-foreground transition-colors hover:text-accent">
+                Industry Customers
+              </Link>
+            </li>
+            <li>
+              <Link to="/performance" className="text-muted-foreground transition-colors hover:text-accent">
+                Performance Data
               </Link>
             </li>
           </ul>
         </div>
 
         <div>
-          <h2 className="label-xs text-muted-foreground">Contact</h2>
+          <h2 className="label-xs text-muted-foreground uppercase">Contact Plant</h2>
           <address className="mt-6 space-y-3 text-sm not-italic text-muted-foreground">
-            <p>
+            <p className="leading-relaxed">
               {company.address.line1}
               <br />
               {company.address.line2}
@@ -71,13 +82,20 @@ export function Footer() {
               {company.address.city}, {company.address.state} {company.address.postal}
             </p>
             <p>
-              <a href={`tel:${company.phone.replace(/\s/g, "")}`} className="hover:text-accent">
-                {company.phone}
-              </a>
-              <br />
-              <a href={`mailto:${company.email}`} className="hover:text-accent">
-                {company.email}
-              </a>
+              {company.phones.map((p) => (
+                <span key={p} className="block">
+                  Phone:{" "}
+                  <a href={`tel:${p}`} className="hover:text-accent font-mono">
+                    +91 {p}
+                  </a>
+                </span>
+              ))}
+              <span className="block mt-1">
+                Email:{" "}
+                <a href={`mailto:${company.email}`} className="hover:text-accent">
+                  {company.email}
+                </a>
+              </span>
             </p>
           </address>
         </div>
@@ -90,13 +108,13 @@ export function Footer() {
           </p>
           <div className="flex gap-6">
             <Link to="/privacy-policy" className="hover:text-accent">
-              Privacy policy
+              Privacy Policy
             </Link>
             <Link to="/terms" className="hover:text-accent">
               Terms
             </Link>
             <Link to="/request-quote" className="hover:text-accent">
-              RFQ
+              Request Enquiry
             </Link>
           </div>
         </div>

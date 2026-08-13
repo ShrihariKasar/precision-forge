@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-
-import automotive from "@/assets/ind-automotive.jpg";
+import shopFloorImg from "@/assets/spipl/shop_floor.png";
 import { industries } from "@/data/industries";
 import { company } from "@/data/company";
-import { Breadcrumb, PageHero, SectionHeading } from "@/components/site/ui";
+import { PageHero, SectionHeading } from "@/components/site/ui";
 import { IndustryCard } from "@/components/site/cards";
 import { Reveal } from "@/components/site/Reveal";
 import { CTASection } from "@/components/site/CTASection";
@@ -15,14 +14,8 @@ export const Route = createFileRoute("/industries/")({
       {
         name: "description",
         content:
-          "Sheet metal components supplied to automotive, electrical, renewable energy, data centre, industrial equipment and infrastructure customers.",
+          "Sanchit Polymer Industries supplies precision plastic components to automotive, appliance, defence critical, commercial and engineering sectors.",
       },
-      { property: "og:title", content: `Industries Served | ${company.name}` },
-      {
-        property: "og:description",
-        content: "Components and assemblies supplied across six industrial sectors.",
-      },
-      { property: "og:url", content: "/industries" },
     ],
     links: [{ rel: "canonical", href: "/industries" }],
   }),
@@ -33,21 +26,17 @@ function IndustriesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Sectors"
-        title="Industries"
-        description="Each sector brings its own drawing conventions, finishes and documentation requirements. We plan the process route around them."
-        image={automotive}
-      >
-        <div className="mt-8">
-          <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "Industries" }]} />
-        </div>
-      </PageHero>
+        eyebrow="Target Sectors"
+        title="Industries Served"
+        description="Engineering plastic components designed and manufactured for demanding automotive, appliance, defence and commercial applications."
+        image={shopFloorImg}
+      />
 
       <section className="container-x section-y">
         <SectionHeading
           index="01"
-          eyebrow="Where we supply"
-          title="Components built for the environment they operate in"
+          eyebrow="Market Sectors"
+          title="Components Built for Industrial Demands"
         />
         <div className="mt-14 grid gap-5 md:mt-20 md:grid-cols-2 lg:grid-cols-3">
           {industries.map((ind, i) => (
@@ -63,8 +52,8 @@ function IndustriesPage() {
           {industries.slice(0, 3).map((ind, i) => (
             <div key={ind.slug} className="grid gap-8 md:grid-cols-12 md:gap-14">
               <Reveal className="md:col-span-4">
-                <p className="label-xs text-muted-foreground">
-                  <span className="text-accent">{String(i + 1).padStart(2, "0")}</span> / {ind.name}
+                <p className="label-xs text-muted-foreground font-mono">
+                  <span className="text-accent">0{i + 1}</span> / {ind.name}
                 </p>
                 <h2 className="mt-5 text-2xl leading-tight font-medium md:text-3xl">{ind.name}</h2>
               </Reveal>
@@ -74,7 +63,7 @@ function IndustriesPage() {
                 </p>
                 <div className="mt-8 grid gap-8 sm:grid-cols-2">
                   <div>
-                    <h3 className="label-xs text-muted-foreground">Typical components</h3>
+                    <h3 className="label-xs text-muted-foreground uppercase">Key Components</h3>
                     <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                       {ind.components.map((c) => (
                         <li key={c} className="flex gap-3">
@@ -85,7 +74,7 @@ function IndustriesPage() {
                     </ul>
                   </div>
                   <div>
-                    <h3 className="label-xs text-muted-foreground">Requirements we plan for</h3>
+                    <h3 className="label-xs text-muted-foreground uppercase">Standards & Requirements</h3>
                     <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
                       {ind.requirements.map((r) => (
                         <li key={r} className="flex gap-3">

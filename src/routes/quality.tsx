@@ -1,36 +1,50 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-import qualityImage from "@/assets/cap-quality.jpg";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import shopFloorImg from "@/assets/spipl/shop_floor.png";
 import { company } from "@/data/company";
-import { Breadcrumb, PageHero, SectionHeading } from "@/components/site/ui";
+import { certifications } from "@/data/certifications";
 import { Reveal, useInView } from "@/components/site/Reveal";
+import { ActionLink, PageHero, SectionHeading } from "@/components/site/ui";
 import { CTASection } from "@/components/site/CTASection";
 import { cn } from "@/lib/utils";
+import { Award, CheckCircle2 } from "lucide-react";
 
 const stages = [
-  { title: "Raw material", text: "Material verified against the specification and recorded by lot." },
-  { title: "Manufacturing", text: "Job cards route the part through the planned process sequence." },
-  { title: "In-process inspection", text: "Checks at defined operations before the part moves forward." },
-  { title: "Final inspection", text: "Dimensional verification against the released drawing revision." },
-  { title: "Packaging", text: "Parts protected against handling and transit damage." },
-  { title: "Delivery", text: "Documented despatch with measurement records where required." },
+  { title: "RAW MATERIAL", text: "Polymer verification, drying, and batch specification checks." },
+  { title: "MOULDING", text: "Automated injection moulding with controlled tonnage and shot weight." },
+  { title: "IN-PROCESS INSPECTION", text: "Periodic dimensional checks and weight checks during production." },
+  { title: "FINAL INSPECTION", text: "Quality firewall dimensional check against customer drawing tolerances." },
+  { title: "PACKAGING", text: "Protective packing to prevent surface scratches and transit damage." },
+  { title: "DELIVERY", text: "Scheduled dispatch with inspection documentation to customer plant." },
+];
+
+const qaEquipment = [
+  {
+    name: "DIGITAL VERNIER",
+    desc: "Dimensional measurement equipment.",
+  },
+  {
+    name: "PIN GAUGE",
+    desc: "Hole and bore dimensional measurement equipment.",
+  },
+  {
+    name: "MICRO METER",
+    desc: "Precision thickness and wall measurement equipment.",
+  },
+  {
+    name: "DIGITAL LUX MEASURING INSTRUMENT",
+    desc: "Make: Mextech. Visual inspection lighting intensity verification.",
+  },
 ];
 
 export const Route = createFileRoute("/quality")({
   head: () => ({
     meta: [
-      { title: `Quality Process & Inspection | ${company.name}` },
+      { title: `Quality at Every Stage | ${company.name}` },
       {
         name: "description",
         content:
-          "Our quality process: material verification, in-process inspection, final dimensional inspection, traceability and documented despatch records.",
+          "Quality assurance, dimensional inspection, QA lab equipment, IATF 16949:2016 and ISO 9001:2015 certification alignment at Sanchit Polymer Industries.",
       },
-      { property: "og:title", content: `Quality | ${company.name}` },
-      {
-        property: "og:description",
-        content: "Inspection planned with the process route — measured, recorded, released.",
-      },
-      { property: "og:url", content: "/quality" },
     ],
     links: [{ rel: "canonical", href: "/quality" }],
   }),
@@ -41,71 +55,79 @@ function QualityPage() {
   return (
     <>
       <PageHero
-        eyebrow="Quality"
-        title="Measured, recorded, released"
-        description="Quality is planned with the process route. Inspection points are defined before the first part is cut, not added after a problem appears."
-        image={qualityImage}
-      >
-        <div className="mt-8">
-          <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "Quality" }]} />
-        </div>
-      </PageHero>
+        eyebrow="Quality Control"
+        title="Quality at Every Stage"
+        description="Comprehensive quality assurance, dimensional inspection, and process control across all injection moulding operations."
+        image={shopFloorImg}
+      />
 
       <section className="container-x section-y">
         <SectionHeading
           index="01"
-          eyebrow="Quality commitment"
-          title="Consistency across the batch, not just the first part"
-          description="Tooling, fixturing and inspection are set per component so the last part of a batch measures like the first."
+          eyebrow="Quality Commitment"
+          title="Zero-Defect Focus & Inspection Protocols"
+          description="In-process checks, first-off approval and quality firewall verification before dispatch."
         />
 
-        <div className="mt-14 grid gap-px bg-border md:mt-20 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            ["Inspection", "First-off approval, in-process checks and final inspection."],
-            ["Testing", "Functional and fit checks where the drawing calls for them."],
-            ["Traceability", "Material lots and job cards retained against each batch."],
-            ["Improvement", "Non-conformances reviewed and process controls updated."],
-          ].map(([title, text], i) => (
-            <Reveal key={title} delay={i * 70} className="bg-background p-8">
-              <span className="label-xs text-accent tabular-nums">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3 className="mt-6 text-xl font-medium">{title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{text}</p>
+            { title: "Quality Assurance", desc: "Adherence to documented procedures and quality systems." },
+            { title: "Dimensional Inspection", desc: "Calibrated measurement against drawing specifications." },
+            { title: "In-Process Checks", desc: "Regular interval checking of molded component parameters." },
+            { title: "Final Inspection Firewall", desc: "100% firewall verification before packaging release." },
+          ].map((item, i) => (
+            <Reveal key={item.title} delay={i * 70} className="rounded-lg border border-border bg-surface p-6">
+              <span className="label-xs text-accent font-mono">0{i + 1}</span>
+              <h3 className="mt-4 text-lg font-medium text-foreground">{item.title}</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
             </Reveal>
           ))}
         </div>
       </section>
 
+      {/* QA EQUIPMENT */}
       <section className="surface-light border-y border-border">
         <div className="container-x section-y">
-          <SectionHeading index="02" eyebrow="Control process" title="Stage by stage" />
-          <QualityTimeline />
+          <SectionHeading
+            index="02"
+            eyebrow="QA Laboratory Equipment"
+            title="Precision Measuring Instruments"
+          />
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {qaEquipment.map((eq) => (
+              <Reveal key={eq.name} className="rounded-lg border border-border bg-background p-6">
+                <h3 className="font-mono text-sm font-semibold text-accent">{eq.name}</h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{eq.desc}</p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="container-x section-y grid gap-12 lg:grid-cols-2 lg:gap-20">
-        <Reveal>
-          <h2 className="text-2xl font-medium md:text-3xl">Standards and certification</h2>
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-            Quality management follows documented internal procedures for inspection, traceability
-            and non-conformance handling. Certification details are shared on request and are not
-            published here until verified.
-          </p>
-        </Reveal>
-        <Reveal delay={100}>
-          <h2 className="text-2xl font-medium md:text-3xl">Measurement records</h2>
-          <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-            Dimensional records are retained per batch and can be supplied with the consignment,
-            including first article inspection reports where a customer programme requires them.
-          </p>
-        </Reveal>
+      {/* STAGE PROCESS TIMELINE */}
+      <section className="container-x section-y">
+        <SectionHeading index="03" eyebrow="Stage Process" title="Quality Timeline from Material to Delivery" />
+        <QualityTimeline />
       </section>
 
-      <CTASection
-        title="Need inspection documentation with your parts?"
-        text="Tell us what records your incoming quality team requires and we will include them with the consignment."
-      />
+      {/* CERTIFICATIONS LINK */}
+      <section className="surface-light border-t border-border py-16">
+        <div className="container-x text-center max-w-3xl mx-auto space-y-6">
+          <Award className="size-12 text-accent mx-auto" />
+          <h2 className="text-3xl font-medium">IATF 16949:2016 & ISO 9001:2015 Certifications</h2>
+          <p className="text-muted-foreground leading-relaxed">
+            View certificate numbers, issue dates, expiry details, and verified scope for SPIPL's automotive and quality management systems.
+          </p>
+          <div>
+            <ActionLink to="/quality/certifications">
+              VIEW QUALITY CERTIFICATES →
+            </ActionLink>
+          </div>
+        </div>
+      </section>
+
+      <CTASection />
     </>
   );
 }
@@ -138,11 +160,11 @@ function QualityTimeline() {
                 )}
                 style={{ transitionDelay: `${i * 180}ms` }}
               />
-              <span className="label-xs text-muted-foreground tabular-nums">
-                {String(i + 1).padStart(2, "0")}
+              <span className="label-xs text-muted-foreground font-mono">
+                0{i + 1}
               </span>
-              <h3 className="mt-3 text-base font-medium">{stage.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{stage.text}</p>
+              <h3 className="mt-3 text-sm font-semibold text-foreground">{stage.title}</h3>
+              <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{stage.text}</p>
             </li>
           ))}
         </ol>

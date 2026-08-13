@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 
-import laser from "@/assets/cap-laser.jpg";
+import shopFloorImg from "@/assets/spipl/shop_floor.png";
 import { capabilities } from "@/data/capabilities";
 import { company } from "@/data/company";
-import { Breadcrumb, PageHero, SectionHeading } from "@/components/site/ui";
+import { PageHero, SectionHeading, ActionLink } from "@/components/site/ui";
 import { Reveal } from "@/components/site/Reveal";
 import { CTASection } from "@/components/site/CTASection";
 
@@ -15,14 +15,8 @@ export const Route = createFileRoute("/capabilities/")({
       {
         name: "description",
         content:
-          "Laser cutting, CNC bending, stamping, welding, surface finishing and inspection — manufacturing processes held in house for sheet metal production.",
+          "Plastic injection moulding, automotive parts production, tooling support through SPRAJTECH, and quality inspection.",
       },
-      { property: "og:title", content: `Manufacturing Capabilities | ${company.name}` },
-      {
-        property: "og:description",
-        content: "In-house cutting, forming, welding, finishing and inspection processes.",
-      },
-      { property: "og:url", content: "/capabilities" },
     ],
     links: [{ rel: "canonical", href: "/capabilities" }],
   }),
@@ -33,30 +27,26 @@ function CapabilitiesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Manufacturing"
-        title="Capabilities"
-        description="Process routes are selected per component during engineering review, then held under one roof from blank to finished part."
-        image={laser}
-      >
-        <div className="mt-8">
-          <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "Capabilities" }]} />
-        </div>
-      </PageHero>
+        eyebrow="Manufacturing Capabilities"
+        title="Manufacturing Capabilities"
+        description="SPIPL's primary manufacturing capability is plastic injection moulding for automotive, commercial and other critical applications across multiple machine tonnage ranges."
+        image={shopFloorImg}
+      />
 
       <section className="container-x section-y">
         <SectionHeading
           index="01"
-          eyebrow="Processes"
-          title="Six processes, one production flow"
-          description="Keeping cutting, forming, joining, finishing and inspection in house reduces handling and keeps schedule control with us."
+          eyebrow="Primary Capability"
+          title="Plastic Injection Moulding"
+          description="Sanchit Polymer Industries operates a 9,000 sq. ft. shop floor running 12 verified moulding presses ranging from 100 to 250 tons."
         />
 
-        <div className="mt-16 space-y-16 md:mt-24 md:space-y-28">
+        <div className="mt-16 space-y-16 md:mt-24 md:space-y-24">
           {capabilities.map((cap, i) => (
             <div key={cap.slug} className="grid items-center gap-8 md:grid-cols-2 md:gap-16">
               <Reveal
                 variant="clip"
-                className={`overflow-hidden rounded-md ${i % 2 ? "md:order-2" : ""}`}
+                className={`overflow-hidden rounded-md border border-border ${i % 2 ? "md:order-2" : ""}`}
               >
                 <img
                   src={cap.image}
@@ -70,45 +60,50 @@ function CapabilitiesPage() {
                   <span className="text-accent">{String(i + 1).padStart(2, "0")}</span> /{" "}
                   {String(capabilities.length).padStart(2, "0")}
                 </p>
-                <h2 className="mt-5 text-3xl leading-tight font-medium md:text-4xl">{cap.name}</h2>
-                <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground">
-                  {cap.description}
-                </p>
-                <div className="mt-8 grid gap-6 sm:grid-cols-2">
-                  <div>
-                    <h3 className="label-xs text-muted-foreground">Key benefits</h3>
-                    <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                      {cap.benefits.map((b) => (
-                        <li key={b} className="flex gap-3">
-                          <span className="mt-2 size-1 shrink-0 bg-accent" />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="label-xs text-muted-foreground">Applications</h3>
-                    <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                      {cap.applications.map((a) => (
-                        <li key={a} className="flex gap-3">
-                          <span className="mt-2 size-1 shrink-0 bg-accent" />
-                          {a}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <h2 className="mt-4 text-3xl leading-tight font-medium md:text-4xl">{cap.name}</h2>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground">{cap.summary}</p>
+                
+                <div className="mt-6">
+                  <h3 className="label-xs text-muted-foreground uppercase mb-3">Highlights</h3>
+                  <ul className="space-y-2 text-sm text-muted-foreground">
+                    {cap.highlights.map((h) => (
+                      <li key={h} className="flex gap-3">
+                        <span className="mt-2 size-1 shrink-0 bg-accent" />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <Link
-                  to="/capabilities/$slug"
-                  params={{ slug: cap.slug }}
-                  className="group mt-8 inline-flex items-center gap-2 label-xs text-accent"
-                >
-                  Process detail
-                  <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </Link>
+
+                <div className="mt-8">
+                  <Link
+                    to="/capabilities/$slug"
+                    params={{ slug: cap.slug }}
+                    className="group inline-flex items-center gap-2 label-xs text-accent"
+                  >
+                    Capability details
+                    <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </Link>
+                </div>
               </Reveal>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* TOOL ROOM LINK CARD */}
+      <section className="surface-light border-y border-border py-16">
+        <div className="container-x text-center max-w-3xl mx-auto">
+          <span className="label-xs text-accent">TOOLING INFRASTRUCTURE</span>
+          <h2 className="mt-3 text-3xl font-medium">Associated Tool Room Facility (SPRAJTECH)</h2>
+          <p className="mt-4 text-muted-foreground leading-relaxed">
+            Plastic mould making, press tools, jigs, fixtures, EDM jobs, wire-cut jobs, surface grinding and lathe turning performed under sister company SPRAJTECH.
+          </p>
+          <div className="mt-8">
+            <ActionLink to="/capabilities/tool-room">
+              EXPLORE TOOL ROOM CAPABILITIES →
+            </ActionLink>
+          </div>
         </div>
       </section>
 

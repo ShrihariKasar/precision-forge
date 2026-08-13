@@ -1,10 +1,10 @@
-import facility from "@/assets/facility.jpg";
+import heroPlantImg from "@/assets/spipl/hero_plant.png";
 import { ActionLink } from "./ui";
 import { Reveal } from "./Reveal";
 
 export function CTASection({
-  title = "Have a component to manufacture?",
-  text = "Send drawings, samples or a specification. Our engineering team will review manufacturability and respond with a quotation.",
+  title = "Looking for a plastic injection moulding partner?",
+  text = "Connect with Sanchit Polymer Industries Pvt. Ltd. to discuss your component requirements, manufacturing specifications and production enquiries.",
 }: {
   title?: string;
   text?: string;
@@ -12,15 +12,15 @@ export function CTASection({
   return (
     <section className="relative isolate overflow-hidden border-y border-border">
       <img
-        src={facility}
-        alt=""
+        src={heroPlantImg}
+        alt="Sanchit Polymer Industries Manufacturing Facility"
         aria-hidden="true"
         loading="lazy"
         className="absolute inset-0 -z-20 size-full object-cover"
       />
-      <div className="absolute inset-0 -z-10 bg-background/85" />
+      <div className="absolute inset-0 -z-10 bg-background/88" />
       <div className="container-x section-y">
-        <Reveal className="label-xs text-accent">Request a quotation</Reveal>
+        <Reveal className="label-xs text-accent">GET IN TOUCH WITH SPIPL</Reveal>
         <Reveal delay={80}>
           <h2 className="mt-6 max-w-3xl text-[clamp(2rem,4.8vw,4rem)] leading-[1.02] font-medium">
             {title}
@@ -32,9 +32,9 @@ export function CTASection({
           </p>
         </Reveal>
         <Reveal delay={220} className="mt-10 flex flex-wrap gap-4">
-          <ActionLink to="/request-quote">Request a quote</ActionLink>
+          <ActionLink to="/request-quote">REQUEST AN ENQUIRY</ActionLink>
           <ActionLink to="/contact" variant="outline">
-            Contact our team
+            CONTACT OUR TEAM
           </ActionLink>
         </Reveal>
       </div>

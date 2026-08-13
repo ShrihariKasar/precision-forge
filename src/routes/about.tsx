@@ -1,135 +1,164 @@
-import { createFileRoute } from "@tanstack/react-router";
-
-import facility from "@/assets/facility.jpg";
-import bending from "@/assets/cap-bending.jpg";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import shopFloorImg from "@/assets/spipl/shop_floor.png";
+import heroPlantImg from "@/assets/spipl/hero_plant.png";
 import { company } from "@/data/company";
-import { Breadcrumb, PageHero, SectionHeading, StatCounter } from "@/components/site/ui";
+import { materialsList } from "@/data/materials";
 import { Reveal } from "@/components/site/Reveal";
+import { ActionLink, SectionHeading, StatCounter } from "@/components/site/ui";
 import { CTASection } from "@/components/site/CTASection";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: `About — Sheet Metal Manufacturer | ${company.name}` },
+      { title: `About Us | ${company.name}` },
       {
         name: "description",
         content:
-          "Who we are: a build-to-print sheet metal manufacturer producing components, assemblies and enclosures for industrial OEMs.",
+          "Sanchit Polymer Industries Pvt. Ltd. was established in 2014, manufacturing engineering plastic components for automotive, commercial and critical applications.",
       },
-      { property: "og:title", content: `About | ${company.name}` },
-      { property: "og:description", content: "A build-to-print manufacturer of precision sheet metal components." },
-      { property: "og:url", content: "/about" },
     ],
     links: [{ rel: "canonical", href: "/about" }],
   }),
-  component: AboutPage,
+  component: About,
 });
 
-function AboutPage() {
+function About() {
   return (
     <>
-      <PageHero
-        eyebrow="Who we are"
-        title="A manufacturer, first"
-        description={company.description}
-        image={facility}
-      >
-        <div className="mt-8">
-          <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "About" }]} />
-        </div>
-      </PageHero>
-
-      <section className="container-x section-y grid gap-12 lg:grid-cols-12 lg:gap-16">
-        <Reveal className="lg:col-span-5">
-          <h2 className="text-[clamp(1.75rem,3.6vw,2.75rem)] leading-tight font-medium">
-            Our work begins at the drawing, not the brochure.
-          </h2>
-        </Reveal>
-        <div className="lg:col-span-7">
-          <Reveal>
-            <p className="text-base leading-relaxed text-muted-foreground md:text-lg">
-              We manufacture sheet metal components and fabricated assemblies for equipment builders
-              and industrial suppliers. Almost all of our work is build-to-print: the customer owns
-              the design, and we own the process route, the tooling and the inspection plan that make
-              it repeatable.
-            </p>
+      {/* HERO */}
+      <section className="relative overflow-hidden pt-36 pb-20 border-b border-border bg-surface">
+        <div className="container-x">
+          <Reveal className="label-xs text-accent">ABOUT SANCHIT POLYMER INDUSTRIES</Reveal>
+          <Reveal delay={80}>
+            <h1 className="mt-4 text-[clamp(2.5rem,6vw,5rem)] leading-[0.98] font-medium">
+              About Sanchit Polymer Industries
+            </h1>
           </Reveal>
-          <Reveal delay={100}>
-            <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
-              Cutting, forming, welding, finishing and inspection all sit inside the same plant, which
-              keeps handling low, shortens the feedback loop between operations, and keeps schedule
-              control with us rather than a chain of subcontractors.
+          <Reveal delay={140}>
+            <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground">
+              Engineering plastic components for automotive, commercial and critical applications.
             </p>
           </Reveal>
         </div>
       </section>
 
-      <section className="surface-light border-y border-border">
-        <div className="container-x section-y">
-          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+      {/* COMPANY HISTORY & PORTFOLIO */}
+      <section className="container-x section-y">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-7 space-y-6 text-base leading-relaxed text-muted-foreground">
+            <Reveal>
+              <h2 className="text-3xl font-medium text-foreground">
+                Building Modern Manufacturing Infrastructure Since 2014
+              </h2>
+            </Reveal>
+            <Reveal delay={80}>
+              <p>
+                Sanchit Polymer Industries Pvt. Ltd. was established in 2014 with a vision of creating a globally oriented organization capable of contributing to the modernization of the Indian plastic components industry.
+              </p>
+            </Reveal>
+            <Reveal delay={120}>
+              <p>
+                The company operates in injection moulding of plastic products for automobile and commercial sectors. Its product portfolio includes engineering and automotive components such as cable ties, fender application clips, carpet clips, link rod holder clips, sunroof drain tubes, acoustic hole plugs, holder trunk opener SPR and parcel shelf clips.
+              </p>
+            </Reveal>
+            <Reveal delay={160}>
+              <p>
+                SPIPL also specializes in different types of plastic moulded components according to application requirements, running a 9,000 sq. ft. built-up manufacturing facility situated on 10,000 sq. ft. of land in Koregaon Bhima, Pune.
+              </p>
+            </Reveal>
+          </div>
+
+          <Reveal delay={140} variant="clip" className="overflow-hidden rounded-lg border border-border lg:col-span-5">
+            <img
+              src={heroPlantImg}
+              alt="SPIPL Plant Infrastructure"
+              className="aspect-[4/3] w-full object-cover"
+            />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* STATS */}
+      <section className="surface-light border-y border-border py-16">
+        <div className="container-x">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {company.stats.map((s) => (
               <StatCounter key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
             ))}
           </div>
-
-          <div className="mt-20 grid gap-px bg-border md:grid-cols-3">
-            {[
-              [
-                "Mission",
-                "Manufacture components that fit and function at assembly, batch after batch, without rework at the customer's line.",
-              ],
-              [
-                "Approach",
-                "Review manufacturability before tooling is committed, so cost and lead time are settled at the start of a programme.",
-              ],
-              [
-                "Values",
-                "Straight answers on capability and schedule. If a part is outside our process window, we say so.",
-              ],
-            ].map(([title, text]) => (
-              <Reveal key={title} className="bg-background p-8">
-                <h3 className="text-xl font-medium">{title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{text}</p>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
-      <section className="container-x section-y grid items-center gap-10 md:grid-cols-2 md:gap-16">
-        <Reveal variant="clip" className="overflow-hidden rounded-md">
-          <img
-            src={bending}
-            alt="Operator forming a sheet metal part on a press brake"
-            loading="lazy"
-            className="aspect-[4/3] w-full object-cover"
-          />
-        </Reveal>
-        <Reveal delay={100}>
-          <SectionHeading
-            index="03"
-            eyebrow="Manufacturing philosophy"
-            title="Control the process, and the part follows"
-            description="Variation comes from unplanned setups and undocumented decisions. We fix the process route per component, hold tooling and fixtures, and record what was measured."
-          />
-        </Reveal>
+      {/* MATERIALS WE WORK WITH */}
+      <section className="container-x section-y">
+        <SectionHeading
+          index="01"
+          eyebrow="Polymer Processing"
+          title="Materials We Work With"
+          description="SPIPL processes a wide spectrum of engineering thermoplastics and commodity polymers tailored for specific application demands."
+        />
+
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+          {materialsList.map((m, i) => (
+            <Reveal key={m.name} delay={(i % 5) * 50} className="rounded-lg border border-border bg-surface p-5 hover:border-accent/50 transition-colors">
+              <span className="label-xs text-accent font-mono">{m.abbreviation}</span>
+              <h3 className="mt-2 text-base font-medium text-foreground">{m.name}</h3>
+              <span className="mt-2 inline-block text-xs text-muted-foreground">{m.category}</span>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
+      {/* VISION & MISSION & STRATEGIC PILLARS */}
       <section className="surface-light border-y border-border">
         <div className="container-x section-y">
-          <SectionHeading index="04" eyebrow="Why clients work with us" title="What we are held to" />
-          <div className="mt-14 grid gap-px bg-border md:mt-20 md:grid-cols-2 lg:grid-cols-3">
-            {company.why.map((item, i) => (
-              <Reveal key={item.title} delay={(i % 3) * 70} className="bg-background p-8">
-                <span className="label-xs text-accent tabular-nums">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-6 text-xl font-medium">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
-              </Reveal>
-            ))}
+          <SectionHeading index="02" eyebrow="Strategic Direction" title="Vision & Strategic Direction" />
+
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            <Reveal className="rounded-lg border border-border bg-background p-8">
+              <span className="label-xs text-accent">OUR VISION</span>
+              <h3 className="mt-4 text-2xl font-medium text-foreground">World-Class Solution Provider</h3>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                "{company.vision}"
+              </p>
+            </Reveal>
+
+            <Reveal delay={100} className="rounded-lg border border-border bg-background p-8">
+              <span className="label-xs text-accent">OUR MISSION</span>
+              <h3 className="mt-4 text-2xl font-medium text-foreground">Customer-Centric Growth</h3>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                "{company.mission}"
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="mt-14">
+            <h3 className="label-xs text-muted-foreground uppercase mb-6">Four Strategic Pillars</h3>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {company.strategicPillars.map((p, i) => (
+                <Reveal key={p.title} delay={i * 70} className="rounded-lg border border-border bg-background p-6">
+                  <span className="label-xs text-accent font-mono">PILLAR 0{i + 1}</span>
+                  <h4 className="mt-3 text-lg font-medium text-foreground">{p.title}</h4>
+                  <p className="mt-2 text-sm text-muted-foreground">{p.text}</p>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
+      </section>
+
+      {/* LINK TO TEAM PAGE */}
+      <section className="container-x section-y text-center">
+        <Reveal>
+          <span className="label-xs text-accent">ORGANIZATION & TEAM</span>
+          <h2 className="mt-3 text-3xl font-medium">Meet the SPIPL Leadership & Operations Team</h2>
+          <p className="mt-3 max-w-xl mx-auto text-sm text-muted-foreground">
+            Led by Managing Director Mr. Sharad Nikam and Plant Head Mr. Vitthal Khandagale, supported by experienced functional engineers.
+          </p>
+          <div className="mt-8">
+            <ActionLink to="/about/team">VIEW ORGANIZATION CHART →</ActionLink>
+          </div>
+        </Reveal>
       </section>
 
       <CTASection />

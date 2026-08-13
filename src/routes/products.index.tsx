@@ -1,11 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Search } from "lucide-react";
-import { useMemo, useState } from "react";
-
-import sheetMetal from "@/assets/prod-sheet-metal.jpg";
-import { productCategories, products } from "@/data/products";
+import { useState } from "react";
 import { company } from "@/data/company";
-import { PageHero, Breadcrumb } from "@/components/site/ui";
+import { products, productCategories } from "@/data/products";
 import { ProductCard } from "@/components/site/cards";
 import { Reveal } from "@/components/site/Reveal";
 import { CTASection } from "@/components/site/CTASection";
@@ -14,115 +10,80 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/products/")({
   head: () => ({
     meta: [
-      { title: `Products — Sheet Metal & Fabricated Components | ${company.name}` },
+      { title: `Products Catalogue | ${company.name}` },
       {
         name: "description",
         content:
-          "Browse precision sheet metal components, stamped parts, CNC machined components, enclosures and welded assemblies manufactured to customer drawings.",
+          "Browse SPIPL's complete plastic injection moulding product range across automotive critical parts, appliance components and defence applications.",
       },
-      { property: "og:title", content: `Products | ${company.name}` },
-      {
-        property: "og:description",
-        content: "Precision-manufactured components across sheet metal, stamping, CNC and assembly.",
-      },
-      { property: "og:url", content: "/products" },
     ],
     links: [{ rel: "canonical", href: "/products" }],
   }),
-  component: ProductsPage,
+  component: ProductsIndex,
 });
 
-function ProductsPage() {
-  const [category, setCategory] = useState("all");
-  const [query, setQuery] = useState("");
+function ProductsIndex() {
+  const [activeFilter, setActiveFilter] = useState<string>("all");
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return products.filter((p) => {
-      const inCategory = category === "all" || p.categorySlug === category;
-      const inQuery =
-        !q ||
-        p.name.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q) ||
-        p.applications.some((a) => a.toLowerCase().includes(q));
-      return inCategory && inQuery;
-    });
-  }, [category, query]);
+  const filteredProducts =
+    activeFilter === "all"
+      ? products
+      : products.filter((p) => p.categorySlug === activeFilter);
 
   return (
     <>
-      <PageHero
-        eyebrow="Product catalogue"
-        title="Products"
-        description="Explore our range of precision-manufactured components. Every part shown is produced to customer drawings and specifications."
-        image={sheetMetal}
-      >
-        <div className="mt-8">
-          <Breadcrumb items={[{ label: "Home", to: "/" }, { label: "Products" }]} />
-        </div>
-      </PageHero>
+      <section className="relative overflow-hidden pt-36 pb-20 border-b border-border bg-surface">
+        <div className="container-x">
+          <Reveal className="label-xs text-accent">PRODUCT CATALOGUE</Reveal>
+          <Reveal delay={80}>
+            <h1 className="mt-4 text-[clamp(2.5rem,6vw,5rem)] leading-[0.98] font-medium">
+              Precision Moulded Components
+            </h1>
+          </Reveal>
+          <Reveal delay={140}>
+            <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground">
+              Automotive clips, body plugs, holders, appliance fan components, and defence critical parts manufactured to drawing specifications.
+            </p>
+          </Reveal>
 
-      <section className="container-x pt-14 pb-20 md:pt-20 md:pb-28">
-        <div className="grid gap-6 border-b border-border pb-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-center">
-          <div className="flex flex-wrap gap-2">
-            {productCategories.map((c) => (
+          {/* FILTERING TABS */}
+          <Reveal delay={200} className="mt-10 flex flex-wrap gap-2">
+            {productCategories.map((cat) => (
               <button
-                key={c.slug}
                 type="button"
-                onClick={() => setCategory(c.slug)}
-                aria-pressed={category === c.slug}
+                key={cat.slug}
+                onClick={() => setActiveFilter(cat.slug)}
                 className={cn(
-                  "min-h-11 rounded-md border px-4 label-xs transition-all duration-300",
-                  category === c.slug
-                    ? "border-accent bg-accent text-accent-foreground"
-                    : "border-border text-muted-foreground hover:border-border-strong hover:text-foreground",
+                  "rounded-md border px-5 py-2.5 label-xs transition-all duration-300 cursor-pointer",
+                  activeFilter === cat.slug
+                    ? "border-accent bg-accent text-accent-foreground shadow-md"
+                    : "border-border bg-background text-muted-foreground hover:border-accent/50 hover:text-foreground"
                 )}
               >
-                {c.label}
+                {cat.label}
               </button>
             ))}
-          </div>
-          <label className="relative flex min-w-0 items-center lg:w-72">
-            <Search className="pointer-events-none absolute left-3 size-4 text-muted-foreground" />
-            <span className="sr-only">Search products</span>
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search products"
-              className="h-11 w-full rounded-md border border-border bg-surface pr-3 pl-10 text-sm outline-none transition-colors placeholder:text-muted-foreground focus:border-accent"
-            />
-          </label>
+          </Reveal>
         </div>
+      </section>
 
-        <p className="mt-6 label-xs text-muted-foreground tabular-nums">
-          {String(filtered.length).padStart(2, "0")} products
-        </p>
-
-        <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((p, i) => (
-            <div
-              key={p.id}
-              style={{ animationDelay: `${(i % 6) * 45}ms` }}
-              className="animate-in fade-in slide-in-from-bottom-3 duration-500"
-            >
-              <ProductCard product={p} className="h-full" />
-            </div>
+      <section className="container-x section-y">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {filteredProducts.map((product, i) => (
+            <Reveal key={product.id} delay={(i % 3) * 60}>
+              <ProductCard product={product} className="h-full" />
+            </Reveal>
           ))}
         </div>
 
-        {filtered.length === 0 && (
-          <Reveal className="border border-border p-14 text-center">
-            <p className="text-base text-muted-foreground">
-              No products match this filter. Try another category or search term.
-            </p>
-          </Reveal>
+        {filteredProducts.length === 0 && (
+          <div className="py-20 text-center text-muted-foreground">
+            No products found in this category.
+          </div>
         )}
       </section>
 
-      <CTASection
-        title="Need a component that isn't listed?"
-        text="Most of our work is build-to-print. Send a drawing or sample and we will review it against our process capability."
-      />
+      <CTASection />
     </>
   );
 }

@@ -21,7 +21,7 @@ export const Route = createFileRoute("/industries/$slug")({
     const ind = loaderData.industry;
     return {
       meta: [
-        { title: `${ind.name} — Metal Components | ${company.name}` },
+        { title: `${ind.name} Applications | ${company.name}` },
         { name: "description", content: ind.short },
         { property: "og:title", content: `${ind.name} | ${company.name}` },
         { property: "og:description", content: ind.short },
@@ -36,11 +36,11 @@ export const Route = createFileRoute("/industries/$slug")({
 function IndustryDetail() {
   const { industry } = Route.useLoaderData();
   const others = industries.filter((i) => i.slug !== industry.slug).slice(0, 3);
-  const related = products.slice(0, 3);
+  const related = products.filter((p) => p.categorySlug === industry.slug || industry.slug === "automotive").slice(0, 3);
 
   return (
     <>
-      <PageHero eyebrow="Industry" title={industry.name} description={industry.short} image={industry.image}>
+      <PageHero eyebrow="Industry Sector" title={industry.name} description={industry.short} image={industry.image}>
         <div className="mt-8">
           <Breadcrumb
             items={[
@@ -54,7 +54,7 @@ function IndustryDetail() {
 
       <section className="container-x section-y grid gap-12 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-7">
-          <h2 className="text-2xl font-medium md:text-3xl">Sector overview</h2>
+          <h2 className="text-2xl font-medium md:text-3xl">Sector Overview</h2>
           <p className="mt-6 text-base leading-relaxed text-muted-foreground md:text-lg">
             {industry.description}
           </p>
@@ -62,11 +62,11 @@ function IndustryDetail() {
             src={industry.image}
             alt={industry.name}
             loading="lazy"
-            className="mt-10 aspect-[16/9] w-full rounded-md object-cover"
+            className="mt-10 aspect-[16/9] w-full rounded-md object-cover border border-border"
           />
         </Reveal>
         <Reveal delay={100} className="lg:col-span-5">
-          <h2 className="label-xs text-muted-foreground">Typical components</h2>
+          <h2 className="label-xs text-muted-foreground uppercase">Typical Plastic Components</h2>
           <ul className="mt-5 divide-y divide-border border-y border-border">
             {industry.components.map((c) => (
               <li key={c} className="py-4 text-sm text-muted-foreground">
@@ -74,7 +74,7 @@ function IndustryDetail() {
               </li>
             ))}
           </ul>
-          <h2 className="mt-10 label-xs text-muted-foreground">Requirements we plan for</h2>
+          <h2 className="mt-10 label-xs text-muted-foreground uppercase">Manufacturing Standards We Plan For</h2>
           <ul className="mt-5 divide-y divide-border border-y border-border">
             {industry.requirements.map((r) => (
               <li key={r} className="py-4 text-sm text-muted-foreground">
@@ -83,14 +83,14 @@ function IndustryDetail() {
             ))}
           </ul>
           <div className="mt-10">
-            <ActionLink to="/request-quote">Request a quote</ActionLink>
+            <ActionLink to="/request-quote">Request an Enquiry</ActionLink>
           </div>
         </Reveal>
       </section>
 
       <section className="surface-light border-y border-border">
         <div className="container-x section-y">
-          <h2 className="text-2xl font-medium md:text-3xl">Components we supply</h2>
+          <h2 className="text-2xl font-medium md:text-3xl">Components We Supply</h2>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {related.map((p) => (
               <ProductCard key={p.id} product={p} className="h-full" />
@@ -100,7 +100,7 @@ function IndustryDetail() {
       </section>
 
       <section className="container-x section-y">
-        <h2 className="text-2xl font-medium md:text-3xl">Other industries</h2>
+        <h2 className="text-2xl font-medium md:text-3xl">Other Application Sectors</h2>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {others.map((i) => (
             <IndustryCard key={i.slug} industry={i} className="h-full" />

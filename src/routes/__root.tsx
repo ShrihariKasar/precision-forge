@@ -24,9 +24,9 @@ function NotFoundComponent() {
         <h1 className="mt-6 font-display text-[clamp(3.5rem,12vw,8rem)] leading-none font-medium">
           404
         </h1>
-        <h2 className="mt-4 text-xl font-medium tracking-tight">Component not found</h2>
+        <h2 className="mt-4 text-xl font-medium tracking-tight">Page Not Found</h2>
         <p className="mt-3 text-sm text-muted-foreground">
-          This part isn't where it should be. Check the address, or return to the homepage.
+          This component or route isn't where it should be. Return to the SPIPL homepage.
         </p>
         <Link
           to="/"
@@ -80,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: `${company.name} — Precision Sheet Metal Manufacturing` },
+      { title: `${company.name} | Plastic Injection Moulding & Automotive Components` },
       { name: "description", content: company.description },
       { property: "og:site_name", content: company.name },
       { property: "og:type", content: "website" },

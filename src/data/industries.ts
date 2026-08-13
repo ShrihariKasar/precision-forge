@@ -1,9 +1,7 @@
-import automotive from "@/assets/ind-automotive.jpg";
-import electrical from "@/assets/ind-electrical.jpg";
-import energy from "@/assets/ind-energy.jpg";
-import datacenter from "@/assets/ind-datacenter.jpg";
-import facility from "@/assets/facility.jpg";
-import enclosures from "@/assets/prod-enclosures.jpg";
+import automotiveClipsImg from "@/assets/spipl/automotive_clips.png";
+import applianceComponentsImg from "@/assets/spipl/appliance_components.png";
+import defenceComponentsImg from "@/assets/spipl/defence_components.png";
+import shopFloorImg from "@/assets/spipl/shop_floor.png";
 
 export type Industry = {
   slug: string;
@@ -19,62 +17,52 @@ export const industries: Industry[] = [
   {
     slug: "automotive",
     name: "Automotive",
-    short: "Formed and stamped parts supplied to tier suppliers and component makers.",
+    short: "Clips, holders, plugs, fasteners and interior grab handles for passenger & commercial vehicles.",
     description:
-      "Automotive work is drawing-driven and volume-sensitive. Parts are produced with controlled tooling, batch traceability and dimensional records for each production lot.",
-    image: automotive,
-    components: ["Mounting brackets", "Heat shields", "Reinforcements", "Retainers and clips"],
-    requirements: ["Batch traceability", "Repeatable tooling", "Scheduled deliveries"],
+      "Automotive component manufacturing is drawing-driven and volume-sensitive. SPIPL produces bumper clips, body plugs, fir tree fasteners, weather strips and grab handle assemblies with strict IATF 16949 quality compliance.",
+    image: automotiveClipsImg,
+    components: ["Verus Type Clamps", "Bumper A/B Clips", "Body & Hole Plugs", "Grab Handles & Cable Ties"],
+    requirements: ["IATF 16949 Compliance", "Batch Traceability", "OEM Delivery Schedules"],
   },
   {
-    slug: "electrical",
-    name: "Electrical & switchgear",
-    short: "Enclosures, mounting plates and busbar supports for electrical equipment.",
+    slug: "appliance",
+    name: "Appliance & HVAC",
+    short: "Precision moulded plastic components for AC fan assemblies and household appliances.",
     description:
-      "Electrical equipment builders need enclosures and panels that match their internal layouts exactly. Cut-outs, insert hardware and finishes are produced to the customer's panel drawings.",
-    image: electrical,
-    components: ["Panel enclosures", "Gland plates", "Mounting plates", "Cable supports"],
-    requirements: ["Accurate cut-out positions", "Consistent finishes", "Hardware insertion"],
+      "SPIPL supplies precision moulded AC fan blades, air handler housings and structural appliance parts with low noise performance and high dimensional stability.",
+    image: applianceComponentsImg,
+    components: ["AC Fan Components", "Air Handler Parts", "Appliance Housing Mouldings"],
+    requirements: ["Aerodynamic Balance", "Thermal Stability", "Class-A Cosmetic Finish"],
   },
   {
-    slug: "renewable-energy",
-    name: "Renewable energy",
-    short: "Structural and mounting components for solar and energy storage installations.",
+    slug: "defence",
+    name: "Defence Critical",
+    short: "High-precision radomes, switch housings and timer plugs for defence equipment.",
     description:
-      "Components for outdoor installation are specified for corrosion resistance and dimensional interchangeability across large quantities of identical parts.",
-    image: energy,
-    components: ["Module mounting parts", "Structural brackets", "Inverter housings", "Junction enclosures"],
-    requirements: ["Corrosion-resistant finishes", "High-volume repeatability", "Site-ready packing"],
+      "Specialized engineering plastic components engineered for military specifications, high impact resistance, RF transparency and extreme temperature tolerance.",
+    image: defenceComponentsImg,
+    components: ["Radome Housing", "Switch Housing", "Timer Plugs"],
+    requirements: ["RF Signal Transparency", "UL94 V-0 Flame Retardant", "Tight Tolerance Zero-Flash Moulding"],
   },
   {
-    slug: "data-centres",
-    name: "Data centres",
-    short: "Rack components, panels and airflow hardware for IT infrastructure.",
+    slug: "commercial",
+    name: "Commercial Applications",
+    short: "Injection moulded assemblies and functional plastic components for commercial transport.",
     description:
-      "Rack and infrastructure hardware requires flatness, hole-position accuracy and clean finishes because parts are assembled and visible in service.",
-    image: datacenter,
-    components: ["Rack panels", "Blanking plates", "Cable management parts", "Mounting rails"],
-    requirements: ["Hole position accuracy", "Cosmetic finish quality", "Clean deburred edges"],
+      "Heavy-duty engineering plastic parts for bus, truck and commercial logistics applications built for high mechanical durability and vibration resistance.",
+    image: shopFloorImg,
+    components: ["Grab Handle Supports", "Trunk Opener Clips", "Parcel Shelf Clips"],
+    requirements: ["Vibration Damping", "High Load-Bearing Capacity", "UV Weatherability"],
   },
   {
-    slug: "industrial-equipment",
-    name: "Industrial equipment",
-    short: "Guarding, frames and covers for machine builders.",
+    slug: "engineering",
+    name: "Engineering Plastic Applications",
+    short: "Custom molded components across ABS, POM, Nylon 6/66, Polycarbonate and PP polymers.",
     description:
-      "Machine builders source fabricated guarding, covers and frames that fit existing equipment interfaces without rework at assembly.",
-    image: facility,
-    components: ["Machine guards", "Covers", "Frames", "Access doors"],
-    requirements: ["Fit at assembly", "Weld quality", "Batch consistency"],
-  },
-  {
-    slug: "infrastructure",
-    name: "Infrastructure",
-    short: "Fabricated hardware for installed and field-mounted equipment.",
-    description:
-      "Infrastructure programmes involve large quantities of standardised parts with protective finishes and consignment-level documentation.",
-    image: enclosures,
-    components: ["Field enclosures", "Support brackets", "Frames", "Cover plates"],
-    requirements: ["Protective coatings", "Volume repeatability", "Documented despatch"],
+      "Custom injection moulded parts manufactured to client drawings using engineering polymers tailored for specific mechanical, thermal and chemical environments.",
+    image: shopFloorImg,
+    components: ["Washer Assemblies", "Rib Locks", "Specialty Fasteners"],
+    requirements: ["Custom Tooling Support", "Engineering Polymer Expertise", "In-Process Inspection Firewall"],
   },
 ];
 

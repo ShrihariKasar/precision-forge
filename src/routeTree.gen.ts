@@ -12,17 +12,24 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CustomersRouteImport } from './routes/customers'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as PerformanceRouteImport } from './routes/performance'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as QualityRouteImport } from './routes/quality'
 import { Route as RequestQuoteRouteImport } from './routes/request-quote'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as AboutTeamRouteImport } from './routes/about.team'
 import { Route as CapabilitiesIndexRouteImport } from './routes/capabilities.index'
 import { Route as CapabilitiesSlugRouteImport } from './routes/capabilities.$slug'
+import { Route as CapabilitiesToolRoomRouteImport } from './routes/capabilities.tool-room'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
+import { Route as InfrastructureIndexRouteImport } from './routes/infrastructure.index'
+import { Route as InfrastructureMachineryRouteImport } from './routes/infrastructure.machinery'
 import { Route as ProductsIndexRouteImport } from './routes/products.index'
 import { Route as ProductsSlugRouteImport } from './routes/products.$slug'
+import { Route as QualityCertificationsRouteImport } from './routes/quality.certifications'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -39,9 +46,19 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CustomersRoute = CustomersRouteImport.update({
+  id: '/customers',
+  path: '/customers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerformanceRoute = PerformanceRouteImport.update({
+  id: '/performance',
+  path: '/performance',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
@@ -64,6 +81,11 @@ const TermsRoute = TermsRouteImport.update({
   path: '/terms',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutTeamRoute = AboutTeamRouteImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => AboutRoute,
+} as any)
 const CapabilitiesIndexRoute = CapabilitiesIndexRouteImport.update({
   id: '/capabilities/',
   path: '/capabilities/',
@@ -72,6 +94,11 @@ const CapabilitiesIndexRoute = CapabilitiesIndexRouteImport.update({
 const CapabilitiesSlugRoute = CapabilitiesSlugRouteImport.update({
   id: '/capabilities/$slug',
   path: '/capabilities/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CapabilitiesToolRoomRoute = CapabilitiesToolRoomRouteImport.update({
+  id: '/capabilities/tool-room',
+  path: '/capabilities/tool-room',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
@@ -84,6 +111,16 @@ const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
   path: '/industries/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InfrastructureIndexRoute = InfrastructureIndexRouteImport.update({
+  id: '/infrastructure/',
+  path: '/infrastructure/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InfrastructureMachineryRoute = InfrastructureMachineryRouteImport.update({
+  id: '/infrastructure/machinery',
+  path: '/infrastructure/machinery',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsIndexRoute = ProductsIndexRouteImport.update({
   id: '/products/',
   path: '/products/',
@@ -94,54 +131,80 @@ const ProductsSlugRoute = ProductsSlugRouteImport.update({
   path: '/products/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QualityCertificationsRoute = QualityCertificationsRouteImport.update({
+  id: '/certifications',
+  path: '/certifications',
+  getParentRoute: () => QualityRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/about': typeof AboutRouteWithChildren
   '/contact': typeof ContactRoute
+  '/customers': typeof CustomersRoute
   '/gallery': typeof GalleryRoute
+  '/performance': typeof PerformanceRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/quality': typeof QualityRoute
+  '/quality': typeof QualityRouteWithChildren
   '/request-quote': typeof RequestQuoteRoute
   '/terms': typeof TermsRoute
+  '/about/team': typeof AboutTeamRoute
   '/capabilities/$slug': typeof CapabilitiesSlugRoute
+  '/capabilities/tool-room': typeof CapabilitiesToolRoomRoute
   '/industries/$slug': typeof IndustriesSlugRoute
+  '/infrastructure/machinery': typeof InfrastructureMachineryRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/quality/certifications': typeof QualityCertificationsRoute
   '/capabilities/': typeof CapabilitiesIndexRoute
   '/industries/': typeof IndustriesIndexRoute
+  '/infrastructure/': typeof InfrastructureIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/about': typeof AboutRouteWithChildren
   '/contact': typeof ContactRoute
+  '/customers': typeof CustomersRoute
   '/gallery': typeof GalleryRoute
+  '/performance': typeof PerformanceRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/quality': typeof QualityRoute
+  '/quality': typeof QualityRouteWithChildren
   '/request-quote': typeof RequestQuoteRoute
   '/terms': typeof TermsRoute
+  '/about/team': typeof AboutTeamRoute
   '/capabilities/$slug': typeof CapabilitiesSlugRoute
+  '/capabilities/tool-room': typeof CapabilitiesToolRoomRoute
   '/industries/$slug': typeof IndustriesSlugRoute
+  '/infrastructure/machinery': typeof InfrastructureMachineryRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/quality/certifications': typeof QualityCertificationsRoute
   '/capabilities': typeof CapabilitiesIndexRoute
   '/industries': typeof IndustriesIndexRoute
+  '/infrastructure': typeof InfrastructureIndexRoute
   '/products': typeof ProductsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
+  '/about': typeof AboutRouteWithChildren
   '/contact': typeof ContactRoute
+  '/customers': typeof CustomersRoute
   '/gallery': typeof GalleryRoute
+  '/performance': typeof PerformanceRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/quality': typeof QualityRoute
+  '/quality': typeof QualityRouteWithChildren
   '/request-quote': typeof RequestQuoteRoute
   '/terms': typeof TermsRoute
+  '/about/team': typeof AboutTeamRoute
   '/capabilities/$slug': typeof CapabilitiesSlugRoute
+  '/capabilities/tool-room': typeof CapabilitiesToolRoomRoute
   '/industries/$slug': typeof IndustriesSlugRoute
+  '/infrastructure/machinery': typeof InfrastructureMachineryRoute
   '/products/$slug': typeof ProductsSlugRoute
+  '/quality/certifications': typeof QualityCertificationsRoute
   '/capabilities/': typeof CapabilitiesIndexRoute
   '/industries/': typeof IndustriesIndexRoute
+  '/infrastructure/': typeof InfrastructureIndexRoute
   '/products/': typeof ProductsIndexRoute
 }
 export interface FileRouteTypes {
@@ -150,65 +213,91 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contact'
+    | '/customers'
     | '/gallery'
+    | '/performance'
     | '/privacy-policy'
     | '/quality'
     | '/request-quote'
     | '/terms'
+    | '/about/team'
     | '/capabilities/$slug'
+    | '/capabilities/tool-room'
     | '/industries/$slug'
+    | '/infrastructure/machinery'
     | '/products/$slug'
+    | '/quality/certifications'
     | '/capabilities/'
     | '/industries/'
+    | '/infrastructure/'
     | '/products/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contact'
+    | '/customers'
     | '/gallery'
+    | '/performance'
     | '/privacy-policy'
     | '/quality'
     | '/request-quote'
     | '/terms'
+    | '/about/team'
     | '/capabilities/$slug'
+    | '/capabilities/tool-room'
     | '/industries/$slug'
+    | '/infrastructure/machinery'
     | '/products/$slug'
+    | '/quality/certifications'
     | '/capabilities'
     | '/industries'
+    | '/infrastructure'
     | '/products'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contact'
+    | '/customers'
     | '/gallery'
+    | '/performance'
     | '/privacy-policy'
     | '/quality'
     | '/request-quote'
     | '/terms'
+    | '/about/team'
     | '/capabilities/$slug'
+    | '/capabilities/tool-room'
     | '/industries/$slug'
+    | '/infrastructure/machinery'
     | '/products/$slug'
+    | '/quality/certifications'
     | '/capabilities/'
     | '/industries/'
+    | '/infrastructure/'
     | '/products/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
+  AboutRoute: typeof AboutRouteWithChildren
   ContactRoute: typeof ContactRoute
+  CustomersRoute: typeof CustomersRoute
   GalleryRoute: typeof GalleryRoute
+  PerformanceRoute: typeof PerformanceRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
-  QualityRoute: typeof QualityRoute
+  QualityRoute: typeof QualityRouteWithChildren
   RequestQuoteRoute: typeof RequestQuoteRoute
   TermsRoute: typeof TermsRoute
   CapabilitiesSlugRoute: typeof CapabilitiesSlugRoute
+  CapabilitiesToolRoomRoute: typeof CapabilitiesToolRoomRoute
   IndustriesSlugRoute: typeof IndustriesSlugRoute
+  InfrastructureMachineryRoute: typeof InfrastructureMachineryRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
   CapabilitiesIndexRoute: typeof CapabilitiesIndexRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
+  InfrastructureIndexRoute: typeof InfrastructureIndexRoute
   ProductsIndexRoute: typeof ProductsIndexRoute
 }
 
@@ -235,11 +324,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/customers': {
+      id: '/customers'
+      path: '/customers'
+      fullPath: '/customers'
+      preLoaderRoute: typeof CustomersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gallery': {
       id: '/gallery'
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/performance': {
+      id: '/performance'
+      path: '/performance'
+      fullPath: '/performance'
+      preLoaderRoute: typeof PerformanceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy-policy': {
@@ -270,6 +373,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about/team': {
+      id: '/about/team'
+      path: '/team'
+      fullPath: '/about/team'
+      preLoaderRoute: typeof AboutTeamRouteImport
+      parentRoute: typeof AboutRoute
+    }
     '/capabilities/': {
       id: '/capabilities/'
       path: '/capabilities'
@@ -282,6 +392,13 @@ declare module '@tanstack/react-router' {
       path: '/capabilities/$slug'
       fullPath: '/capabilities/$slug'
       preLoaderRoute: typeof CapabilitiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/capabilities/tool-room': {
+      id: '/capabilities/tool-room'
+      path: '/capabilities/tool-room'
+      fullPath: '/capabilities/tool-room'
+      preLoaderRoute: typeof CapabilitiesToolRoomRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/industries/': {
@@ -298,6 +415,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustriesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/infrastructure/': {
+      id: '/infrastructure/'
+      path: '/infrastructure'
+      fullPath: '/infrastructure/'
+      preLoaderRoute: typeof InfrastructureIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/infrastructure/machinery': {
+      id: '/infrastructure/machinery'
+      path: '/infrastructure/machinery'
+      fullPath: '/infrastructure/machinery'
+      preLoaderRoute: typeof InfrastructureMachineryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products/': {
       id: '/products/'
       path: '/products'
@@ -312,23 +443,56 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/quality/certifications': {
+      id: '/quality/certifications'
+      path: '/certifications'
+      fullPath: '/quality/certifications'
+      preLoaderRoute: typeof QualityCertificationsRouteImport
+      parentRoute: typeof QualityRoute
+    }
   }
 }
 
+interface AboutRouteChildren {
+  AboutTeamRoute: typeof AboutTeamRoute
+}
+
+const AboutRouteChildren: AboutRouteChildren = {
+  AboutTeamRoute: AboutTeamRoute,
+}
+
+const AboutRouteWithChildren = AboutRoute._addFileChildren(AboutRouteChildren)
+
+interface QualityRouteChildren {
+  QualityCertificationsRoute: typeof QualityCertificationsRoute
+}
+
+const QualityRouteChildren: QualityRouteChildren = {
+  QualityCertificationsRoute: QualityCertificationsRoute,
+}
+
+const QualityRouteWithChildren =
+  QualityRoute._addFileChildren(QualityRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
+  AboutRoute: AboutRouteWithChildren,
   ContactRoute: ContactRoute,
+  CustomersRoute: CustomersRoute,
   GalleryRoute: GalleryRoute,
+  PerformanceRoute: PerformanceRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
-  QualityRoute: QualityRoute,
+  QualityRoute: QualityRouteWithChildren,
   RequestQuoteRoute: RequestQuoteRoute,
   TermsRoute: TermsRoute,
   CapabilitiesSlugRoute: CapabilitiesSlugRoute,
+  CapabilitiesToolRoomRoute: CapabilitiesToolRoomRoute,
   IndustriesSlugRoute: IndustriesSlugRoute,
+  InfrastructureMachineryRoute: InfrastructureMachineryRoute,
   ProductsSlugRoute: ProductsSlugRoute,
   CapabilitiesIndexRoute: CapabilitiesIndexRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
+  InfrastructureIndexRoute: InfrastructureIndexRoute,
   ProductsIndexRoute: ProductsIndexRoute,
 }
 export const routeTree = rootRouteImport

@@ -35,12 +35,12 @@ export function Header() {
             <span className="block size-2.5 bg-accent" />
           </span>
           <span className="font-display text-sm leading-none font-semibold tracking-[0.18em] uppercase">
-            {company.shortName}
-            <span className="text-muted-foreground"> Metalform</span>
+            SANCHIT
+            <span className="text-muted-foreground"> POLYMER</span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
           {navLinks.map((link) => (
             <Link
               key={link.to}
@@ -59,7 +59,7 @@ export function Header() {
             to="/request-quote"
             className="hidden min-h-11 items-center rounded-md bg-accent px-5 label-xs text-accent-foreground transition-all duration-300 hover:brightness-110 sm:inline-flex"
           >
-            Request a quote
+            Request Enquiry
           </Link>
           <button
             type="button"
@@ -80,7 +80,7 @@ export function Header() {
               <Link
                 key={link.to}
                 to={link.to}
-                className="border-b border-border py-4 label-xs text-muted-foreground"
+                className="border-b border-border py-3 label-xs text-muted-foreground"
                 activeProps={{ className: "!text-accent" }}
               >
                 {link.label}
@@ -90,7 +90,7 @@ export function Header() {
               to="/request-quote"
               className="mt-5 inline-flex min-h-12 items-center justify-center rounded-md bg-accent px-5 label-xs text-accent-foreground"
             >
-              Request a quote
+              Request Enquiry
             </Link>
           </div>
         </nav>
