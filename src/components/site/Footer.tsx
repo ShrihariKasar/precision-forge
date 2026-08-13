@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
+import logoHeaderImg from "@/assets/logo_header.png";
 import { company } from "@/data/company";
-import { capabilities } from "@/data/capabilities";
 import { productCategories } from "@/data/products";
 
 export function Footer() {
@@ -11,12 +11,19 @@ export function Footer() {
       <div className="container-x grid gap-12 py-16 md:grid-cols-2 md:py-20 lg:grid-cols-4 lg:gap-10">
         <div>
           <div className="flex items-center gap-3">
-            <span className="grid size-8 place-items-center border border-accent">
-              <span className="block size-2.5 bg-accent" />
-            </span>
-            <span className="font-display text-sm font-semibold tracking-[0.18em] uppercase">
-              SANCHIT POLYMER
-            </span>
+            <img
+              src={logoHeaderImg}
+              alt="Sanchit Polymer Industries Logo"
+              className="h-10 w-auto object-contain"
+            />
+            <div className="flex flex-col justify-center leading-none">
+              <span className="font-display text-base font-bold tracking-[0.16em] uppercase text-foreground">
+                SANCHIT
+              </span>
+              <span className="font-display text-[10px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mt-1">
+                POLYMER
+              </span>
+            </div>
           </div>
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-muted-foreground">
             {company.description}

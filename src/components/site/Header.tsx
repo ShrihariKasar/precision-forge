@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import logoHeaderImg from "@/assets/logo_header.png";
 import { company, navLinks } from "@/data/company";
 import { cn } from "@/lib/utils";
 
@@ -31,13 +32,19 @@ export function Header() {
     >
       <div className="container-x flex h-[72px] items-center justify-between gap-6 md:h-20">
         <Link to="/" className="flex shrink-0 items-center gap-3" aria-label={`${company.name} home`}>
-          <span className="grid size-8 place-items-center border border-accent">
-            <span className="block size-2.5 bg-accent" />
-          </span>
-          <span className="font-display text-sm leading-none font-semibold tracking-[0.18em] uppercase">
-            SANCHIT
-            <span className="text-muted-foreground"> POLYMER</span>
-          </span>
+          <img
+            src={logoHeaderImg}
+            alt="Sanchit Polymer Industries Logo"
+            className="h-10 w-auto max-h-11 object-contain"
+          />
+          <div className="flex flex-col justify-center leading-none">
+            <span className="font-display text-base font-bold tracking-[0.16em] uppercase text-foreground md:text-lg">
+              SANCHIT
+            </span>
+            <span className="font-display text-[10px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mt-1">
+              POLYMER
+            </span>
+          </div>
         </Link>
 
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
