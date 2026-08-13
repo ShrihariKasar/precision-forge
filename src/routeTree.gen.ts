@@ -10,8 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as QualityRouteImport } from './routes/quality'
+import { Route as RequestQuoteRouteImport } from './routes/request-quote'
 import { Route as CapabilitiesIndexRouteImport } from './routes/capabilities.index'
 import { Route as CapabilitiesSlugRouteImport } from './routes/capabilities.$slug'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
@@ -24,6 +27,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
@@ -32,6 +45,11 @@ const GalleryRoute = GalleryRouteImport.update({
 const QualityRoute = QualityRouteImport.update({
   id: '/quality',
   path: '/quality',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RequestQuoteRoute = RequestQuoteRouteImport.update({
+  id: '/request-quote',
+  path: '/request-quote',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CapabilitiesIndexRoute = CapabilitiesIndexRouteImport.update({
@@ -67,8 +85,11 @@ const ProductsSlugRoute = ProductsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/quality': typeof QualityRoute
+  '/request-quote': typeof RequestQuoteRoute
   '/capabilities/$slug': typeof CapabilitiesSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -78,8 +99,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/quality': typeof QualityRoute
+  '/request-quote': typeof RequestQuoteRoute
   '/capabilities/$slug': typeof CapabilitiesSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -90,8 +114,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/quality': typeof QualityRoute
+  '/request-quote': typeof RequestQuoteRoute
   '/capabilities/$slug': typeof CapabilitiesSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/products/$slug': typeof ProductsSlugRoute
@@ -103,8 +130,11 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
+    | '/contact'
     | '/gallery'
     | '/quality'
+    | '/request-quote'
     | '/capabilities/$slug'
     | '/industries/$slug'
     | '/products/$slug'
@@ -114,8 +144,11 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
+    | '/contact'
     | '/gallery'
     | '/quality'
+    | '/request-quote'
     | '/capabilities/$slug'
     | '/industries/$slug'
     | '/products/$slug'
@@ -125,8 +158,11 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
+    | '/contact'
     | '/gallery'
     | '/quality'
+    | '/request-quote'
     | '/capabilities/$slug'
     | '/industries/$slug'
     | '/products/$slug'
@@ -137,8 +173,11 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
   QualityRoute: typeof QualityRoute
+  RequestQuoteRoute: typeof RequestQuoteRoute
   CapabilitiesSlugRoute: typeof CapabilitiesSlugRoute
   IndustriesSlugRoute: typeof IndustriesSlugRoute
   ProductsSlugRoute: typeof ProductsSlugRoute
@@ -156,6 +195,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gallery': {
       id: '/gallery'
       path: '/gallery'
@@ -168,6 +221,13 @@ declare module '@tanstack/react-router' {
       path: '/quality'
       fullPath: '/quality'
       preLoaderRoute: typeof QualityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/request-quote': {
+      id: '/request-quote'
+      path: '/request-quote'
+      fullPath: '/request-quote'
+      preLoaderRoute: typeof RequestQuoteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/capabilities/': {
@@ -217,8 +277,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
   QualityRoute: QualityRoute,
+  RequestQuoteRoute: RequestQuoteRoute,
   CapabilitiesSlugRoute: CapabilitiesSlugRoute,
   IndustriesSlugRoute: IndustriesSlugRoute,
   ProductsSlugRoute: ProductsSlugRoute,
