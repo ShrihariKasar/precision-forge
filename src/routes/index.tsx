@@ -46,77 +46,61 @@ function Home() {
   return (
     <>
       {/* 1. CINEMATIC SPIPL HERO */}
-      <section className="relative isolate overflow-hidden pt-24 pb-12 md:pt-28 md:pb-16">
+      <section className="relative isolate flex min-h-[82vh] flex-col justify-between overflow-hidden pt-24 pb-8 md:pt-28 md:pb-12">
         <img
-          src={heroPlantImg}
-          alt="Sanchit Polymer Industries plastic injection moulding manufacturing plant"
+          src={shopFloorImg}
+          alt="Sanchit Polymer Industries 12-press injection moulding shop floor"
           width={1920}
           height={1088}
           fetchPriority="high"
           className="ken-burns absolute inset-0 -z-20 size-full object-cover"
         />
-        <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-background via-background/85 to-background/30" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/80 to-background/40" />
 
-        <div className="container-x w-full">
-          <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
-            {/* Left Main Banner Content */}
-            <div className="lg:col-span-7">
-              <Reveal className="label-xs text-accent">PRECISION PLASTIC INJECTION MOULDING</Reveal>
-              <Reveal delay={90}>
-                <h1 className="mt-3 text-[clamp(2.2rem,4.5vw,4.2rem)] leading-[1.0] font-medium">
-                  Precision Injection Moulding for Automotive & Industry
-                </h1>
-              </Reveal>
-              <Reveal delay={180}>
-                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-                  {company.description}
-                </p>
-                <p className="mt-2 max-w-2xl text-xs leading-relaxed text-muted-foreground/90 md:text-sm">
-                  {company.secondaryDescription}
-                </p>
-              </Reveal>
-              <Reveal delay={260} className="mt-6 flex flex-wrap gap-3.5">
-                <ActionLink to="/products">EXPLORE PRODUCTS</ActionLink>
-                <ActionLink to="/contact" variant="outline">
-                  CONTACT US
-                </ActionLink>
-                <ActionLink to="/infrastructure" variant="outline" className="hidden sm:inline-flex">
-                  OUR FACILITY
-                </ActionLink>
-              </Reveal>
-            </div>
-
-            {/* Right Stat Matrix */}
-            <Reveal delay={360} className="lg:col-span-5">
-              <div className="grid grid-cols-2 gap-3.5 sm:gap-4">
-                {company.stats.map((s, idx) => {
-                  const icons = [TrendingUp, Building2, ShieldCheck, Award];
-                  const IconComponent = icons[idx % icons.length];
-
-                  return (
-                    <div
-                      key={s.label}
-                      className="group flex flex-col justify-between rounded-xl border border-border/80 bg-background/80 p-4 sm:p-5 backdrop-blur-xl transition-all duration-300 hover:border-accent/60 hover:bg-background/95 hover:shadow-2xl hover:-translate-y-1"
-                    >
-                      <div className="flex items-center justify-end">
-                        <div className="grid size-7 place-items-center rounded-lg border border-border bg-surface text-muted-foreground group-hover:border-accent/40 group-hover:bg-accent/10 group-hover:text-accent transition-colors">
-                          <IconComponent className="size-3.5" />
-                        </div>
-                      </div>
-                      <div className="mt-4">
-                        <div className="font-display text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-foreground group-hover:text-accent transition-colors">
-                          {s.value}
-                        </div>
-                        <p className="mt-1.5 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground leading-snug">
-                          {s.label}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+        <div className="container-x my-auto w-full pt-8 pb-12">
+          <div className="max-w-3xl">
+            <Reveal className="label-xs text-accent font-semibold tracking-wider">PRECISION PLASTIC INJECTION MOULDING &amp; TOOLING</Reveal>
+            <Reveal delay={90}>
+              <h1 className="mt-4 text-[clamp(2.4rem,5.2vw,4.6rem)] leading-[1.02] font-bold text-foreground">
+                Precision Injection Moulding &amp; Tooling Solutions for Industrial Leaders
+              </h1>
+            </Reveal>
+            <Reveal delay={180}>
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                Operating 12 verified moulding presses (100T–250T) backed by dedicated tooling and QA laboratory infrastructure.
+              </p>
+            </Reveal>
+            <Reveal delay={260} className="mt-8 flex flex-wrap gap-4">
+              <ActionLink to="/contact">REQUEST QUOTE</ActionLink>
+              <ActionLink to="/infrastructure/machinery" variant="outline">
+                VIEW MACHINERY SPECS
+              </ActionLink>
             </Reveal>
           </div>
+        </div>
+
+        {/* INLINE HORIZONTAL METRIC TICKER BAR AT BOTTOM OF HERO */}
+        <div className="container-x w-full">
+          <Reveal delay={340} className="rounded-xl border border-border/80 bg-background/80 px-6 py-4 backdrop-blur-xl shadow-lg">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border/60">
+              <div className="flex flex-col justify-center">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Moulding Capacity</span>
+                <span className="mt-1 text-base font-bold text-foreground">12 Presses (100T – 250T)</span>
+              </div>
+              <div className="flex flex-col justify-center pt-2 sm:pt-0 sm:pl-6">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Manufacturing Space</span>
+                <span className="mt-1 text-base font-bold text-foreground">9,000 Sq. Ft. Shop Floor</span>
+              </div>
+              <div className="flex flex-col justify-center pt-2 sm:pt-0 sm:pl-6">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Quality Certifications</span>
+                <span className="mt-1 text-base font-bold text-foreground">IATF 16949 / ISO 9001</span>
+              </div>
+              <div className="flex flex-col justify-center pt-2 sm:pt-0 sm:pl-6">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">Sister Tooling Unit</span>
+                <span className="mt-1 text-base font-bold text-foreground">SPRAJTECH Tool Room</span>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -190,7 +174,7 @@ function Home() {
                   </p>
                   <div className="mt-3 flex flex-wrap gap-1.5">
                     {["250T TUP Taiwan", "200T L&T Demag", "180T STM", "160T TUP", "150T STM", "120T ESM", "100T TUP"].map((m) => (
-                      <span key={m} className="rounded bg-surface px-2 py-0.5 text-[11px] font-mono text-foreground border border-border">
+                      <span key={m} className="rounded bg-surface px-2 py-0.5 text-[11px] font-sans font-medium text-foreground border border-border">
                         {m}
                       </span>
                     ))}
@@ -219,7 +203,6 @@ function Home() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <SectionHeading
-              index="04"
               eyebrow="Quality Assurance"
               title="IATF 16949 & ISO 9001 Standards"
               description="Stringent quality management systems, dimensional measurement lab with digital verniers, micrometers, pin gauges and lux meters."
@@ -231,14 +214,14 @@ function Home() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <Award className="size-5 text-accent" />
-                      <h4 className="font-display text-lg font-semibold">{cert.name}</h4>
+                      <h4 className="text-lg font-semibold">{cert.name}</h4>
                     </div>
                     <span className="rounded bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent">
                       Verified
                     </span>
                   </div>
                   <p className="mt-2 text-xs text-muted-foreground">{cert.scope}</p>
-                  <div className="mt-3 flex flex-wrap gap-4 text-xs font-mono text-muted-foreground">
+                  <div className="mt-3 flex flex-wrap gap-4 text-xs text-muted-foreground">
                     <span>Cert: {cert.certificateNumber}</span>
                     {cert.iatfNumber && <span>IATF: {cert.iatfNumber}</span>}
                     <span>Exp: {cert.expiryDate}</span>
@@ -259,7 +242,7 @@ function Home() {
             <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border">
               {company.process.map((stage, i) => (
                 <div key={stage.title} className="flex items-center gap-5 bg-background px-6 py-4">
-                  <span className="label-xs w-8 text-accent font-mono">0{i + 1}</span>
+                  <span className="label-xs w-8 text-accent font-semibold">0{i + 1}</span>
                   <div>
                     <h4 className="text-sm font-medium text-foreground">{stage.title}</h4>
                     <p className="text-xs text-muted-foreground">{stage.text}</p>
