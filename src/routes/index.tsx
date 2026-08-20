@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, CheckCircle2, ShieldCheck, Cpu, Factory, Award } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ShieldCheck, Cpu, Factory, Award, Building2, TrendingUp, MapPin, Phone, Mail, Clock } from "lucide-react";
 
 import heroPlantImg from "@/assets/spipl/hero_plant.png";
 import shopFloorImg from "@/assets/spipl/shop_floor.png";
@@ -17,6 +17,8 @@ import { ProductCard } from "@/components/site/cards";
 import { CTASection } from "@/components/site/CTASection";
 import { MaterialTicker } from "@/components/site/MaterialTicker";
 import { DeliveryChart } from "@/components/site/DeliveryChart";
+import { OneStopServicesSection } from "@/components/site/OneStopServicesSection";
+import { ClientLogo } from "@/components/site/ClientLogos";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,7 +46,7 @@ function Home() {
   return (
     <>
       {/* 1. CINEMATIC SPIPL HERO */}
-      <section className="relative isolate flex min-h-[85vh] items-end overflow-hidden pt-32 pb-14 md:min-h-screen md:pb-20">
+      <section className="relative isolate overflow-hidden pt-24 pb-12 md:pt-28 md:pb-16">
         <img
           src={heroPlantImg}
           alt="Sanchit Polymer Industries plastic injection moulding manufacturing plant"
@@ -56,45 +58,63 @@ function Home() {
         <div className="absolute inset-0 -z-10 bg-gradient-to-tr from-background via-background/85 to-background/30" />
 
         <div className="container-x w-full">
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end">
-            <div>
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+            {/* Left Main Banner Content */}
+            <div className="lg:col-span-7">
               <Reveal className="label-xs text-accent">PRECISION PLASTIC INJECTION MOULDING</Reveal>
               <Reveal delay={90}>
-                <h1 className="mt-6 max-w-4xl text-[clamp(2.5rem,6.5vw,5.5rem)] leading-[0.96] font-medium">
-                  Precision Plastic Injection Moulding for Automotive & Critical Applications
+                <h1 className="mt-3 text-[clamp(2.2rem,4.5vw,4.2rem)] leading-[1.0] font-medium">
+                  Precision Injection Moulding for Automotive & Industry
                 </h1>
               </Reveal>
               <Reveal delay={180}>
-                <p className="mt-7 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
                   {company.description}
                 </p>
-                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground/90">
+                <p className="mt-2 max-w-2xl text-xs leading-relaxed text-muted-foreground/90 md:text-sm">
                   {company.secondaryDescription}
                 </p>
               </Reveal>
-              <Reveal delay={260} className="mt-10 flex flex-wrap gap-4">
+              <Reveal delay={260} className="mt-6 flex flex-wrap gap-3.5">
                 <ActionLink to="/products">EXPLORE PRODUCTS</ActionLink>
-                <ActionLink to="/request-quote" variant="outline">
-                  REQUEST AN ENQUIRY
+                <ActionLink to="/contact" variant="outline">
+                  CONTACT US
                 </ActionLink>
                 <ActionLink to="/infrastructure" variant="outline" className="hidden sm:inline-flex">
-                  OUR MANUFACTURING FACILITY
+                  OUR FACILITY
                 </ActionLink>
               </Reveal>
             </div>
 
-            <Reveal
-              delay={360}
-              className="grid grid-cols-2 gap-6 border-t border-border pt-6 sm:grid-cols-3 lg:w-[26rem] lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10"
-            >
-              {company.stats.slice(0, 3).map((s) => (
-                <div key={s.label}>
-                  <div className="font-display text-3xl leading-none font-medium md:text-4xl text-foreground">
-                    {s.value}
-                  </div>
-                  <p className="mt-3 text-xs leading-snug text-muted-foreground">{s.label}</p>
-                </div>
-              ))}
+            {/* Right Stat Matrix */}
+            <Reveal delay={360} className="lg:col-span-5">
+              <div className="grid grid-cols-2 gap-3.5 sm:gap-4">
+                {company.stats.map((s, idx) => {
+                  const icons = [TrendingUp, Building2, ShieldCheck, Award];
+                  const IconComponent = icons[idx % icons.length];
+
+                  return (
+                    <div
+                      key={s.label}
+                      className="group flex flex-col justify-between rounded-xl border border-border/80 bg-background/80 p-4 sm:p-5 backdrop-blur-xl transition-all duration-300 hover:border-accent/60 hover:bg-background/95 hover:shadow-2xl hover:-translate-y-1"
+                    >
+                      <div className="flex items-center justify-end">
+                        <div className="grid size-7 place-items-center rounded-lg border border-border bg-surface text-muted-foreground group-hover:border-accent/40 group-hover:bg-accent/10 group-hover:text-accent transition-colors">
+                          <IconComponent className="size-3.5" />
+                        </div>
+                      </div>
+                      <div className="mt-4">
+                        <div className="font-display text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-foreground group-hover:text-accent transition-colors">
+                          {s.value}
+                        </div>
+                        <p className="mt-1.5 text-[11px] font-semibold uppercase tracking-wider text-muted-foreground leading-snug">
+                          {s.label}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </Reveal>
           </div>
         </div>
@@ -103,54 +123,8 @@ function Home() {
       {/* 2. MATERIAL TICKER */}
       <MaterialTicker />
 
-      {/* 3. HOMEPAGE COMPANY INTRODUCTION */}
-      <section className="surface-light border-b border-border">
-        <div className="container-x section-y">
-          <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-6">
-              <Reveal className="label-xs text-muted-foreground">
-                <span className="text-accent">01</span> / Who we are
-              </Reveal>
-              <Reveal delay={90}>
-                <h2 className="mt-4 text-[clamp(1.9rem,4vw,3.2rem)] leading-[1.06] font-medium">
-                  Engineering Plastic Components Built for Industry
-                </h2>
-              </Reveal>
-              <Reveal delay={160} className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
-                <p>
-                  Established in October 2014, Sanchit Polymer Industries Pvt. Ltd. operates in the field of plastic injection moulding for automotive and commercial applications.
-                </p>
-                <p>
-                  The company manufactures a wide range of plastic products and engineering components, including clips, holders, plugs, assemblies and other moulded components.
-                </p>
-                <p>
-                  SPIPL works with different grades of engineering and commodity polymers, enabling production across a broad range of component requirements.
-                </p>
-              </Reveal>
-              <Reveal delay={240} className="mt-8">
-                <TextLink to="/about">Learn more about SPIPL</TextLink>
-              </Reveal>
-            </div>
-
-            <Reveal delay={180} variant="clip" className="overflow-hidden rounded-lg border border-border lg:col-span-6">
-              <img
-                src={shopFloorImg}
-                alt="SPIPL injection moulding shop floor with automated machinery"
-                className="aspect-[4/3] w-full object-cover"
-              />
-            </Reveal>
-          </div>
-        </div>
-
-        {/* STATISTICS COUNT-UP */}
-        <div className="container-x pb-20 md:pb-28">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {company.stats.map((s) => (
-              <StatCounter key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 3. ONE-STOP PRECISION INJECTION MOLD & MOLDING SERVICES */}
+      <OneStopServicesSection />
 
       {/* 4. FEATURED PRODUCTS SHOWCASE */}
       <section className="container-x section-y">
@@ -177,64 +151,71 @@ function Home() {
       </section>
 
       {/* 5. MANUFACTURING CAPABILITIES & MACHINERY PREVIEW */}
-      <section className="surface-light border-y border-border">
-        <div className="container-x section-y">
-          <SectionHeading
-            index="03"
-            eyebrow="Capabilities & Machinery"
-            title="Plastic Injection Moulding Infrastructure"
-            description="12 verified moulding presses ranging from 100 to 250 tons, backed by dedicated tooling and QA laboratory infrastructure."
-          />
-
-          <div className="mt-16 grid gap-12 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <div className="rounded-lg border border-border bg-background p-6">
-                <div className="flex items-center gap-3">
-                  <Factory className="size-6 text-accent" />
-                  <h3 className="text-xl font-medium">Injection Moulding Shop</h3>
-                </div>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                  Operating 12 verified moulding presses from TUP Taiwan, L&T Demag, STM, ESM, and CHENDE across 100T to 250T tonnage capacity.
+      <section className="surface-light border-y border-border py-10 md:py-12">
+        <div className="container-x">
+          {/* Grid: Header & CTA on Left | Infrastructure Cards on Right */}
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
+            {/* Left Column: Eyebrow, Title, Description, and CTA Button */}
+            <div className="lg:col-span-6 space-y-4">
+              <Reveal className="label-xs text-accent uppercase font-mono tracking-wider">
+                Capabilities & Machinery
+              </Reveal>
+              <Reveal delay={80}>
+                <h2 className="text-[clamp(1.8rem,3.5vw,3rem)] leading-[1.08] font-medium tracking-tight text-foreground">
+                  Plastic Injection Moulding Infrastructure
+                </h2>
+              </Reveal>
+              <Reveal delay={140}>
+                <p className="text-sm leading-relaxed text-muted-foreground md:text-base">
+                  12 verified moulding presses ranging from 100 to 250 tons, backed by dedicated tooling and QA laboratory infrastructure.
                 </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {["250T TUP Taiwan", "200T L&T Demag", "180T STM", "160T TUP", "150T STM", "120T ESM", "100T TUP"].map((m) => (
-                    <span key={m} className="rounded bg-surface px-2.5 py-1 text-xs font-mono text-foreground border border-border">
-                      {m}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-lg border border-border bg-background p-6">
-                <div className="flex items-center gap-3">
-                  <Cpu className="size-6 text-accent" />
-                  <h3 className="text-xl font-medium">Tooling Support (SPRAJTECH)</h3>
-                </div>
-                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                  Integrated tooling room support through sister company SPRAJTECH for plastic moulds, press tools, jigs, fixtures, EDM and wire cutting.
-                </p>
-              </div>
-
-              <Reveal delay={120}>
+              </Reveal>
+              <Reveal delay={180} className="pt-2">
                 <ActionLink to="/infrastructure/machinery">
                   VIEW COMPLETE MACHINERY LIST
                 </ActionLink>
               </Reveal>
             </div>
 
-            <Reveal delay={140} variant="clip" className="overflow-hidden rounded-lg border border-border lg:col-span-6">
-              <img
-                src={shopFloorImg}
-                alt="SPIPL Moulding Machinery and Shop Floor"
-                className="aspect-[4/3] w-full object-cover"
-              />
-            </Reveal>
+            {/* Right Column: Injection Moulding Shop & Tooling Support Cards */}
+            <div className="lg:col-span-6 space-y-4">
+              <Reveal delay={120}>
+                <div className="rounded-xl border border-border bg-background p-5 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <Factory className="size-5 text-accent" />
+                    <h3 className="text-lg font-semibold text-foreground">Injection Moulding Shop</h3>
+                  </div>
+                  <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    Operating 12 verified moulding presses from TUP Taiwan, L&T Demag, STM, ESM, and CHENDE across 100T to 250T tonnage capacity.
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {["250T TUP Taiwan", "200T L&T Demag", "180T STM", "160T TUP", "150T STM", "120T ESM", "100T TUP"].map((m) => (
+                      <span key={m} className="rounded bg-surface px-2 py-0.5 text-[11px] font-mono text-foreground border border-border">
+                        {m}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+
+              <Reveal delay={160}>
+                <div className="rounded-xl border border-border bg-background p-5 shadow-sm">
+                  <div className="flex items-center gap-3">
+                    <Cpu className="size-5 text-accent" />
+                    <h3 className="text-lg font-semibold text-foreground">Tooling Support (SPRAJTECH)</h3>
+                  </div>
+                  <p className="mt-2 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    Integrated tooling room support through sister company SPRAJTECH for plastic moulds, press tools, jigs, fixtures, EDM and wire cutting.
+                  </p>
+                </div>
+              </Reveal>
+            </div>
           </div>
         </div>
       </section>
 
       {/* 6. QUALITY & CERTIFICATIONS */}
-      <section className="container-x section-y">
+      <section className="container-x py-10 md:py-12">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <SectionHeading
@@ -290,61 +271,35 @@ function Home() {
         </div>
       </section>
 
-      {/* 7. DELIVERY PERFORMANCE CHART (REVENUE REMOVED) */}
-      <section className="surface-light border-y border-border">
-        <div className="container-x section-y space-y-12">
-          <SectionHeading
-            index="05"
-            eyebrow="Performance Track Record"
-            title="Customer Delivery Performance"
-            description="Verified customer delivery fulfillment metrics recorded across 2024 and 2025."
-          />
-
-          <div className="max-w-4xl mx-auto">
-            <Reveal>
-              <DeliveryChart />
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* 8. CUSTOMERS SECTION */}
+      {/* 7. CUSTOMERS SECTION */}
       <section className="container-x section-y">
         <SectionHeading
-          index="06"
           eyebrow="Industry Customers"
           title="Trusted by Leading Industrial Clients"
           description="Sanchit Polymer Industries is a trusted component supplier to automotive OEMs, appliance manufacturers and defence contractors."
         />
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-          {customerList.map((c) => (
-            <Reveal key={c.id} className="rounded-lg border border-border bg-surface p-6 hover:border-accent/50 transition-colors">
-              <span className="label-xs text-accent">{c.category}</span>
-              <h3 className="mt-3 text-lg font-medium text-foreground">{c.name}</h3>
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+          {customerList.map((c, i) => (
+            <Reveal
+              key={c.id}
+              delay={i * 70}
+              className="group relative flex flex-col justify-between rounded-xl border border-border/80 bg-surface/90 p-6 shadow-sm transition-all duration-300 hover:border-accent/60 hover:shadow-xl hover:-translate-y-1"
+            >
+              <div className="flex flex-col h-full justify-between gap-6">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="label-xs text-accent">{c.category}</span>
+                  <div className="flex h-9 max-w-[125px] shrink-0 items-center justify-center rounded-md bg-white/95 px-2.5 py-1 shadow-sm border border-slate-200/90 group-hover:border-accent/50 transition-colors">
+                    <ClientLogo id={c.id} className="h-6 max-h-7 w-auto object-contain" />
+                  </div>
+                </div>
+
+                <h3 className="text-lg font-bold text-foreground group-hover:text-accent transition-colors leading-snug">
+                  {c.name}
+                </h3>
+              </div>
             </Reveal>
           ))}
-        </div>
-      </section>
-
-      {/* 9. MISSION & VISION STRATEGIC PILLARS */}
-      <section className="surface-light border-y border-border">
-        <div className="container-x section-y">
-          <SectionHeading
-            index="07"
-            eyebrow="Vision & Strategic Direction"
-            title="Strategic Pillars for World-Class Manufacturing"
-          />
-
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {company.strategicPillars.map((p, i) => (
-              <Reveal key={p.title} delay={i * 80} className="rounded-lg border border-border bg-background p-6">
-                <span className="label-xs text-accent font-mono">PILLAR 0{i + 1}</span>
-                <h3 className="mt-4 text-xl font-medium text-foreground">{p.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -370,35 +325,6 @@ function Home() {
 
       {/* 11. CTA SECTION */}
       <CTASection />
-
-      {/* 12. CONTACT PREVIEW */}
-      <section className="container-x section-y grid gap-10 md:grid-cols-3">
-        <Reveal>
-          <h2 className="label-xs text-muted-foreground">Plant Address</h2>
-          <address className="mt-6 text-base leading-relaxed not-italic text-muted-foreground">
-            {company.address.formatted}
-          </address>
-        </Reveal>
-        <Reveal delay={80}>
-          <h2 className="label-xs text-muted-foreground">Sales & Component Enquiries</h2>
-          <p className="mt-6 text-base text-muted-foreground">
-            {company.phones.map((p) => (
-              <span key={p} className="block">
-                <a href={`tel:${p}`} className="hover:text-accent font-mono">
-                  +91 {p}
-                </a>
-              </span>
-            ))}
-            <a href={`mailto:${company.email}`} className="mt-2 block hover:text-accent">
-              {company.email}
-            </a>
-          </p>
-        </Reveal>
-        <Reveal delay={160}>
-          <h2 className="label-xs text-muted-foreground">Operating Hours</h2>
-          <p className="mt-6 text-base text-muted-foreground">{company.hours}</p>
-        </Reveal>
-      </section>
     </>
   );
 }

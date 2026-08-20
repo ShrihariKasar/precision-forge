@@ -45,15 +45,23 @@ function CapabilitiesPage() {
           {capabilities.map((cap, i) => (
             <div key={cap.slug} className="grid items-center gap-8 md:grid-cols-2 md:gap-16">
               <Reveal
-                variant="clip"
-                className={`overflow-hidden rounded-md border border-border ${i % 2 ? "md:order-2" : ""}`}
+                variant="up"
+                className={`group relative overflow-hidden rounded-xl border border-border/80 bg-surface shadow-lg ${
+                  i % 2 ? "md:order-2" : ""
+                }`}
               >
-                <img
-                  src={cap.image}
-                  alt={cap.name}
-                  loading="lazy"
-                  className="aspect-[4/3] w-full object-cover"
-                />
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-2">
+                  <img
+                    src={cap.image}
+                    alt={cap.name}
+                    loading="eager"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60" />
+                  <div className="absolute bottom-3 left-3 rounded bg-background/80 px-2.5 py-1 text-[10px] font-mono tracking-wider text-accent uppercase backdrop-blur-sm">
+                    {cap.category}
+                  </div>
+                </div>
               </Reveal>
               <Reveal delay={100} className={i % 2 ? "md:order-1" : ""}>
                 <p className="label-xs text-muted-foreground">

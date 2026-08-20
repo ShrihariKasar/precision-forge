@@ -32,10 +32,7 @@ export function CTASection({
           </p>
         </Reveal>
         <Reveal delay={220} className="mt-10 flex flex-wrap gap-4">
-          <ActionLink to="/request-quote">REQUEST AN ENQUIRY</ActionLink>
-          <ActionLink to="/contact" variant="outline">
-            CONTACT OUR TEAM
-          </ActionLink>
+          <ActionLink to="/contact">CONTACT US</ActionLink>
         </Reveal>
       </div>
     </section>

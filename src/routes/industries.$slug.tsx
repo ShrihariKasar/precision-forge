@@ -83,7 +83,7 @@ function IndustryDetail() {
             ))}
           </ul>
           <div className="mt-10">
-            <ActionLink to="/request-quote">Request an Enquiry</ActionLink>
+            <ActionLink to="/contact">Contact Us</ActionLink>
           </div>
         </Reveal>
       </section>

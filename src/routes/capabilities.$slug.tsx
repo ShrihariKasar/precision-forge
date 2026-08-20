@@ -43,12 +43,16 @@ function CapabilityDetail() {
 
       <section className="container-x section-y">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
-          <Reveal variant="clip" className="overflow-hidden rounded-lg border border-border lg:col-span-6">
-            <img
-              src={cap.image}
-              alt={cap.name}
-              className="aspect-[4/3] w-full object-cover"
-            />
+          <Reveal variant="up" className="overflow-hidden rounded-xl border border-border/80 bg-surface shadow-lg lg:col-span-6">
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-surface-2">
+              <img
+                src={cap.image}
+                alt={cap.name}
+                loading="eager"
+                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent opacity-60" />
+            </div>
           </Reveal>
 
           <div className="lg:col-span-6 space-y-6">
@@ -80,8 +84,8 @@ function CapabilityDetail() {
             )}
 
             <div className="pt-4">
-              <ActionLink to="/request-quote">
-                DISCUSS MANUFACTURING REQUIREMENTS
+              <ActionLink to="/contact">
+                CONTACT US
               </ActionLink>
             </div>
           </div>

@@ -10,7 +10,7 @@ export const company = {
   name: "Sanchit Polymer Industries Pvt. Ltd.",
   shortName: "SPIPL",
   legalName: "Sanchit Polymer Industries Pvt. Ltd.",
-  tagline: "Precision Plastic Injection Moulding for Automotive & Critical Applications",
+  tagline: "Precision Injection Moulding for Automotive & Industry",
   description:
     "Sanchit Polymer Industries Pvt. Ltd. is a plastic injection moulding manufacturer established in 2014, specializing in injection moulded components, assemblies and engineering plastic products for automotive and commercial applications.",
   secondaryDescription:
@@ -43,12 +43,10 @@ export const company = {
   email: "sanchitoperation@gmail.com",
   hours: "Monday – Saturday, 08:30 – 18:00",
   stats: [
-    { value: `${yearsOfGrowth}+`, numericValue: yearsOfGrowth, suffix: "+", label: "Years of Growth" },
-    { value: "9,000", numericValue: 9000, suffix: " Sq. Ft.", label: "Built-up Area" },
-    { value: "10,000", numericValue: 10000, suffix: " Sq. Ft.", label: "Land Area" },
+    { value: "12++", numericValue: 12, suffix: "++", label: "Years of Growth" },
+    { value: "10,000 Sq. Ft.", numericValue: 10000, suffix: " Sq. Ft.", label: "High Tech Facility" },
     { value: "IATF 16949", numericValue: null, suffix: "", label: "Automotive Quality Standard" },
     { value: "ISO 9001", numericValue: null, suffix: "", label: "Quality Management System" },
-    { value: "Injection Moulding", numericValue: null, suffix: "", label: "Core Manufacturing Capability" },
   ],
   vision:
     "To be a world-class plastic injection moulding solution provider with state-of-the-art infrastructure and eco-friendly manufacturing.",
@@ -132,15 +130,53 @@ export const company = {
   ],
 } as const;
 
-export const navLinks = [
+export interface NavSubItem {
+  label: string;
+  to: string;
+  description?: string;
+}
+
+export interface NavItem {
+  label: string;
+  to: string;
+  children?: readonly NavSubItem[];
+}
+
+export const navLinks: readonly NavItem[] = [
   { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
-  { label: "Capabilities", to: "/capabilities" },
+  {
+    label: "About",
+    to: "/about",
+    children: [
+      {
+        label: "About SPIPL",
+        to: "/about",
+        description: "Company overview, mission & journey since 2014",
+      },
+      {
+        label: "Capabilities",
+        to: "/capabilities",
+        description: "Plastic injection moulding tonnage & technical specs",
+      },
+      {
+        label: "Infrastructure",
+        to: "/infrastructure",
+        description: "9,000 sq.ft plant facility & modern machinery",
+      },
+      {
+        label: "Quality",
+        to: "/quality",
+        description: "IATF 16949 & ISO 9001 quality assurance",
+      },
+      {
+        label: "Gallery",
+        to: "/gallery",
+        description: "Factory floor, tool room & product showcase",
+      },
+    ],
+  },
   { label: "Products", to: "/products" },
-  { label: "Infrastructure", to: "/infrastructure" },
-  { label: "Quality", to: "/quality" },
-  { label: "Customers", to: "/customers" },
-  { label: "Performance", to: "/performance" },
-  { label: "Gallery", to: "/gallery" },
+  { label: "Clientele", to: "/customers" },
   { label: "Contact", to: "/contact" },
 ] as const;
+

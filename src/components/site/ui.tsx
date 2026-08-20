@@ -95,16 +95,14 @@ export function SectionHeading({
       )}
     >
       <Reveal className="flex items-center gap-3 text-muted-foreground">
-        {index && <span className="label-xs text-accent">{index}</span>}
-        {index && <span className="h-px w-8 bg-border-strong" />}
-        <span className="label-xs">{eyebrow}</span>
+        <span className="label-xs text-accent uppercase tracking-wider font-mono">{eyebrow}</span>
       </Reveal>
       <Reveal delay={80}>
         <h2 className="mt-6 text-[clamp(2rem,4.4vw,3.75rem)] leading-[1.03] font-medium">{title}</h2>
       </Reveal>
       {description && (
         <Reveal delay={150}>
-          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+          <p className={cn("mt-4 text-base leading-relaxed text-muted-foreground md:text-lg", align === "center" ? "mx-auto max-w-none" : "max-w-2xl")}>
             {description}
           </p>
         </Reveal>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" width="320" height="90">
+  <rect width="320" height="90" rx="10" fill="#18181B"/>
+  <circle cx="42" cy="45" r="20" stroke="#EA580C" stroke-width="5" fill="none"/>
+  <circle cx="42" cy="45" r="8" fill="#F97316"/>
+  <text x="76" y="49" font-family="system-ui, -apple-system, sans-serif" font-size="25" font-weight="900" fill="#FFFFFF" letter-spacing="0.5">ANKITA PLAST</text>
+  <text x="77" y="67" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#F97316" letter-spacing="2">INDUSTRIES PVT LTD</text>
+</svg>

@@ -1,6 +1,8 @@
 import injectionShopImg from "@/assets/spipl/shop_floor.png";
 import automotiveClipsImg from "@/assets/spipl/automotive_clips.png";
-import toolRoomImg from "@/assets/spipl/shop_floor.png";
+import toolRoomImg from "@/assets/spipl/hero_plant.png";
+import qualityImg from "@/assets/spipl/appliance_components.png";
+import defenceImg from "@/assets/spipl/defence_components.png";
 
 export interface Capability {
   slug: string;
@@ -104,7 +106,7 @@ export const capabilities: Capability[] = [
       "Calibrated Pin Gauge Sets",
       "Mextech Digital Lux Measuring Instrument",
     ],
-    image: injectionShopImg,
+    image: qualityImg,
     highlights: [
       "IATF 16949:2016 Certified",
       "ISO 9001:2015 Certified",

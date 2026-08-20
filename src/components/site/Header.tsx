@@ -1,13 +1,34 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import {
+  ChevronDown,
+  Cpu,
+  Factory,
+  Image,
+  Info,
+  Menu,
+  ShieldCheck,
+  X,
+} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import logoHeaderImg from "@/assets/logo_header.png";
 import { company, navLinks } from "@/data/company";
 import { cn } from "@/lib/utils";
 
+const subItemIcons: Record<string, React.ElementType> = {
+  "/about": Info,
+  "/capabilities": Cpu,
+  "/infrastructure": Factory,
+  "/quality": ShieldCheck,
+  "/gallery": Image,
+};
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
+  const [mobileAboutExpanded, setMobileAboutExpanded] = useState(true);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
@@ -19,85 +40,240 @@ export function Header() {
 
   useEffect(() => {
     setOpen(false);
+    setAboutDropdownOpen(false);
   }, [pathname]);
+
+  const handleMouseEnterAbout = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setAboutDropdownOpen(true);
+  };
+
+  const handleMouseLeaveAbout = () => {
+    timeoutRef.current = setTimeout(() => {
+      setAboutDropdownOpen(false);
+    }, 150);
+  };
+
+  // Check if current route is under About dropdown
+  const isAboutActive =
+    pathname === "/about" ||
+    pathname.startsWith("/about/") ||
+    pathname.startsWith("/capabilities") ||
+    pathname.startsWith("/infrastructure") ||
+    pathname.startsWith("/quality") ||
+    pathname.startsWith("/gallery");
 
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-500",
         scrolled || open
-          ? "border-b border-border bg-background/85 backdrop-blur-xl"
-          : "border-b border-transparent",
+          ? "border-b border-border bg-background/90 backdrop-blur-xl shadow-lg"
+          : "border-b border-border/40 bg-background/60 backdrop-blur-md",
       )}
     >
       <div className="container-x flex h-[72px] items-center justify-between gap-6 md:h-20">
-        <Link to="/" className="flex shrink-0 items-center gap-3" aria-label={`${company.name} home`}>
+        {/* Logo & Brand */}
+        <Link to="/" className="flex shrink-0 items-center gap-3 group" aria-label={`${company.name} home`}>
           <img
             src={logoHeaderImg}
             alt="Sanchit Polymer Industries Logo"
-            className="h-10 w-auto max-h-11 object-contain"
+            className="h-10 w-auto max-h-11 object-contain transition-transform duration-300 group-hover:scale-105"
           />
           <div className="flex flex-col justify-center leading-none">
-            <span className="font-display text-base font-bold tracking-[0.16em] uppercase text-foreground md:text-lg">
+            <span className="font-sans text-base font-bold tracking-[0.12em] uppercase text-foreground md:text-lg">
               SANCHIT
             </span>
-            <span className="font-display text-[10px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mt-1">
+            <span className="font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-accent mt-0.5">
               POLYMER
             </span>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="Primary">
-          {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className="group relative label-xs text-muted-foreground transition-colors hover:text-foreground"
-              activeProps={{ className: "!text-foreground" }}
-            >
-              {link.label}
-              <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-accent transition-all duration-300 group-hover:w-full" />
-            </Link>
-          ))}
+        {/* Primary Desktop Navigation */}
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+          {navLinks.map((link) => {
+            if (link.children) {
+              return (
+                <div
+                  key={link.to}
+                  className="relative"
+                  onMouseEnter={handleMouseEnterAbout}
+                  onMouseLeave={handleMouseLeaveAbout}
+                >
+                  <Link
+                    to={link.to}
+                    className={cn(
+                      "group relative flex items-center gap-1.5 py-2 label-xs font-semibold tracking-wider text-muted-foreground transition-colors hover:text-foreground",
+                      isAboutActive && "text-foreground",
+                    )}
+                  >
+                    <span>{link.label}</span>
+                    <ChevronDown
+                      className={cn(
+                        "size-3.5 text-muted-foreground transition-transform duration-200 group-hover:text-accent",
+                        aboutDropdownOpen && "rotate-180 text-accent",
+                      )}
+                    />
+                    <span
+                      className={cn(
+                        "absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300",
+                        isAboutActive ? "w-full" : "w-0 group-hover:w-full",
+                      )}
+                    />
+                  </Link>
+
+                  {/* Dropdown Menu */}
+                  {aboutDropdownOpen && (
+                    <div
+                      className="absolute top-full left-0 mt-1 w-80 rounded-xl border border-border/80 bg-background/95 p-2 shadow-2xl backdrop-blur-2xl animate-in fade-in slide-in-from-top-2 duration-200"
+                      onMouseEnter={handleMouseEnterAbout}
+                      onMouseLeave={handleMouseLeaveAbout}
+                    >
+                      <div className="px-3 py-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/80 border-b border-border/50 mb-1">
+                        About Sanchit Polymer
+                      </div>
+                      <div className="flex flex-col gap-1">
+                        {link.children.map((subItem) => {
+                          const IconComp = subItemIcons[subItem.to] || Info;
+                          const isSubActive =
+                            pathname === subItem.to ||
+                            (subItem.to !== "/about" && pathname.startsWith(subItem.to));
+
+                          return (
+                            <Link
+                              key={subItem.to}
+                              to={subItem.to}
+                              className={cn(
+                                "group flex items-start gap-3 rounded-lg p-2.5 transition-all duration-200 hover:bg-accent/10 hover:text-foreground",
+                                isSubActive ? "bg-accent/15 text-accent font-medium" : "text-muted-foreground",
+                              )}
+                            >
+                              <div
+                                className={cn(
+                                  "mt-0.5 grid size-8 shrink-0 place-items-center rounded-md border transition-colors",
+                                  isSubActive
+                                    ? "border-accent/40 bg-accent/20 text-accent"
+                                    : "border-border bg-surface text-muted-foreground group-hover:border-accent/40 group-hover:bg-accent/10 group-hover:text-accent",
+                                )}
+                              >
+                                <IconComp className="size-4" />
+                              </div>
+                              <div className="flex flex-col">
+                                <span className="text-xs font-semibold tracking-wide text-foreground group-hover:text-accent transition-colors">
+                                  {subItem.label}
+                                </span>
+                                {subItem.description && (
+                                  <span className="text-[11px] text-muted-foreground leading-tight mt-0.5">
+                                    {subItem.description}
+                                  </span>
+                                )}
+                              </div>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
+            return (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="group relative py-2 label-xs font-semibold tracking-wider text-muted-foreground transition-colors hover:text-foreground"
+                activeProps={{ className: "!text-foreground" }}
+              >
+                {link.label}
+                <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-accent transition-all duration-300 group-hover:w-full" />
+              </Link>
+            );
+          })}
         </nav>
 
+        {/* CTA & Mobile Toggle */}
         <div className="flex items-center gap-3">
           <Link
-            to="/request-quote"
-            className="hidden min-h-11 items-center rounded-md bg-accent px-5 label-xs text-accent-foreground transition-all duration-300 hover:brightness-110 sm:inline-flex"
+            to="/contact"
+            className="hidden min-h-11 items-center rounded-md bg-accent px-5 label-xs font-bold uppercase tracking-wider text-accent-foreground transition-all duration-300 hover:brightness-110 shadow-md shadow-accent/20 hover:shadow-accent/40 sm:inline-flex"
           >
-            Request Enquiry
+            Contact Us
           </Link>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="grid size-11 place-items-center border border-border-strong lg:hidden"
+            className="grid size-11 place-items-center rounded-md border border-border-strong bg-surface text-foreground transition-colors hover:bg-accent/10 hover:border-accent/50 lg:hidden"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
         </div>
       </div>
 
+      {/* Mobile Drawer */}
       {open && (
-        <nav className="border-t border-border bg-background lg:hidden" aria-label="Mobile">
-          <div className="container-x flex flex-col py-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className="border-b border-border py-3 label-xs text-muted-foreground"
-                activeProps={{ className: "!text-accent" }}
-              >
-                {link.label}
-              </Link>
-            ))}
+        <nav className="border-t border-border bg-background/98 backdrop-blur-2xl lg:hidden shadow-2xl" aria-label="Mobile">
+          <div className="container-x flex flex-col py-5 space-y-2">
+            {navLinks.map((link) => {
+              if (link.children) {
+                return (
+                  <div key={link.to} className="border-b border-border/60 pb-3 pt-1">
+                    <button
+                      type="button"
+                      onClick={() => setMobileAboutExpanded((v) => !v)}
+                      className="flex w-full items-center justify-between py-2 text-left label-xs font-bold tracking-wider text-foreground"
+                    >
+                      <span className="text-sm font-semibold">{link.label}</span>
+                      <ChevronDown
+                        className={cn(
+                          "size-4 text-muted-foreground transition-transform duration-200",
+                          mobileAboutExpanded && "rotate-180 text-accent",
+                        )}
+                      />
+                    </button>
+
+                    {mobileAboutExpanded && (
+                      <div className="mt-2 ml-2 flex flex-col space-y-1 border-l-2 border-accent/40 pl-3">
+                        {link.children.map((subItem) => {
+                          const IconComp = subItemIcons[subItem.to] || Info;
+                          return (
+                            <Link
+                              key={subItem.to}
+                              to={subItem.to}
+                              className="flex items-center gap-3 rounded-md py-2 px-2 text-xs font-medium text-muted-foreground transition-colors hover:bg-accent/10 hover:text-accent"
+                              activeProps={{ className: "!text-accent !font-bold !bg-accent/10" }}
+                            >
+                              <IconComp className="size-4 shrink-0 text-accent" />
+                              <span>{subItem.label}</span>
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className="border-b border-border/60 py-3.5 text-sm font-semibold text-muted-foreground transition-colors hover:text-accent"
+                  activeProps={{ className: "!text-accent !font-bold" }}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+
             <Link
-              to="/request-quote"
-              className="mt-5 inline-flex min-h-12 items-center justify-center rounded-md bg-accent px-5 label-xs text-accent-foreground"
+              to="/contact"
+              className="mt-4 inline-flex min-h-12 items-center justify-center rounded-md bg-accent px-5 label-xs font-bold uppercase tracking-wider text-accent-foreground shadow-lg shadow-accent/20"
             >
-              Request Enquiry
+              Contact Us
             </Link>
           </div>
         </nav>
@@ -105,3 +281,4 @@ export function Header() {
     </header>
   );
 }
+

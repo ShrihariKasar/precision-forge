@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" width="320" height="90">
+  <rect width="320" height="90" rx="10" fill="#0F172A"/>
+  <circle cx="45" cy="45" r="24" fill="#F59E0B" fill-opacity="0.15"/>
+  <path d="M45 22L60 62H50L45 49H36L31 62H29L45 22ZM39.5 41H49.5L44.5 28L39.5 41Z" fill="#F59E0B"/>
+  <text x="75" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="900" fill="#FFFFFF" letter-spacing="1.5">amber</text>
+  <text x="76" y="68" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="700" fill="#F59E0B" letter-spacing="3">ENTERPRISES</text>
+</svg>

@@ -17,10 +17,10 @@ export function Footer() {
               className="h-10 w-auto object-contain"
             />
             <div className="flex flex-col justify-center leading-none">
-              <span className="font-display text-base font-bold tracking-[0.16em] uppercase text-foreground">
+              <span className="font-sans text-base font-bold tracking-[0.12em] uppercase text-foreground">
                 SANCHIT
               </span>
-              <span className="font-display text-[10px] font-semibold tracking-[0.28em] uppercase text-muted-foreground mt-1">
+              <span className="font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-muted-foreground mt-1">
                 POLYMER
               </span>
             </div>
@@ -35,11 +35,10 @@ export function Footer() {
           <ul className="mt-6 space-y-3 text-sm">
             {[
               { label: "About SPIPL", to: "/about" },
-              { label: "Our Team", to: "/about/team" },
               { label: "Capabilities", to: "/capabilities" },
-              { label: "Tool Room", to: "/capabilities/tool-room" },
               { label: "Infrastructure", to: "/infrastructure" },
-              { label: "Machinery", to: "/infrastructure/machinery" },
+              { label: "Quality Assurance", to: "/quality" },
+              { label: "Visual Gallery", to: "/gallery" },
             ].map((l) => (
               <li key={l.to}>
                 <Link to={l.to} className="text-muted-foreground transition-colors hover:text-accent">
@@ -51,7 +50,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="label-xs text-muted-foreground uppercase">Products & Quality</h2>
+          <h2 className="label-xs text-muted-foreground uppercase">Products & Clientele</h2>
           <ul className="mt-6 space-y-3 text-sm">
             {productCategories.slice(1).map((c) => (
               <li key={c.slug}>
@@ -67,12 +66,7 @@ export function Footer() {
             </li>
             <li>
               <Link to="/customers" className="text-muted-foreground transition-colors hover:text-accent">
-                Industry Customers
-              </Link>
-            </li>
-            <li>
-              <Link to="/performance" className="text-muted-foreground transition-colors hover:text-accent">
-                Performance Data
+                Clientele & OEM Partners
               </Link>
             </li>
           </ul>
@@ -120,8 +114,8 @@ export function Footer() {
             <Link to="/terms" className="hover:text-accent">
               Terms
             </Link>
-            <Link to="/request-quote" className="hover:text-accent">
-              Request Enquiry
+            <Link to="/contact" className="hover:text-accent">
+              Contact Us
             </Link>
           </div>
         </div>

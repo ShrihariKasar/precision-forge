@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 90" width="320" height="90">
+  <rect width="320" height="90" rx="10" fill="#0B132B"/>
+  <rect x="22" y="24" width="15" height="44" rx="3" fill="#1D4ED8"/>
+  <rect x="42" y="24" width="15" height="44" rx="3" fill="#3B82F6"/>
+  <path d="M22 24H57V39H22V24Z" fill="#60A5FA"/>
+  <text x="72" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="27" font-weight="900" fill="#FFFFFF" letter-spacing="1">PITTIE</text>
+  <text x="73" y="68" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="700" fill="#60A5FA" letter-spacing="2.5">POLYMER PVT LTD</text>
+</svg>

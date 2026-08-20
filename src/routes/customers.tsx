@@ -5,11 +5,12 @@ import { customerList } from "@/data/customers";
 import { Reveal } from "@/components/site/Reveal";
 import { PageHero, SectionHeading } from "@/components/site/ui";
 import { CTASection } from "@/components/site/CTASection";
+import { ClientLogo } from "@/components/site/ClientLogos";
 
 export const Route = createFileRoute("/customers")({
   head: () => ({
     meta: [
-      { title: `Trusted Customers | ${company.name}` },
+      { title: `Clientele & OEM Partners | ${company.name}` },
       {
         name: "description",
         content:
@@ -26,24 +27,37 @@ function CustomersPage() {
     <>
       <PageHero
         eyebrow="Industry Relationships"
-        title="Trusted by Industry Customers"
+        title="Trusted Clientele & OEM Partners"
         description="SPIPL works closely with automotive OEMs, commercial vehicle manufacturers, appliance producers and defence contractors."
         image={shopFloorImg}
       />
 
       <section className="container-x section-y">
         <SectionHeading
-          index="01"
-          eyebrow="Customer Portfolio"
-          title="Industry Client Partners"
-          description="Verified corporate customers represented in the company profile records."
+          eyebrow="Clientele Portfolio"
+          title="Industry Clientele & OEM Partners"
+          description="Verified corporate clientele represented in company profile records."
         />
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {customerList.map((customer, i) => (
-            <Reveal key={customer.id} delay={i * 80} className="rounded-lg border border-border bg-surface p-8 hover:border-accent/60 transition-colors">
-              <span className="label-xs text-accent font-mono">{customer.category}</span>
-              <h3 className="mt-4 text-xl font-semibold text-foreground">{customer.name}</h3>
+            <Reveal
+              key={customer.id}
+              delay={i * 80}
+              className="group relative flex flex-col justify-between rounded-xl border border-border/80 bg-surface/90 p-6 shadow-sm transition-all duration-300 hover:border-accent/60 hover:shadow-xl hover:-translate-y-1"
+            >
+              <div className="flex flex-col h-full justify-between gap-6">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="label-xs text-accent">{customer.category}</span>
+                  <div className="flex h-9 max-w-[125px] shrink-0 items-center justify-center rounded-md bg-white/95 px-2.5 py-1 shadow-sm border border-slate-200/90 group-hover:border-accent/50 transition-colors">
+                    <ClientLogo id={customer.id} className="h-6 max-h-7 w-auto object-contain" />
+                  </div>
+                </div>
+
+                <h3 className="text-lg font-bold text-foreground group-hover:text-accent transition-colors leading-snug">
+                  {customer.name}
+                </h3>
+              </div>
             </Reveal>
           ))}
         </div>

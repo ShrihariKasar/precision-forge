@@ -52,10 +52,10 @@ export function ProductCard({
             View Product <ArrowUpRight className="size-3.5" />
           </Link>
           <Link
-            to="/request-quote"
+            to="/contact"
             className="inline-flex items-center gap-1 text-muted-foreground hover:text-foreground font-medium"
           >
-            Enquire →
+            Contact Us →
           </Link>
         </div>
       </div>

@@ -116,11 +116,8 @@ function ProductDetail() {
             )}
 
             <div className="pt-4 flex flex-wrap gap-4">
-              <ActionLink to="/request-quote">
-                REQUEST AN ENQUIRY FOR THIS PART
-              </ActionLink>
-              <ActionLink to="/contact" variant="outline">
-                CONTACT SALES TEAM
+              <ActionLink to="/contact">
+                CONTACT US
               </ActionLink>
             </div>
           </div>
