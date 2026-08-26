@@ -47,17 +47,17 @@ function ProductsIndex() {
           </Reveal>
 
           {/* FILTERING TABS */}
-          <Reveal delay={200} className="mt-10 flex flex-wrap gap-2">
+          <Reveal delay={200} className="mt-10 flex flex-wrap gap-2.5">
             {productCategories.map((cat) => (
               <button
                 type="button"
                 key={cat.slug}
                 onClick={() => setActiveFilter(cat.slug)}
                 className={cn(
-                  "rounded-md border px-5 py-2.5 label-xs transition-all duration-300 cursor-pointer",
+                  "rounded-lg border px-5 py-2.5 text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer",
                   activeFilter === cat.slug
-                    ? "border-accent bg-accent text-accent-foreground shadow-md"
-                    : "border-border bg-background text-muted-foreground hover:border-accent/50 hover:text-foreground"
+                    ? "border-accent bg-accent text-accent-foreground shadow-md shadow-accent/20"
+                    : "border-border/80 bg-background/90 text-muted-foreground hover:border-accent/50 hover:text-foreground"
                 )}
               >
                 {cat.label}

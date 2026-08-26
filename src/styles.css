@@ -194,6 +194,24 @@
   }
 }
 
+@keyframes train-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-train-marquee {
+  display: flex;
+  width: max-content;
+  animation: train-marquee 22s linear infinite;
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
 @utility grid-lines {
   background-image: linear-gradient(to right, var(--color-border) 1px, transparent 1px);
   background-size: 25% 100%;

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="iatfGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer Shield Ring -->
+  <circle cx="100" cy="100" r="92" fill="#0f172a" stroke="url(#iatfGrad)" stroke-width="6"/>
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#ea580c" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+  <!-- Quality Shield Icon -->
+  <path d="M100 32 L145 52 V98 C145 132 100 162 100 162 C100 162 55 132 55 98 V52 Z" fill="url(#iatfGrad)"/>
+  <path d="M100 38 L139 56 V96 C139 126 100 152 100 152 C100 152 61 126 61 96 V56 Z" fill="#0f172a" opacity="0.3"/>
+  <!-- Checkmark / Star -->
+  <path d="M88 95 L98 105 L118 83" fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Header Banner Text -->
+  <text x="100" y="128" font-family="sans-serif" font-size="15" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">IATF</text>
+  <text x="100" y="144" font-family="sans-serif" font-size="11" font-weight="800" fill="#fb923c" text-anchor="middle" letter-spacing="1">16949:2016</text>
+</svg>

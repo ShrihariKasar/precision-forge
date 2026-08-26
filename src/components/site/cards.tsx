@@ -7,7 +7,7 @@ import type { Industry } from "@/data/industries";
 export function ProductCard({
   product,
   className,
-  ratio = "aspect-[4/3]",
+  ratio = "aspect-[16/7]",
 }: {
   product: Product;
   className?: string;
@@ -18,7 +18,7 @@ export function ProductCard({
   return (
     <div
       className={cn(
-        "group relative flex flex-col overflow-hidden rounded-md border border-border bg-surface transition-all duration-500 hover:-translate-y-1 hover:border-accent/60 shadow-md",
+        "group relative flex flex-col overflow-hidden rounded-lg border border-border/80 bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 shadow-sm",
         className,
       )}
     >
@@ -27,27 +27,27 @@ export function ProductCard({
           src={imgSrc}
           alt={product.name}
           loading="lazy"
-          className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+          className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-95" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-90" />
       </Link>
 
-      <div className="flex flex-1 flex-col p-6 md:p-7">
-        <span className="label-xs text-accent font-mono uppercase">{product.category}</span>
-        <h3 className="mt-2 text-xl leading-snug font-medium md:text-2xl text-foreground">
+      <div className="flex flex-1 flex-col p-4 sm:p-5">
+        <span className="label-xs text-accent font-mono uppercase text-[10px] tracking-wider">{product.category}</span>
+        <h3 className="mt-1 text-base sm:text-lg leading-snug font-semibold text-foreground">
           <Link to="/products/$slug" params={{ slug: product.slug }} className="hover:text-accent transition-colors">
             {product.name}
           </Link>
         </h3>
-        <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-muted-foreground">
           {product.description}
         </p>
 
-        <div className="mt-6 flex items-center justify-between border-t border-border pt-4 text-xs font-mono">
+        <div className="mt-4 flex items-center justify-between border-t border-border/50 pt-3 text-[11px] font-mono">
           <Link
             to="/products/$slug"
             params={{ slug: product.slug }}
-            className="inline-flex items-center gap-1.5 text-accent hover:underline font-semibold"
+            className="inline-flex items-center gap-1 text-accent hover:underline font-semibold"
           >
             View Product <ArrowUpRight className="size-3.5" />
           </Link>

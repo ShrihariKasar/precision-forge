@@ -82,7 +82,7 @@ export function SectionHeading({
   index?: string;
   eyebrow: string;
   title: ReactNode;
-  description?: string;
+  description?: ReactNode;
   align?: "left" | "center";
   className?: string;
 }) {

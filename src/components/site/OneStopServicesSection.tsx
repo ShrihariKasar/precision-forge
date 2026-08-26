@@ -195,7 +195,7 @@ export function OneStopServicesSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  const activeSector = sectorClients[selectedIndex];
+  const activeSector = (sectorClients[selectedIndex] ?? sectorClients[0])!;
 
   // Auto slideshow advance
   useEffect(() => {

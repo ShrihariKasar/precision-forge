@@ -122,59 +122,6 @@ export function Header() {
                       )}
                     />
                   </Link>
-
-                  {/* Dropdown Menu */}
-                  {aboutDropdownOpen && (
-                    <div
-                      className="absolute top-full left-0 mt-1 w-80 rounded-xl border border-border/80 bg-background/95 p-2 shadow-2xl backdrop-blur-2xl animate-in fade-in slide-in-from-top-2 duration-200"
-                      onMouseEnter={handleMouseEnterAbout}
-                      onMouseLeave={handleMouseLeaveAbout}
-                    >
-                      <div className="px-3 py-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground/80 border-b border-border/50 mb-1">
-                        About Sanchit Polymer
-                      </div>
-                      <div className="flex flex-col gap-1">
-                        {link.children.map((subItem) => {
-                          const IconComp = subItemIcons[subItem.to] || Info;
-                          const isSubActive =
-                            pathname === subItem.to ||
-                            (subItem.to !== "/about" && pathname.startsWith(subItem.to));
-
-                          return (
-                            <Link
-                              key={subItem.to}
-                              to={subItem.to}
-                              className={cn(
-                                "group flex items-start gap-3 rounded-lg p-2.5 transition-all duration-200 hover:bg-accent/10 hover:text-foreground",
-                                isSubActive ? "bg-accent/15 text-accent font-medium" : "text-muted-foreground",
-                              )}
-                            >
-                              <div
-                                className={cn(
-                                  "mt-0.5 grid size-8 shrink-0 place-items-center rounded-md border transition-colors",
-                                  isSubActive
-                                    ? "border-accent/40 bg-accent/20 text-accent"
-                                    : "border-border bg-surface text-muted-foreground group-hover:border-accent/40 group-hover:bg-accent/10 group-hover:text-accent",
-                                )}
-                              >
-                                <IconComp className="size-4" />
-                              </div>
-                              <div className="flex flex-col">
-                                <span className="text-xs font-semibold tracking-wide text-foreground group-hover:text-accent transition-colors">
-                                  {subItem.label}
-                                </span>
-                                {subItem.description && (
-                                  <span className="text-[11px] text-muted-foreground leading-tight mt-0.5">
-                                    {subItem.description}
-                                  </span>
-                                )}
-                              </div>
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
                 </div>
               );
             }
@@ -212,6 +159,63 @@ export function Header() {
           </button>
         </div>
       </div>
+
+      {/* Desktop Horizontal Secondary Sub-Navbar Bar */}
+      {aboutDropdownOpen && (
+        <div
+          className="hidden lg:block border-t border-border/60 bg-background/95 backdrop-blur-2xl shadow-xl animate-in fade-in slide-in-from-top-1 duration-200"
+          onMouseEnter={handleMouseEnterAbout}
+          onMouseLeave={handleMouseLeaveAbout}
+        >
+          <div className="container-x flex items-center justify-center gap-4 py-2.5">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-accent shrink-0 border-r border-border/60 pr-4">
+              ABOUT SPIPL
+            </span>
+            <div className="flex items-center gap-2">
+              {navLinks.find((l) => l.children)?.children?.map((subItem) => {
+                const IconComp = subItemIcons[subItem.to] || Info;
+                const isSubActive =
+                  pathname === subItem.to ||
+                  (subItem.to !== "/about" && pathname.startsWith(subItem.to));
+
+                return (
+                  <Link
+                    key={subItem.to}
+                    to={subItem.to}
+                    className={cn(
+                      "group flex items-center gap-2.5 rounded-lg px-3.5 py-2 transition-all duration-200",
+                      isSubActive
+                        ? "bg-accent/20 text-accent font-bold border border-accent/40 shadow-sm"
+                        : "text-muted-foreground hover:bg-accent/10 hover:text-foreground border border-transparent",
+                    )}
+                  >
+                    <div
+                      className={cn(
+                        "grid size-7 shrink-0 place-items-center rounded-md border transition-colors",
+                        isSubActive
+                          ? "border-accent/40 bg-accent/30 text-accent"
+                          : "border-border/60 bg-surface text-muted-foreground group-hover:border-accent/40 group-hover:bg-accent/10 group-hover:text-accent",
+                      )}
+                    >
+                      <IconComp className="size-3.5" />
+                    </div>
+                    <div className="flex flex-col text-left">
+                      <span className="text-xs font-semibold leading-none tracking-wide text-foreground group-hover:text-accent transition-colors">
+                        {subItem.label}
+                      </span>
+                      {subItem.description && (
+                        <span className="text-[10px] text-muted-foreground font-normal mt-1 max-w-[130px] truncate leading-none">
+                          {subItem.description}
+                        </span>
+                      )}
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Mobile Drawer */}
       {open && (

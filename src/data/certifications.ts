@@ -1,4 +1,6 @@
 import shopFloorImg from "@/assets/spipl/shop_floor.png";
+import iatfLogo from "@/assets/logos/iatf-16949.svg";
+import isoLogo from "@/assets/logos/iso-9001.svg";
 
 export interface Certification {
   id: string;
@@ -15,6 +17,7 @@ export interface Certification {
   scope: string;
   certificateVerified: boolean;
   image: string;
+  logo?: string;
 }
 
 export const certifications: Certification[] = [
@@ -32,6 +35,7 @@ export const certifications: Certification[] = [
       "Manufacturing plastic injection moulding components and their assemblies, with product design excluded from the stated scope.",
     certificateVerified: true,
     image: shopFloorImg,
+    logo: iatfLogo,
   },
   {
     id: "iso-9001",
@@ -48,5 +52,6 @@ export const certifications: Certification[] = [
       "Manufacture and supply of precision plastic injection moulded components, assemblies and engineering plastic products.",
     certificateVerified: true,
     image: shopFloorImg,
+    logo: isoLogo,
   },
 ];

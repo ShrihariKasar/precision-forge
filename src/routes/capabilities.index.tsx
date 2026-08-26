@@ -7,6 +7,7 @@ import { company } from "@/data/company";
 import { PageHero, SectionHeading, ActionLink } from "@/components/site/ui";
 import { Reveal } from "@/components/site/Reveal";
 import { CTASection } from "@/components/site/CTASection";
+import { MaterialTicker } from "@/components/site/MaterialTicker";
 
 export const Route = createFileRoute("/capabilities/")({
   head: () => ({
@@ -32,6 +33,8 @@ function CapabilitiesPage() {
         description="SPIPL's primary manufacturing capability is plastic injection moulding for automotive, commercial and other critical applications across multiple machine tonnage ranges."
         image={shopFloorImg}
       />
+
+      <MaterialTicker />
 
       <section className="container-x section-y">
         <SectionHeading

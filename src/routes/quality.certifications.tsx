@@ -39,15 +39,19 @@ function CertificationsPage() {
         <div className="grid gap-8 lg:grid-cols-2">
           {certifications.map((cert) => (
             <Reveal key={cert.id} className="rounded-lg border border-border bg-surface p-8 space-y-6">
-              <div className="flex items-start justify-between">
-                <div>
-                  <span className="label-xs text-accent uppercase">{cert.standard}</span>
-                  <h2 className="mt-1 text-2xl font-bold text-foreground">{cert.name}</h2>
-                  <p className="text-xs text-muted-foreground mt-1">Issuing Body: {cert.issuingBody}</p>
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-center gap-4">
+                  {cert.logo ? (
+                    <img src={cert.logo} alt={`${cert.name} Logo`} className="size-14 shrink-0 object-contain drop-shadow" />
+                  ) : (
+                    <Award className="size-8 text-accent shrink-0" />
+                  )}
+                  <div>
+                    <span className="label-xs text-accent uppercase font-mono">{cert.standard}</span>
+                    <h2 className="mt-0.5 text-2xl font-bold text-foreground">{cert.name}</h2>
+                    <p className="text-xs text-muted-foreground mt-0.5">Issuing Body: {cert.issuingBody}</p>
+                  </div>
                 </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">
-                  <ShieldCheck className="size-4" /> Verified
-                </span>
               </div>
 
               <div className="rounded-md border border-border bg-background p-4 space-y-2 text-xs font-mono text-muted-foreground">
