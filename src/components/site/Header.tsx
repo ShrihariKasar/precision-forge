@@ -80,12 +80,12 @@ export function Header() {
             alt="Sanchit Polymer Industries Logo"
             className="h-10 w-auto max-h-11 object-contain transition-transform duration-300 group-hover:scale-105"
           />
-          <div className="flex flex-col justify-center leading-none">
-            <span className="font-sans text-base font-bold tracking-[0.12em] uppercase text-foreground md:text-lg">
-              SANCHIT
+          <div className="flex flex-col justify-center leading-tight">
+            <span className="font-sans text-sm font-bold tracking-[0.08em] uppercase text-foreground sm:text-base">
+              SANCHIT POLYMER
             </span>
-            <span className="font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-accent mt-0.5">
-              POLYMER
+            <span className="font-sans text-[9px] font-bold tracking-[0.15em] uppercase text-accent sm:text-[10px]">
+              INDUSTRIES PVT. LTD.
             </span>
           </div>
         </Link>

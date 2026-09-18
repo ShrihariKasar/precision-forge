@@ -1,4 +1,4 @@
-import heroPlantImg from "@/assets/spipl/hero_plant.png";
+import heroPlantExteriorImg from "@/assets/real/hero_plant_exterior.jpg";
 import { ActionLink } from "./ui";
 import { Reveal } from "./Reveal";
 
@@ -12,7 +12,7 @@ export function CTASection({
   return (
     <section className="relative isolate overflow-hidden border-y border-border">
       <img
-        src={heroPlantImg}
+        src={heroPlantExteriorImg}
         alt="Sanchit Polymer Industries Manufacturing Facility"
         aria-hidden="true"
         loading="lazy"

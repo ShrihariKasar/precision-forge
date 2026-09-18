@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import shopFloorImg from "@/assets/spipl/shop_floor.png";
+import qualityFirewallImg from "@/assets/real/quality_firewall_lab.jpg";
 import { company } from "@/data/company";
 import { certifications, Certification } from "@/data/certifications";
 import { Reveal } from "@/components/site/Reveal";
@@ -32,7 +32,7 @@ function CertificationsPage() {
         eyebrow="Verified Quality Standards"
         title="Quality Certifications"
         description="IATF 16949:2016 automotive quality certification and ISO 9001:2015 quality management system credentials."
-        image={shopFloorImg}
+        image={qualityFirewallImg}
       />
 
       <section className="container-x section-y">

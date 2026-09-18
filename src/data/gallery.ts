@@ -1,8 +1,20 @@
-import heroPlantImg from "@/assets/spipl/hero_plant.png";
-import shopFloorImg from "@/assets/spipl/shop_floor.png";
-import automotiveClipsImg from "@/assets/spipl/automotive_clips.png";
-import applianceComponentsImg from "@/assets/spipl/appliance_components.png";
-import defenceComponentsImg from "@/assets/spipl/defence_components.png";
+import heroPlantExteriorImg from "@/assets/real/hero_plant_exterior.jpg";
+import shopFloorMainImg from "@/assets/real/shop_floor_main.jpg";
+import shopFloorSecondaryImg from "@/assets/real/shop_floor_secondary.jpg";
+import machineChenHsongImg from "@/assets/real/machine_chen_hsong_250t.jpg";
+import machineStm150tImg from "@/assets/real/machine_stm_150t.jpg";
+import machineOverheadCraneImg from "@/assets/real/machine_overhead_crane.jpg";
+import qualityFirewallImg from "@/assets/real/quality_firewall_lab.jpg";
+import qualitySortingImg from "@/assets/real/quality_inspection_sorting.jpg";
+import toolMouldMaintenanceImg from "@/assets/real/tool_mould_maintenance.jpg";
+import toolStorageRacksImg from "@/assets/real/tool_storage_racks.jpg";
+import rawMaterialInventoryImg from "@/assets/real/raw_material_inventory.jpg";
+import finishedGoodsRacksImg from "@/assets/real/finished_goods_racks.jpg";
+import polymerSampleBoardImg from "@/assets/real/polymer_sample_board.jpg";
+import plantOfficeImg from "@/assets/real/plant_office_management.jpg";
+import factoryEntranceImg from "@/assets/real/factory_entrance.jpg";
+import automotiveClipsInspectionImg from "@/assets/real/automotive_clips_inspection.jpg";
+import plantSubstationImg from "@/assets/real/plant_electrical_substation.jpg";
 
 export interface GalleryItem {
   id: string;
@@ -17,75 +29,131 @@ export const galleryCategories = ["ALL", "AUTOMOTIVE", "APPLIANCES", "DEFENCE", 
 
 export const galleryItems: GalleryItem[] = [
   {
-    id: "g-auto-1",
-    title: "Automotive Bumper Clips & Body Plugs",
-    category: "AUTOMOTIVE",
-    aspect: "landscape",
-    image: automotiveClipsImg,
-    caption: "Injection moulded automotive clips, body plugs and fir tree fasteners for vehicle assembly.",
-  },
-  {
-    id: "g-auto-2",
-    title: "Verus Type Clamps & Cable Ties",
-    category: "AUTOMOTIVE",
-    aspect: "square",
-    image: automotiveClipsImg,
-    caption: "High-tensile nylon cable ties and hose clamping components produced for automotive OEMs.",
-  },
-  {
-    id: "g-auto-3",
-    title: "Grab Handle Flexible & Beige Trim",
-    category: "AUTOMOTIVE",
-    aspect: "portrait",
-    image: automotiveClipsImg,
-    caption: "Class-A surface finish interior grab handles and screw caps.",
-  },
-  {
-    id: "g-app-1",
-    title: "AC Fan Components",
-    category: "APPLIANCES",
-    aspect: "wide",
-    image: applianceComponentsImg,
-    caption: "Precision moulded plastic AC fan components for home appliance and air handler applications.",
-  },
-  {
-    id: "g-def-1",
-    title: "Defence Radome Enclosure",
-    category: "DEFENCE",
-    aspect: "landscape",
-    image: defenceComponentsImg,
-    caption: "RF-transparent defence radome housing component moulded from engineering polycarbonate.",
-  },
-  {
-    id: "g-def-2",
-    title: "Switch Housing & Timer Plug",
-    category: "DEFENCE",
-    aspect: "square",
-    image: defenceComponentsImg,
-    caption: "Ruggedized defence electronic switch housing and high-precision timer plug components.",
-  },
-  {
     id: "g-fac-1",
     title: "SPIPL Manufacturing Plant Exterior",
     category: "FACILITY",
     aspect: "wide",
-    image: heroPlantImg,
-    caption: "9,000 sq. ft. built-up plastic injection moulding manufacturing facility in Koregaon Bhima, Pune.",
+    image: heroPlantExteriorImg,
+    caption: "10,000 sq. ft. land area and manufacturing facility in Koregaon Bhima, Tal. Shirur, Pune.",
   },
   {
     id: "g-fac-2",
-    title: "Injection Moulding Shop Floor",
+    title: "Injection Moulding Shop Floor Main Bay",
     category: "FACILITY",
     aspect: "landscape",
-    image: shopFloorImg,
-    caption: "Automated injection moulding machine shop floor operating 100T to 250T presses.",
+    image: shopFloorMainImg,
+    caption: "9,000 sq. ft. built-up shop floor operating 12 verified moulding presses (100T – 250T).",
   },
   {
     id: "g-fac-3",
-    title: "Quality Assurance Laboratory",
+    title: "Chen Hsong 250T Moulding Machine",
+    category: "FACILITY",
+    aspect: "landscape",
+    image: machineChenHsongImg,
+    caption: "Heavy-duty automated injection moulding press for large automotive & industrial components.",
+  },
+  {
+    id: "g-fac-4",
+    title: "STM 150T Precision Moulding Press",
+    category: "FACILITY",
+    aspect: "landscape",
+    image: machineStm150tImg,
+    caption: "High-precision 150T injection moulding press configured for engineering polymer production.",
+  },
+  {
+    id: "g-auto-1",
+    title: "Quality Firewall Inspection & Sorting",
+    category: "AUTOMOTIVE",
+    aspect: "landscape",
+    image: qualitySortingImg,
+    caption: "In-process and final firewall inspection ensuring zero dimensional deviations on moulded parts.",
+  },
+  {
+    id: "g-auto-2",
+    title: "Automotive Moulded Components Inspection",
+    category: "AUTOMOTIVE",
+    aspect: "landscape",
+    image: automotiveClipsInspectionImg,
+    caption: "Batch inspection of precision automotive clips, body plugs and fasteners.",
+  },
+  {
+    id: "g-fac-5",
+    title: "Dedicated Quality Control Lab",
+    category: "FACILITY",
+    aspect: "landscape",
+    image: qualityFirewallImg,
+    caption: "QA workstation with digital vernier calipers, micrometers, pin gauges and Mextech lux meters.",
+  },
+  {
+    id: "g-fac-6",
+    title: "Tool Mould Maintenance & Repair Bay",
+    category: "FACILITY",
+    aspect: "landscape",
+    image: toolMouldMaintenanceImg,
+    caption: "Associated SPRAJTECH tool room support table for die maintenance, polishing, and mould repairs.",
+  },
+  {
+    id: "g-fac-7",
+    title: "Mould & Die Storage Racks",
+    category: "FACILITY",
+    aspect: "landscape",
+    image: toolStorageRacksImg,
+    caption: "Organized high-capacity tooling racks housing customer single and multi-cavity injection moulds.",
+  },
+  {
+    id: "g-fac-8",
+    title: "Overhead Bridge Crane & Hoist",
+    category: "FACILITY",
+    aspect: "square",
+    image: machineOverheadCraneImg,
+    caption: "Shop floor electric overhead traveling crane for rapid, safe mould loading and changeovers.",
+  },
+  {
+    id: "g-app-1",
+    title: "Polymer Material & Component Board",
+    category: "APPLIANCES",
+    aspect: "landscape",
+    image: polymerSampleBoardImg,
+    caption: "Standardized sample board representing engineering polymers (Nylon, POM, ABS, PP, PC).",
+  },
+  {
+    id: "g-fac-9",
+    title: "Raw Material Polymer Inventory",
+    category: "FACILITY",
+    aspect: "landscape",
+    image: rawMaterialInventoryImg,
+    caption: "Dedicated warehouse racking for engineering thermoplastic granules and masterbatches.",
+  },
+  {
+    id: "g-fac-10",
+    title: "Finished Goods Storage & Dispatch",
+    category: "FACILITY",
+    aspect: "landscape",
+    image: finishedGoodsRacksImg,
+    caption: "Multi-tier finished goods staging and barcode-ready crate inventory for OEM scheduled dispatches.",
+  },
+  {
+    id: "g-def-1",
+    title: "Plant Administration & PPC Office",
+    category: "DEFENCE",
+    aspect: "landscape",
+    image: plantOfficeImg,
+    caption: "Production planning and customer support office for ERP scheduling and dispatch coordination.",
+  },
+  {
+    id: "g-fac-11",
+    title: "Dedicated Electrical Substation",
     category: "FACILITY",
     aspect: "portrait",
-    image: shopFloorImg,
-    caption: "QA lab equipped with digital verniers, micrometers, pin gauges and digital lux meters.",
+    image: plantSubstationImg,
+    caption: "Captive high-voltage electrical transformer and distribution switchgear powering 24x7 plant operations.",
+  },
+  {
+    id: "g-fac-12",
+    title: "Factory Main Entrance",
+    category: "FACILITY",
+    aspect: "landscape",
+    image: factoryEntranceImg,
+    caption: "Main security entrance and transport dock at Koregaon Bhima, Pune.",
   },
 ];

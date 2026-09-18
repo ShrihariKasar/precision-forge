@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import shopFloorImg from "@/assets/spipl/shop_floor.png";
+import toolMouldMaintenanceImg from "@/assets/real/tool_mould_maintenance.jpg";
 import { company } from "@/data/company";
 import { Reveal } from "@/components/site/Reveal";
 import { ActionLink, PageHero } from "@/components/site/ui";
@@ -41,7 +41,7 @@ function ToolRoomPage() {
         eyebrow="Associated Tooling Facility"
         title="Tooling Support for Consistent Production"
         description="SPRAJTECH sister company tool room facility supporting plastic mould making, press tools, jigs, fixtures and associated machining activities."
-        image={shopFloorImg}
+        image={toolMouldMaintenanceImg}
       />
 
       <section className="container-x section-y">
@@ -77,7 +77,7 @@ function ToolRoomPage() {
 
           <Reveal delay={140} variant="clip" className="overflow-hidden rounded-lg border border-border lg:col-span-5">
             <img
-              src={shopFloorImg}
+              src={toolMouldMaintenanceImg}
               alt="Tool Room Machinery"
               className="aspect-[4/3] w-full object-cover"
             />

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 
-import shopFloorImg from "@/assets/spipl/shop_floor.png";
+import machineStm150tImg from "@/assets/real/machine_stm_150t.jpg";
 import { capabilities } from "@/data/capabilities";
 import { company } from "@/data/company";
 import { PageHero, SectionHeading, ActionLink } from "@/components/site/ui";
@@ -31,7 +31,7 @@ function CapabilitiesPage() {
         eyebrow="Manufacturing Capabilities"
         title="Manufacturing Capabilities"
         description="SPIPL's primary manufacturing capability is plastic injection moulding for automotive, commercial and other critical applications across multiple machine tonnage ranges."
-        image={shopFloorImg}
+        image={machineStm150tImg}
       />
 
       <MaterialTicker />

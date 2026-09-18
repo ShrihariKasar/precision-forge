@@ -1,8 +1,8 @@
-import injectionShopImg from "@/assets/spipl/shop_floor.png";
-import automotiveClipsImg from "@/assets/spipl/automotive_clips.png";
-import toolRoomImg from "@/assets/spipl/hero_plant.png";
-import qualityImg from "@/assets/spipl/appliance_components.png";
-import defenceImg from "@/assets/spipl/defence_components.png";
+import injectionShopImg from "@/assets/real/shop_floor_main.jpg";
+import automotiveClipsImg from "@/assets/real/automotive_clips_inspection.jpg";
+import toolRoomImg from "@/assets/real/tool_mould_maintenance.jpg";
+import qualityImg from "@/assets/real/quality_firewall_lab.jpg";
+import polymerSampleImg from "@/assets/real/polymer_sample_board.jpg";
 
 export interface Capability {
   slug: string;

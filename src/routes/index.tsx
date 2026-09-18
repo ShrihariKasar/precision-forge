@@ -1,9 +1,12 @@
+import { useState, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, CheckCircle2, ShieldCheck, Cpu, Factory, Award, Building2, TrendingUp, MapPin, Phone, Mail, Clock } from "lucide-react";
 
-import heroPlantImg from "@/assets/spipl/hero_plant.png";
-import shopFloorImg from "@/assets/spipl/shop_floor.png";
-import automotiveClipsImg from "@/assets/spipl/automotive_clips.png";
+import plantExterior2083Img from "@/assets/real/plastic_injection_moulding_plant_exterior_2083.jpg";
+import heroPlantImg from "@/assets/real/hero_plant_exterior.jpg";
+import shopFloorImg from "@/assets/real/shop_floor_main.jpg";
+import machinePressImg from "@/assets/real/machine_chen_hsong_250t.jpg";
+import automotiveClipsImg from "@/assets/real/automotive_clips_inspection.jpg";
 
 import { company } from "@/data/company";
 import { products } from "@/data/products";
@@ -19,6 +22,29 @@ import { CTASection } from "@/components/site/CTASection";
 import { DeliveryChart } from "@/components/site/DeliveryChart";
 import { OneStopServicesSection } from "@/components/site/OneStopServicesSection";
 import { ClientLogo } from "@/components/site/ClientLogos";
+
+const heroSlides = [
+  {
+    src: plantExterior2083Img,
+    alt: "Precision plastic injection moulding plant exterior facility",
+  },
+  {
+    src: shopFloorImg,
+    alt: "Sanchit Polymer Industries 12-press injection moulding shop floor",
+  },
+  {
+    src: heroPlantImg,
+    alt: "Sanchit Polymer Industries manufacturing plant facility entrance",
+  },
+  {
+    src: machinePressImg,
+    alt: "Chen Hsong 250T precision injection moulding press machinery",
+  },
+  {
+    src: automotiveClipsImg,
+    alt: "Precision automotive moulded clips and inspection station",
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -42,19 +68,33 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   const featuredAutomotive = products.filter((p) => p.categorySlug === "automotive").slice(0, 6);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <>
       {/* 1. CINEMATIC SPIPL HERO */}
       <section className="relative isolate flex min-h-[82vh] flex-col justify-between overflow-hidden pt-24 pb-8 md:pt-28 md:pb-12">
-        <img
-          src={shopFloorImg}
-          alt="Sanchit Polymer Industries 12-press injection moulding shop floor"
-          width={1920}
-          height={1088}
-          fetchPriority="high"
-          className="ken-burns absolute inset-0 -z-20 size-full object-cover"
-        />
+        {/* HERO BACKGROUND SLIDESHOW */}
+        {heroSlides.map((slide, index) => (
+          <img
+            key={slide.src}
+            src={slide.src}
+            alt={slide.alt}
+            width={1920}
+            height={1088}
+            fetchPriority={index === 0 ? "high" : "low"}
+            className={`ken-burns absolute inset-0 -z-20 size-full object-cover transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          />
+        ))}
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-background/80 to-background/40" />
 
         <div className="container-x my-auto w-full pt-8 pb-12">
@@ -78,6 +118,23 @@ function Home() {
 
         {/* INLINE HORIZONTAL METRIC TICKER BAR AT BOTTOM OF HERO */}
         <div className="container-x w-full">
+          {/* Subtle slide indicator dots */}
+          <div className="flex justify-center items-center gap-2 mb-3">
+            {heroSlides.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => setCurrentSlide(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  idx === currentSlide
+                    ? "w-8 bg-accent"
+                    : "w-2 bg-foreground/30 hover:bg-foreground/60"
+                }`}
+              />
+            ))}
+          </div>
+
           <Reveal delay={340} className="rounded-xl border border-border/80 bg-background/80 px-6 py-4 backdrop-blur-xl shadow-lg">
             <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border/60 text-center">
               <div className="flex flex-col items-center justify-center py-2 sm:py-0">

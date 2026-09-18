@@ -1,7 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import heroPlantImg from "@/assets/spipl/hero_plant.png";
-import shopFloorImg from "@/assets/spipl/shop_floor.png";
-import automotiveClipsImg from "@/assets/spipl/automotive_clips.png";
+import heroPlantExteriorImg from "@/assets/real/hero_plant_exterior.jpg";
+import plantFacadeImg from "@/assets/real/plant_facade_dng.jpg";
+import shopFloorMainImg from "@/assets/real/shop_floor_main.jpg";
+import machineChenHsongImg from "@/assets/real/machine_chen_hsong_250t.jpg";
+import toolMouldMaintenanceImg from "@/assets/real/tool_mould_maintenance.jpg";
+import qualityFirewallImg from "@/assets/real/quality_firewall_lab.jpg";
+import plantOfficeImg from "@/assets/real/plant_office_management.jpg";
 
 import { company } from "@/data/company";
 import { MachineryTable } from "@/components/site/MachineryTable";
@@ -31,7 +35,7 @@ export function InfrastructurePage() {
         eyebrow="Plant & Facilities"
         title="Manufacturing Infrastructure"
         description="SPIPL operates a manufacturing facility with a built-up area of 9,000 sq. ft. on a 10,000 sq. ft. land area."
-        image={heroPlantImg}
+        image={heroPlantExteriorImg}
       />
 
       {/* PLANT SECTIONS */}
@@ -47,32 +51,32 @@ export function InfrastructurePage() {
             {
               title: "1. Plant Exterior & Premises",
               desc: "10,000 sq. ft. land area located near Kalyani Forge on Pune-Nagar Road, Koregaon Bhima, Pune.",
-              img: heroPlantImg,
+              img: plantFacadeImg,
             },
             {
               title: "2. Injection Moulding Shop",
               desc: "9,000 sq. ft. built-up shop floor equipped with automated overhead cranes and 12 moulding presses.",
-              img: shopFloorImg,
+              img: shopFloorMainImg,
             },
             {
               title: "3. Injection Moulding Machinery",
               desc: "12 verified moulding machines ranging from 100T to 250T (TUP Taiwan, L&T Demag, STM, ESM, CHENDE).",
-              img: shopFloorImg,
+              img: machineChenHsongImg,
             },
             {
               title: "4. Tool Room (SPRAJTECH)",
               desc: "Associated tool room facility for mould making, press tools, jigs, fixtures, EDM and wire cutting.",
-              img: shopFloorImg,
+              img: toolMouldMaintenanceImg,
             },
             {
               title: "5. QA Laboratory",
               desc: "Quality control lab equipped with digital verniers, micrometers, pin gauges and digital lux meters.",
-              img: shopFloorImg,
+              img: qualityFirewallImg,
             },
             {
               title: "6. Office & Administration",
               desc: "PPC, accounts, customer support and purchasing office for seamless project execution.",
-              img: heroPlantImg,
+              img: plantOfficeImg,
             },
           ].map((item, idx) => (
             <Reveal key={item.title} delay={(idx % 3) * 70} className="rounded-lg border border-border bg-surface overflow-hidden">

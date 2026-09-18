@@ -4,11 +4,24 @@ import { Link } from "@tanstack/react-router";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./ui";
 
-import heroPlantImg from "@/assets/spipl/hero_plant.png";
-import shopFloorImg from "@/assets/spipl/shop_floor.png";
-import automotiveClipsImg from "@/assets/spipl/automotive_clips.png";
-import applianceComponentsImg from "@/assets/spipl/appliance_components.png";
-import defenceComponentsImg from "@/assets/spipl/defence_components.png";
+import heroPlantExteriorImg from "@/assets/real/hero_plant_exterior.jpg";
+import shopFloorMainImg from "@/assets/real/shop_floor_main.jpg";
+import shopFloorSecondaryImg from "@/assets/real/shop_floor_secondary.jpg";
+import machineChenHsongImg from "@/assets/real/machine_chen_hsong_250t.jpg";
+import machineStm150tImg from "@/assets/real/machine_stm_150t.jpg";
+import machineUnionPlasticImg from "@/assets/real/machine_union_plastic.jpg";
+import machineOverheadCraneImg from "@/assets/real/machine_overhead_crane.jpg";
+import qualityFirewallImg from "@/assets/real/quality_firewall_lab.jpg";
+import qualitySortingImg from "@/assets/real/quality_inspection_sorting.jpg";
+import toolMouldMaintenanceImg from "@/assets/real/tool_mould_maintenance.jpg";
+import toolStorageRacksImg from "@/assets/real/tool_storage_racks.jpg";
+import rawMaterialInventoryImg from "@/assets/real/raw_material_inventory.jpg";
+import finishedGoodsRacksImg from "@/assets/real/finished_goods_racks.jpg";
+import polymerSampleBoardImg from "@/assets/real/polymer_sample_board.jpg";
+import plantOfficeImg from "@/assets/real/plant_office_management.jpg";
+import automotiveClipsInspectionImg from "@/assets/real/automotive_clips_inspection.jpg";
+import plantSubstationImg from "@/assets/real/plant_electrical_substation.jpg";
+
 import { cn } from "@/lib/utils";
 import { ClientLogo } from "./ClientLogos";
 
@@ -40,16 +53,16 @@ const sectorClients: SectorClient[] = [
     ],
     images: [
       {
-        src: automotiveClipsImg,
-        caption: "Automotive Bumper Clips & Fasteners — ITW India Production",
+        src: automotiveClipsInspectionImg,
+        caption: "Automotive Precision Moulded Clips & Fasteners — ITW India Production",
       },
       {
-        src: shopFloorImg,
-        caption: "Automated Injection Moulding Machine Line (100T – 250T)",
+        src: machineChenHsongImg,
+        caption: "Chen Hsong 250T Injection Moulding Machine Line",
       },
       {
-        src: heroPlantImg,
-        caption: "Sanchit Polymer Industries Manufacturing Facility",
+        src: shopFloorMainImg,
+        caption: "Sanchit Polymer Industries 9,000 Sq. Ft. Manufacturing Shop Floor",
       },
     ],
   },
@@ -67,16 +80,16 @@ const sectorClients: SectorClient[] = [
     ],
     images: [
       {
-        src: applianceComponentsImg,
-        caption: "AC Fan Components & Appliance Plastic Mouldings — Amber Enterprises",
+        src: polymerSampleBoardImg,
+        caption: "Engineering Polymers & Appliance Plastic Mouldings — Amber Enterprises",
       },
       {
-        src: shopFloorImg,
-        caption: "In-Process QA Firewall & Dimensional Inspection",
+        src: machineStm150tImg,
+        caption: "STM 150T Precision Moulding Press for Appliance Components",
       },
       {
-        src: heroPlantImg,
-        caption: "SPIPL Tool Room & Assembly Facility",
+        src: qualityFirewallImg,
+        caption: "In-Process QA Firewall & Dimensional Inspection Lab",
       },
     ],
   },
@@ -94,16 +107,16 @@ const sectorClients: SectorClient[] = [
     ],
     images: [
       {
-        src: automotiveClipsImg,
-        caption: "EV Interior Grab Handles & Trim Plugs — Pinnacle Mobility (EKA)",
+        src: qualitySortingImg,
+        caption: "EV Interior Component Dimensional Inspection — Pinnacle Mobility (EKA)",
       },
       {
-        src: shopFloorImg,
-        caption: "Automated Injection Moulding Tonnage Allocation",
+        src: toolStorageRacksImg,
+        caption: "High-Capacity Mould Tooling Storage & Quick-Changeover Racks",
       },
       {
-        src: heroPlantImg,
-        caption: "9,000 Sq. Ft. Manufacturing Plant Exterior",
+        src: heroPlantExteriorImg,
+        caption: "10,000 Sq. Ft. Manufacturing Plant Exterior at Koregaon Bhima, Pune",
       },
     ],
   },
@@ -121,16 +134,16 @@ const sectorClients: SectorClient[] = [
     ],
     images: [
       {
-        src: defenceComponentsImg,
-        caption: "Defence Radome Housing & Switch Enclosures — APPL Defence",
+        src: qualityFirewallImg,
+        caption: "Calibrated QA Inspection with Verniers & Pin Gauges — APPL Defence",
       },
       {
-        src: shopFloorImg,
-        caption: "Calibrated QA Inspection with Verniers & Pin Gauges",
+        src: machineUnionPlasticImg,
+        caption: "Controlled Injection Moulding Press for Engineering Thermoplastics",
       },
       {
-        src: heroPlantImg,
-        caption: "SPIPL Industrial Manufacturing Facility",
+        src: plantSubstationImg,
+        caption: "Dedicated High-Voltage Substation Ensuring Continuous Uninterrupted Runs",
       },
     ],
   },
@@ -148,16 +161,16 @@ const sectorClients: SectorClient[] = [
     ],
     images: [
       {
-        src: shopFloorImg,
-        caption: "Industrial Polymer Precision Moulding — Pittie Polymer",
+        src: shopFloorSecondaryImg,
+        caption: "Industrial Polymer Precision Moulding Shop Floor — Pittie Polymer",
       },
       {
-        src: automotiveClipsImg,
-        caption: "Engineered Plastic Assemblies & Fasteners",
+        src: rawMaterialInventoryImg,
+        caption: "Raw Material Polymer Granules Storage & Racking",
       },
       {
-        src: heroPlantImg,
-        caption: "SPIPL Koregaon Bhima Manufacturing Facility",
+        src: toolMouldMaintenanceImg,
+        caption: "Associated SPRAJTECH Tool Room Mould Maintenance Workstation",
       },
     ],
   },
@@ -175,16 +188,16 @@ const sectorClients: SectorClient[] = [
     ],
     images: [
       {
-        src: shopFloorImg,
-        caption: "Commercial & Industrial Polymer Production — Ankita Plast",
+        src: finishedGoodsRacksImg,
+        caption: "Multi-tier Finished Goods Storage & Staging — Ankita Plast",
       },
       {
-        src: applianceComponentsImg,
-        caption: "Custom Moulded Polymer Components & Parts",
+        src: machineOverheadCraneImg,
+        caption: "Heavy-Duty Overhead Traveling Bridge Crane for Safe Mould Handling",
       },
       {
-        src: heroPlantImg,
-        caption: "SPIPL Manufacturing & Tooling Operations",
+        src: plantOfficeImg,
+        caption: "PPC & Plant Administration Office for Order Dispatch Coordination",
       },
     ],
   },

@@ -7,7 +7,7 @@ import type { Industry } from "@/data/industries";
 export function ProductCard({
   product,
   className,
-  ratio = "aspect-[16/7]",
+  ratio = "aspect-[16/10]",
 }: {
   product: Product;
   className?: string;

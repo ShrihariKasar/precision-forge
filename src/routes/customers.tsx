@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import shopFloorImg from "@/assets/spipl/shop_floor.png";
+import shopFloorMainImg from "@/assets/real/shop_floor_main.jpg";
 import { company } from "@/data/company";
 import { customerList } from "@/data/customers";
 import { Reveal } from "@/components/site/Reveal";
@@ -29,7 +29,7 @@ function CustomersPage() {
         eyebrow="Industry Relationships"
         title="Trusted Clientele & OEM Partners"
         description="SPIPL works closely with automotive OEMs, commercial vehicle manufacturers, appliance producers and defence contractors."
-        image={shopFloorImg}
+        image={shopFloorMainImg}
       />
 
       <section className="container-x section-y">

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import shopFloorImg from "@/assets/spipl/shop_floor.png";
+import shopFloorMainImg from "@/assets/real/shop_floor_main.jpg";
 import { industries } from "@/data/industries";
 import { company } from "@/data/company";
 import { PageHero, SectionHeading } from "@/components/site/ui";
@@ -29,7 +29,7 @@ function IndustriesPage() {
         eyebrow="Target Sectors"
         title="Industries Served"
         description="Engineering plastic components designed and manufactured for demanding automotive, appliance, defence and commercial applications."
-        image={shopFloorImg}
+        image={shopFloorMainImg}
       />
 
       <section className="container-x section-y">

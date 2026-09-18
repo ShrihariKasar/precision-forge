@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import shopFloorImg from "@/assets/spipl/shop_floor.png";
-import heroPlantImg from "@/assets/spipl/hero_plant.png";
+import shopFloorImg from "@/assets/real/shop_floor_main.jpg";
+import heroPlantImg from "@/assets/real/plant_facade_dng.jpg";
 import { company } from "@/data/company";
 import { materialsList } from "@/data/materials";
 import { Reveal } from "@/components/site/Reveal";

@@ -33,10 +33,10 @@ export const company = {
     line2: "Pune-Nagar Road, A/P Koregaon Bhima, Tal. Shirur",
     city: "Dist. Pune",
     state: "Maharashtra",
-    postal: "412207",
+    postal: "412208",
     country: "India",
     formatted:
-      "Gat. No. 611, Near Kalyani Forge, Pune-Nagar Road, A/P Koregaon Bhima, Tal. Shirur, Dist. Pune – 412207, Maharashtra, India.",
+      "Gat. No. 611, Near Kalyani Forge, Pune-Nagar Road, A/P Koregaon Bhima, Tal. Shirur, Dist. Pune – 412208, Maharashtra, India.",
   },
   phones: ["8459924758", "8668239808"],
   phone: "8459924758",

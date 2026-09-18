@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import shopFloorImg from "@/assets/spipl/shop_floor.png";
+import qualityFirewallImg from "@/assets/real/quality_firewall_lab.jpg";
 import { company } from "@/data/company";
 import { certifications } from "@/data/certifications";
 import { Reveal, useInView } from "@/components/site/Reveal";
@@ -58,7 +58,7 @@ function QualityPage() {
         eyebrow="Quality Control"
         title="Quality at Every Stage"
         description="Comprehensive quality assurance, dimensional inspection, and process control across all injection moulding operations."
-        image={shopFloorImg}
+        image={qualityFirewallImg}
       />
 
       <section className="container-x section-y">

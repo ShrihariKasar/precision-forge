@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Expand } from "lucide-react";
 import { useMemo, useState } from "react";
 
-import heroPlantImg from "@/assets/spipl/hero_plant.png";
+import heroPlantExteriorImg from "@/assets/real/hero_plant_exterior.jpg";
 import { galleryCategories, galleryItems } from "@/data/gallery";
 import { company } from "@/data/company";
 import { PageHero } from "@/components/site/ui";
@@ -45,7 +45,7 @@ function GalleryPage() {
         eyebrow="SPIPL Gallery"
         title="Product & Facility Gallery"
         description="Automotive clips, appliance fan components, defence radomes, and injection moulding shop floor photographs."
-        image={heroPlantImg}
+        image={heroPlantExteriorImg}
       />
 
       <section className="container-x pt-14 pb-20 md:pt-20 md:pb-28">

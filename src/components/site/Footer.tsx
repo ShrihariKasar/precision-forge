@@ -16,12 +16,12 @@ export function Footer() {
               alt="Sanchit Polymer Industries Logo"
               className="h-10 w-auto object-contain"
             />
-            <div className="flex flex-col justify-center leading-none">
-              <span className="font-sans text-base font-bold tracking-[0.12em] uppercase text-foreground">
-                SANCHIT
+            <div className="flex flex-col justify-center leading-tight">
+              <span className="font-sans text-base font-bold tracking-[0.08em] uppercase text-foreground">
+                SANCHIT POLYMER
               </span>
-              <span className="font-sans text-[10px] font-bold tracking-[0.2em] uppercase text-muted-foreground mt-1">
-                POLYMER
+              <span className="font-sans text-[10px] font-bold tracking-[0.14em] uppercase text-accent mt-0.5">
+                INDUSTRIES PVT. LTD.
               </span>
             </div>
           </div>

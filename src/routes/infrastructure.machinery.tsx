@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import shopFloorImg from "@/assets/spipl/shop_floor.png";
+import machineChenHsongImg from "@/assets/real/machine_chen_hsong_250t.jpg";
 import { company } from "@/data/company";
 import { MachineryTable } from "@/components/site/MachineryTable";
 import { Reveal } from "@/components/site/Reveal";
@@ -28,7 +28,7 @@ function MachineryPage() {
         eyebrow="Technical Fleet Specifications"
         title="Injection Moulding Machinery"
         description="Detailed technical specifications of SPIPL's 12 verified injection moulding presses, tie bar distances, shot weights and core pull configurations."
-        image={shopFloorImg}
+        image={machineChenHsongImg}
       />
 
       <section className="container-x section-y">

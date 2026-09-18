@@ -1,0 +1,608 @@
+[
+  {
+    "original": "IMG_2081.DNG",
+    "renamed": "electrical_transformer_substation_2081.dng",
+    "category": "FACILITY",
+    "description": "Electrical Transformer Substation"
+  },
+  {
+    "original": "IMG_2083.DNG",
+    "renamed": "plastic_injection_moulding_plant_exterior_2083.dng",
+    "category": "FACILITY",
+    "description": "Plastic Injection Moulding Plant Exterior"
+  },
+  {
+    "original": "IMG_2084.DNG",
+    "renamed": "electrical_power_transformer_for_plant_2084.dng",
+    "category": "FACILITY",
+    "description": "Electrical Power Transformer For Plant"
+  },
+  {
+    "original": "IMG_2087.DNG",
+    "renamed": "manufacturing_plant_exterior_2087.dng",
+    "category": "FACILITY",
+    "description": "Manufacturing Plant Exterior"
+  },
+  {
+    "original": "IMG_2105.DNG",
+    "renamed": "shop_floor_manual_inspection_assembly_bay_2105.dng",
+    "category": "FACILITY",
+    "description": "Shop Floor Manual Inspection Assembly Bay"
+  },
+  {
+    "original": "IMG_2106.DNG",
+    "renamed": "finished_goods_inspection_and_dispatch_bay_2106.dng",
+    "category": "FACILITY",
+    "description": "Finished Goods Inspection And Dispatch Bay"
+  },
+  {
+    "original": "IMG_6436.CR3",
+    "renamed": "plant_office_area_6436.cr3",
+    "category": "OFFICE",
+    "description": "Plant Office Area"
+  },
+  {
+    "original": "IMG_6439.CR3",
+    "renamed": "plant_management_office_6439.cr3",
+    "category": "OFFICE",
+    "description": "Plant Management Office"
+  },
+  {
+    "original": "IMG_6441.CR3",
+    "renamed": "plant_management_office_6441.cr3",
+    "category": "OFFICE",
+    "description": "Plant Management Office"
+  },
+  {
+    "original": "IMG_6443.JPG",
+    "renamed": "plant_management_office_6443.jpg",
+    "category": "OFFICE",
+    "description": "Plant Management Office"
+  },
+  {
+    "original": "IMG_6448.JPG",
+    "renamed": "plant_management_office_6448.jpg",
+    "category": "OFFICE",
+    "description": "Plant Management Office"
+  },
+  {
+    "original": "IMG_6454.CR3",
+    "renamed": "plant_management_office_6454.cr3",
+    "category": "OFFICE",
+    "description": "Plant Management Office"
+  },
+  {
+    "original": "IMG_6455.CR3",
+    "renamed": "company_office_entrance_reception_6455.cr3",
+    "category": "OFFICE",
+    "description": "Company Office Entrance Reception"
+  },
+  {
+    "original": "IMG_6459.JPG",
+    "renamed": "departmental_staff_list_6459.jpg",
+    "category": "OFFICE",
+    "description": "Departmental Staff List"
+  },
+  {
+    "original": "IMG_6461.CR3",
+    "renamed": "plant_quality_policy_display_6461.cr3",
+    "category": "OFFICE",
+    "description": "Plant Quality Policy Display"
+  },
+  {
+    "original": "IMG_6462.CR3",
+    "renamed": "small_black_plastic_moulded_clips_being_inspected_6462.cr3",
+    "category": "PRODUCT",
+    "description": "Small Black Plastic Moulded Clips Being Inspected"
+  },
+  {
+    "original": "IMG_6467.CR3",
+    "renamed": "plastic_parts_inspection_table_6467.cr3",
+    "category": "QUALITY",
+    "description": "Plastic Parts Inspection Table"
+  },
+  {
+    "original": "IMG_6470.CR3",
+    "renamed": "manual_plastic_part_inspection_table_6470.cr3",
+    "category": "QUALITY",
+    "description": "Manual Plastic Part Inspection Table"
+  },
+  {
+    "original": "IMG_6474.JPG",
+    "renamed": "plastic_part_manual_inspection_and_sorting_6474.jpg",
+    "category": "QUALITY",
+    "description": "Plastic Part Manual Inspection And Sorting"
+  },
+  {
+    "original": "IMG_6476.CR3",
+    "renamed": "quality_control_firewall_inspection_area_6476.cr3",
+    "category": "QUALITY",
+    "description": "Quality Control Firewall Inspection Area"
+  },
+  {
+    "original": "IMG_6476.JPG",
+    "renamed": "quality_control_firewall_inspection_area_6476.jpg",
+    "category": "QUALITY",
+    "description": "Quality Control Firewall Inspection Area"
+  },
+  {
+    "original": "IMG_6477.CR3",
+    "renamed": "post_moulding_quality_control_and_assembly_bay_6477.cr3",
+    "category": "QUALITY",
+    "description": "Post Moulding Quality Control And Assembly Bay"
+  },
+  {
+    "original": "IMG_6477.JPG",
+    "renamed": "post_moulding_quality_control_and_assembly_bay_6477.jpg",
+    "category": "QUALITY",
+    "description": "Post Moulding Quality Control And Assembly Bay"
+  },
+  {
+    "original": "IMG_6484.CR3",
+    "renamed": "factory_quality_inspection_shop_floor_6484.cr3",
+    "category": "FACILITY",
+    "description": "Factory Quality Inspection Shop Floor"
+  },
+  {
+    "original": "IMG_6484.JPG",
+    "renamed": "factory_quality_inspection_shop_floor_6484.jpg",
+    "category": "FACILITY",
+    "description": "Factory Quality Inspection Shop Floor"
+  },
+  {
+    "original": "IMG_6486.CR3",
+    "renamed": "plastic_part_manual_inspection_station_6486.cr3",
+    "category": "QUALITY",
+    "description": "Plastic Part Manual Inspection Station"
+  },
+  {
+    "original": "IMG_6486.JPG",
+    "renamed": "plastic_part_manual_inspection_station_6486.jpg",
+    "category": "QUALITY",
+    "description": "Plastic Part Manual Inspection Station"
+  },
+  {
+    "original": "IMG_6487.CR3",
+    "renamed": "quality_control_inspection_station_6487.cr3",
+    "category": "FACILITY",
+    "description": "Quality Control Inspection Station"
+  },
+  {
+    "original": "IMG_6487.JPG",
+    "renamed": "quality_control_inspection_station_6487.jpg",
+    "category": "FACILITY",
+    "description": "Quality Control Inspection Station"
+  },
+  {
+    "original": "IMG_6488.CR3",
+    "renamed": "manual_plastic_product_inspection_table_6488.cr3",
+    "category": "QUALITY",
+    "description": "Manual Plastic Product Inspection Table"
+  },
+  {
+    "original": "IMG_6490.CR3",
+    "renamed": "plastic_moulded_parts_inventory_storage_6490.cr3",
+    "category": "STORAGE",
+    "description": "Plastic Moulded Parts Inventory Storage"
+  },
+  {
+    "original": "IMG_6490.JPG",
+    "renamed": "plastic_moulded_parts_inventory_storage_6490.jpg",
+    "category": "STORAGE",
+    "description": "Plastic Moulded Parts Inventory Storage"
+  },
+  {
+    "original": "IMG_6491.CR3",
+    "renamed": "raw_material_polymer_granules_inventory_6491.cr3",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Granules Inventory"
+  },
+  {
+    "original": "IMG_6491.JPG",
+    "renamed": "raw_material_polymer_granules_inventory_6491.jpg",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Granules Inventory"
+  },
+  {
+    "original": "IMG_6492.CR3",
+    "renamed": "finished_goods_inventory_racking_6492.cr3",
+    "category": "STORAGE",
+    "description": "Finished Goods Inventory Racking"
+  },
+  {
+    "original": "IMG_6492.JPG",
+    "renamed": "finished_goods_inventory_racking_6492.jpg",
+    "category": "STORAGE",
+    "description": "Finished Goods Inventory Racking"
+  },
+  {
+    "original": "IMG_6493.CR3",
+    "renamed": "moulded_parts_warehouse_storage_racks_6493.cr3",
+    "category": "STORAGE",
+    "description": "Moulded Parts Warehouse Storage Racks"
+  },
+  {
+    "original": "IMG_6494.CR3",
+    "renamed": "raw_material_polymer_granules_inventory_6494.cr3",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Granules Inventory"
+  },
+  {
+    "original": "IMG_6494.JPG",
+    "renamed": "raw_material_polymer_granules_inventory_6494.jpg",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Granules Inventory"
+  },
+  {
+    "original": "IMG_6495.CR3",
+    "renamed": "raw_material_polymer_granules_racking_6495.cr3",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Granules Racking"
+  },
+  {
+    "original": "IMG_6495.JPG",
+    "renamed": "raw_material_polymer_granules_racking_6495.jpg",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Granules Racking"
+  },
+  {
+    "original": "IMG_6496.CR3",
+    "renamed": "raw_material_polymer_granules_6496.cr3",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Granules"
+  },
+  {
+    "original": "IMG_6496.JPG",
+    "renamed": "raw_material_polymer_granules_6496.jpg",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Granules"
+  },
+  {
+    "original": "IMG_6498.CR3",
+    "renamed": "plastic_moulded_parts_inventory_6498.cr3",
+    "category": "STORAGE",
+    "description": "Plastic Moulded Parts Inventory"
+  },
+  {
+    "original": "IMG_6498.JPG",
+    "renamed": "plastic_moulded_parts_inventory_6498.jpg",
+    "category": "STORAGE",
+    "description": "Plastic Moulded Parts Inventory"
+  },
+  {
+    "original": "IMG_6500.CR3",
+    "renamed": "finished_goods_inventory_racking_6500.cr3",
+    "category": "STORAGE",
+    "description": "Finished Goods Inventory Racking"
+  },
+  {
+    "original": "IMG_6500.JPG",
+    "renamed": "finished_goods_inventory_racking_6500.jpg",
+    "category": "STORAGE",
+    "description": "Finished Goods Inventory Racking"
+  },
+  {
+    "original": "IMG_6501.JPG",
+    "renamed": "finished_goods_warehouse_storage_6501.jpg",
+    "category": "STORAGE",
+    "description": "Finished Goods Warehouse Storage"
+  },
+  {
+    "original": "IMG_6502.JPG",
+    "renamed": "plastic_storage_crate_stack_6502.jpg",
+    "category": "STORAGE",
+    "description": "Plastic Storage Crate Stack"
+  },
+  {
+    "original": "IMG_6503.JPG",
+    "renamed": "industrial_plastic_storage_crates_6503.jpg",
+    "category": "STORAGE",
+    "description": "Industrial Plastic Storage Crates"
+  },
+  {
+    "original": "IMG_6504.JPG",
+    "renamed": "plastic_crate_stacking_inventory_6504.jpg",
+    "category": "STORAGE",
+    "description": "Plastic Crate Stacking Inventory"
+  },
+  {
+    "original": "IMG_6505.JPG",
+    "renamed": "raw_material_polymer_granules_racking_6505.jpg",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Granules Racking"
+  },
+  {
+    "original": "IMG_6506.JPG",
+    "renamed": "raw_material_and_component_sample_display_board_6506.jpg",
+    "category": "STORAGE",
+    "description": "Raw Material And Component Sample Display Board"
+  },
+  {
+    "original": "IMG_6507.JPG",
+    "renamed": "raw_material_and_components_sample_display_board_6507.jpg",
+    "category": "STORAGE",
+    "description": "Raw Material And Components Sample Display Board"
+  },
+  {
+    "original": "IMG_6508.CR3",
+    "renamed": "raw_material_polymer_samples_display_6508.cr3",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Samples Display"
+  },
+  {
+    "original": "IMG_6508.JPG",
+    "renamed": "raw_material_polymer_samples_display_6508.jpg",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Samples Display"
+  },
+  {
+    "original": "IMG_6509.JPG",
+    "renamed": "raw_material_polymer_granules_inventory_6509.jpg",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Granules Inventory"
+  },
+  {
+    "original": "IMG_6510.JPG",
+    "renamed": "raw_material_polymer_granules_6510.jpg",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Granules"
+  },
+  {
+    "original": "IMG_6511.JPG",
+    "renamed": "raw_material_polymer_granules_6511.jpg",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Granules"
+  },
+  {
+    "original": "IMG_6512.CR3",
+    "renamed": "raw_material_polymer_granules_inventory_6512.cr3",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Granules Inventory"
+  },
+  {
+    "original": "IMG_6512.JPG",
+    "renamed": "raw_material_polymer_granules_inventory_6512.jpg",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Granules Inventory"
+  },
+  {
+    "original": "IMG_6513.JPG",
+    "renamed": "raw_material_polymer_granules_racking_6513.jpg",
+    "category": "STORAGE",
+    "description": "Raw Material Polymer Granules Racking"
+  },
+  {
+    "original": "IMG_6514.JPG",
+    "renamed": "packaging_carton_inventory_6514.jpg",
+    "category": "STORAGE",
+    "description": "Packaging Carton Inventory"
+  },
+  {
+    "original": "IMG_6515.JPG",
+    "renamed": "corrugated_cardboard_storage_area_6515.jpg",
+    "category": "PACKAGING",
+    "description": "Corrugated Cardboard Storage Area"
+  },
+  {
+    "original": "IMG_6516.JPG",
+    "renamed": "corrugated_cardboard_packaging_stock_6516.jpg",
+    "category": "STORAGE",
+    "description": "Corrugated Cardboard Packaging Stock"
+  },
+  {
+    "original": "IMG_6517.JPG",
+    "renamed": "injection_moulding_machine_chen_hsong_6517.jpg",
+    "category": "MACHINE",
+    "description": "Injection Moulding Machine Chen Hsong"
+  },
+  {
+    "original": "IMG_6518.JPG",
+    "renamed": "factory_shop_floor_main_bay_6518.jpg",
+    "category": "FACILITY",
+    "description": "Factory Shop Floor Main Bay"
+  },
+  {
+    "original": "IMG_6519.JPG",
+    "renamed": "factory_shop_floor_main_bay_6519.jpg",
+    "category": "FACILITY",
+    "description": "Factory Shop Floor Main Bay"
+  },
+  {
+    "original": "IMG_6520.JPG",
+    "renamed": "injection_moulding_machine_chen_hsong_6520.jpg",
+    "category": "MACHINE",
+    "description": "Injection Moulding Machine Chen Hsong"
+  },
+  {
+    "original": "IMG_6521.JPG",
+    "renamed": "post_moulding_inspection_and_packaging_station_6521.jpg",
+    "category": "FACILITY",
+    "description": "Post Moulding Inspection And Packaging Station"
+  },
+  {
+    "original": "IMG_6522.JPG",
+    "renamed": "injection_moulding_machine_150t_6522.jpg",
+    "category": "MACHINE",
+    "description": "Injection Moulding Machine 150T"
+  },
+  {
+    "original": "IMG_6523.JPG",
+    "renamed": "injection_moulding_machine_stm_150t_6523.jpg",
+    "category": "MACHINE",
+    "description": "Injection Moulding Machine Stm 150T"
+  },
+  {
+    "original": "IMG_6527.CR3",
+    "renamed": "injection_moulding_machine_union_plastic_6527.cr3",
+    "category": "MACHINE",
+    "description": "Injection Moulding Machine Union Plastic"
+  },
+  {
+    "original": "IMG_6527.JPG",
+    "renamed": "injection_moulding_machine_union_plastic_6527.jpg",
+    "category": "MACHINE",
+    "description": "Injection Moulding Machine Union Plastic"
+  },
+  {
+    "original": "IMG_6528.CR3",
+    "renamed": "factory_shop_floor_main_bay_6528.cr3",
+    "category": "FACILITY",
+    "description": "Factory Shop Floor Main Bay"
+  },
+  {
+    "original": "IMG_6528.JPG",
+    "renamed": "factory_shop_floor_main_bay_6528.jpg",
+    "category": "FACILITY",
+    "description": "Factory Shop Floor Main Bay"
+  },
+  {
+    "original": "IMG_6530.CR3",
+    "renamed": "factory_shop_floor_tool_maintenance_area_6530.cr3",
+    "category": "FACILITY",
+    "description": "Factory Shop Floor Tool Maintenance Area"
+  },
+  {
+    "original": "IMG_6531.JPG",
+    "renamed": "overhead_bridge_crane_hoist_6531.jpg",
+    "category": "MACHINE",
+    "description": "Overhead Bridge Crane Hoist"
+  },
+  {
+    "original": "IMG_6532.JPG",
+    "renamed": "tool_mould_maintenance_table_6532.jpg",
+    "category": "MAINTENANCE",
+    "description": "Tool Mould Maintenance Table"
+  },
+  {
+    "original": "IMG_6533.JPG",
+    "renamed": "tool_maintenance_bay_6533.jpg",
+    "category": "FACILITY",
+    "description": "Tool Maintenance Bay"
+  },
+  {
+    "original": "IMG_6535.JPG",
+    "renamed": "injection_moulding_tool_storage_racks_6535.jpg",
+    "category": "STORAGE",
+    "description": "Injection Moulding Tool Storage Racks"
+  },
+  {
+    "original": "IMG_6538.JPG",
+    "renamed": "injection_moulding_machine_shop_floor_6538.jpg",
+    "category": "MACHINE",
+    "description": "Injection Moulding Machine Shop Floor"
+  },
+  {
+    "original": "IMG_6539.JPG",
+    "renamed": "injection_moulding_machine_union_plastic_6539.jpg",
+    "category": "MACHINE",
+    "description": "Injection Moulding Machine Union Plastic"
+  },
+  {
+    "original": "IMG_6541.JPG",
+    "renamed": "factory_entrance_exterior_6541.jpg",
+    "category": "FACILITY",
+    "description": "Factory Entrance Exterior"
+  },
+  {
+    "original": "IMG_6545.JPG",
+    "renamed": "manufacturing_plant_office_entrance_6545.jpg",
+    "category": "FACILITY",
+    "description": "Manufacturing Plant Office Entrance"
+  },
+  {
+    "original": "IMG_6546.JPG",
+    "renamed": "plant_management_office_entrance_6546.jpg",
+    "category": "OFFICE",
+    "description": "Plant Management Office Entrance"
+  },
+  {
+    "original": "IMG_6549.JPG",
+    "renamed": "finished_goods_inventory_crates_6549.jpg",
+    "category": "STORAGE",
+    "description": "Finished Goods Inventory Crates"
+  },
+  {
+    "original": "IMG_6550.JPG",
+    "renamed": "factory_shop_floor_main_bay_6550.jpg",
+    "category": "FACILITY",
+    "description": "Factory Shop Floor Main Bay"
+  },
+  {
+    "original": "IMG_6552.CR3",
+    "renamed": "factory_shop_floor_main_bay_6552.cr3",
+    "category": "FACILITY",
+    "description": "Factory Shop Floor Main Bay"
+  },
+  {
+    "original": "IMG_6552.JPG",
+    "renamed": "factory_shop_floor_main_bay_6552.jpg",
+    "category": "FACILITY",
+    "description": "Factory Shop Floor Main Bay"
+  },
+  {
+    "original": "IMG_6553.JPG",
+    "renamed": "manufacturing_plant_exterior_view_6553.jpg",
+    "category": "FACILITY",
+    "description": "Manufacturing Plant Exterior View"
+  },
+  {
+    "original": "IMG_6557.JPG",
+    "renamed": "electrical_transformer_and_switchgear_6557.jpg",
+    "category": "FACILITY",
+    "description": "Electrical Transformer And Switchgear"
+  },
+  {
+    "original": "IMG_6558.CR3",
+    "renamed": "electrical_transformer_substation_6558.cr3",
+    "category": "FACILITY",
+    "description": "Electrical Transformer Substation"
+  },
+  {
+    "original": "IMG_6558.JPG",
+    "renamed": "electrical_transformer_substation_6558.jpg",
+    "category": "FACILITY",
+    "description": "Electrical Transformer Substation"
+  },
+  {
+    "original": "IMG_6562.CR3",
+    "renamed": "factory_finished_goods_storage_area_6562.cr3",
+    "category": "STORAGE",
+    "description": "Factory Finished Goods Storage Area"
+  },
+  {
+    "original": "IMG_6562.JPG",
+    "renamed": "factory_finished_goods_storage_area_6562.jpg",
+    "category": "STORAGE",
+    "description": "Factory Finished Goods Storage Area"
+  },
+  {
+    "original": "IMG_6565.CR3",
+    "renamed": "factory_floor_potted_plant_6565.cr3",
+    "category": "FACILITY",
+    "description": "Factory Floor Potted Plant"
+  },
+  {
+    "original": "IMG_6565.JPG",
+    "renamed": "factory_floor_potted_plant_6565.jpg",
+    "category": "FACILITY",
+    "description": "Factory Floor Potted Plant"
+  },
+  {
+    "original": "IMG_6566.CR3",
+    "renamed": "factory_security_cabin_6566.cr3",
+    "category": "FACILITY",
+    "description": "Factory Security Cabin"
+  },
+  {
+    "original": "IMG_6566.JPG",
+    "renamed": "factory_security_cabin_6566.jpg",
+    "category": "FACILITY",
+    "description": "Factory Security Cabin"
+  },
+  {
+    "original": "IMG_6571.JPG",
+    "renamed": "factory_finished_goods_warehouse_6571.jpg",
+    "category": "STORAGE",
+    "description": "Factory Finished Goods Warehouse"
+  }
+]
