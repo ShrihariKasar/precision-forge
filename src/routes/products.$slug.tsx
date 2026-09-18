@@ -9,7 +9,15 @@ import { CTASection } from "@/components/site/CTASection";
 
 export const Route = createFileRoute("/products/$slug")({
   loader: ({ params }) => {
-    const product = products.find((p) => p.slug === params.slug);
+    const raw = (params.slug || "").toLowerCase().trim();
+    const normalized = raw.replace(/_/g, "-");
+    const product = products.find(
+      (p) =>
+        p.slug.toLowerCase() === raw ||
+        p.slug.toLowerCase() === normalized ||
+        p.id.toLowerCase() === raw ||
+        p.id.toLowerCase() === normalized
+    );
     if (!product) throw notFound();
     return { product };
   },
@@ -52,14 +60,22 @@ function ProductDetail() {
       {/* MAIN DETAIL */}
       <section className="container-x section-y">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
-          {/* IMAGE */}
-          <Reveal variant="clip" className="overflow-hidden rounded-lg border border-border lg:col-span-6">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="aspect-[4/3] w-full object-cover"
-            />
-          </Reveal>
+          {/* IMAGE ON LEFT SIDE */}
+          <div className="lg:col-span-6">
+            <div className="overflow-hidden rounded-xl border border-border/80 bg-surface shadow-xl p-3 sm:p-5">
+              <div className="relative aspect-square sm:aspect-[4/3] w-full overflow-hidden rounded-lg bg-surface-2/60 flex items-center justify-center">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  fetchPriority="high"
+                  className="size-full object-contain p-4 sm:p-6 transition-transform duration-500 hover:scale-105"
+                />
+                <div className="absolute top-3 left-3 rounded-md bg-background/90 px-2.5 py-1 text-[10px] font-mono uppercase tracking-wider text-accent border border-border/60 shadow-sm backdrop-blur-sm">
+                  {product.category}
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* DETAILS */}
           <div className="lg:col-span-6 space-y-6">
