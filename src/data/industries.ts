@@ -1,7 +1,7 @@
-import automotiveClipsImg from "@/assets/spipl/automotive_clips.png";
-import applianceComponentsImg from "@/assets/spipl/appliance_components.png";
-import defenceComponentsImg from "@/assets/spipl/defence_components.png";
-import shopFloorImg from "@/assets/spipl/shop_floor.png";
+import automotiveClipsImg from "@/assets/spipl/automotive_clips.jpg";
+import applianceComponentsImg from "@/assets/spipl/appliance_components.jpg";
+import defenceComponentsImg from "@/assets/spipl/defence_components.jpg";
+import shopFloorImg from "@/assets/spipl/shop_floor.jpg";
 
 export type Industry = {
   slug: string;

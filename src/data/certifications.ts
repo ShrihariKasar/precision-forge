@@ -1,4 +1,4 @@
-import shopFloorImg from "@/assets/spipl/shop_floor.png";
+import shopFloorImg from "@/assets/spipl/shop_floor.jpg";
 import iatfLogo from "@/assets/logos/iatf-16949.svg";
 import isoLogo from "@/assets/logos/iso-9001.svg";
 
