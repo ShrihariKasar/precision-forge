@@ -45,20 +45,19 @@ function ProductDetail() {
 
   return (
     <>
-      {/* HEADER BAR */}
-      <div className="border-b border-border bg-surface pt-32 pb-8">
-        <div className="container-x">
+      {/* MAIN DETAIL */}
+      <section className="container-x pt-28 pb-16 md:pt-32 md:pb-24">
+        {/* BACK TO PRODUCTS LINK DIRECTLY ABOVE IMAGE / CONTENT */}
+        <div className="mb-6">
           <Link
             to="/products"
-            className="inline-flex items-center gap-2 label-xs text-muted-foreground hover:text-accent transition-colors"
+            className="inline-flex items-center gap-2 label-xs text-muted-foreground hover:text-accent transition-colors group"
           >
-            <ArrowLeft className="size-4" /> Back to Products
+            <ArrowLeft className="size-4 transition-transform duration-200 group-hover:-translate-x-1" />
+            <span>Back to Products</span>
           </Link>
         </div>
-      </div>
 
-      {/* MAIN DETAIL */}
-      <section className="container-x section-y">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
           {/* IMAGE ON LEFT SIDE */}
           <div className="lg:col-span-6">
