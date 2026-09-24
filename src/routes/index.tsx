@@ -2,17 +2,14 @@ import { useState, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowUpRight, CheckCircle2, ShieldCheck, Cpu, Factory, Award, Building2, TrendingUp, MapPin, Phone, Mail, Clock } from "lucide-react";
 
-import plantExterior2083Img from "@/assets/real/plastic_injection_moulding_plant_exterior_2083.jpg";
 import heroPlantImg from "@/assets/real/hero_plant_exterior.jpg";
 import shopFloorImg from "@/assets/real/shop_floor_main.jpg";
 import machinePressImg from "@/assets/real/machine_chen_hsong_250t.jpg";
-import automotiveClipsImg from "@/assets/real/automotive_clips_inspection.jpg";
 
 import { company } from "@/data/company";
 import { products } from "@/data/products";
 import { capabilities } from "@/data/capabilities";
 import { certifications } from "@/data/certifications";
-import { customerList } from "@/data/customers";
 import { galleryItems } from "@/data/gallery";
 import { Reveal } from "@/components/site/Reveal";
 import { ActionLink, SectionHeading, StatCounter, TextLink } from "@/components/site/ui";
@@ -21,13 +18,8 @@ import { ProductShowcaseCarousel } from "@/components/site/ProductShowcaseCarous
 import { CTASection } from "@/components/site/CTASection";
 import { DeliveryChart } from "@/components/site/DeliveryChart";
 import { OneStopServicesSection } from "@/components/site/OneStopServicesSection";
-import { ClientLogo } from "@/components/site/ClientLogos";
 
 const heroSlides = [
-  {
-    src: plantExterior2083Img,
-    alt: "Precision plastic injection moulding plant exterior facility",
-  },
   {
     src: shopFloorImg,
     alt: "Sanchit Polymer Industries 12-press injection moulding shop floor",
@@ -39,10 +31,6 @@ const heroSlides = [
   {
     src: machinePressImg,
     alt: "Chen Hsong 250T precision injection moulding press machinery",
-  },
-  {
-    src: automotiveClipsImg,
-    alt: "Precision automotive moulded clips and inspection station",
   },
 ];
 
@@ -157,97 +145,137 @@ function Home() {
       {/* 2. ONE-STOP PRECISION INJECTION MOLD & MOLDING SERVICES */}
       <OneStopServicesSection />
 
-      {/* 3. INDUSTRY CUSTOMERS */}
-      <section className="container-x section-y">
-        <SectionHeading
-          eyebrow="Industry Customers"
-          title="Trusted by Leading Industrial Clients"
-          description="Sanchit Polymer Industries is a trusted component supplier to automotive OEMs, appliance manufacturers and defence contractors."
-        />
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
-          {customerList.map((c, i) => (
-            <Reveal
-              key={c.id}
-              delay={i * 70}
-              className="group relative flex flex-col justify-between rounded-xl border border-border/80 bg-surface/90 p-6 shadow-sm transition-all duration-300 hover:border-accent/60 hover:shadow-xl hover:-translate-y-1"
-            >
-              <div className="flex flex-col h-full justify-between gap-6">
-                <div className="flex items-center justify-between gap-3">
-                  <span className="label-xs text-accent">{c.category}</span>
-                  <div className="flex h-9 max-w-[125px] shrink-0 items-center justify-center rounded-md bg-white/95 px-2.5 py-1 shadow-sm border border-slate-200/90 group-hover:border-accent/50 transition-colors">
-                    <ClientLogo id={c.id} className="h-6 max-h-7 w-auto object-contain" />
-                  </div>
-                </div>
-
-                <h3 className="text-lg font-bold text-foreground group-hover:text-accent transition-colors leading-snug">
-                  {c.name}
-                </h3>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
 
       {/* 4. FEATURED PRODUCTS SHOWCASE & CAROUSEL */}
       <ProductShowcaseCarousel />
 
-      {/* 5. QUALITY & CERTIFICATIONS */}
-      <section className="container-x py-10 md:py-12">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <SectionHeading
-              eyebrow="Quality Assurance"
-              title="IATF 16949 & ISO 9001 Standards"
-              description="Stringent quality management systems, dimensional measurement lab with digital verniers, micrometers, pin gauges and lux meters."
-            />
-
-            <div className="mt-8 space-y-4">
-              {certifications.map((cert) => (
-                <div key={cert.id} className="rounded-lg border border-border bg-surface p-5 transition-all duration-300 hover:border-accent/40">
-                  <div className="flex items-center gap-4">
-                    {cert.logo ? (
-                      <img src={cert.logo} alt={`${cert.name} Logo`} className="size-12 shrink-0 object-contain drop-shadow" />
-                    ) : (
-                      <Award className="size-5 text-accent shrink-0" />
-                    )}
-                    <div>
-                      <h4 className="text-lg font-bold text-foreground">{cert.name}</h4>
-                      <p className="text-xs font-mono text-accent mt-0.5">{cert.standard}</p>
-                    </div>
-                  </div>
-                  <p className="mt-3 text-xs text-muted-foreground leading-relaxed">{cert.scope}</p>
-                  <div className="mt-3 flex flex-wrap gap-4 text-xs font-mono text-muted-foreground border-t border-border/50 pt-2.5">
-                    <span>Cert: {cert.certificateNumber}</span>
-                    {cert.iatfNumber && <span>IATF: {cert.iatfNumber}</span>}
-                    <span>Exp: {cert.expiryDate}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <Reveal delay={200} className="mt-8">
-              <ActionLink to="/quality/certifications" variant="outline">
-                VIEW QUALITY CERTIFICATES
-              </ActionLink>
-            </Reveal>
-          </div>
-
-          <div className="space-y-6">
-            <h3 className="label-xs text-muted-foreground uppercase">Production Quality Firewall Process</h3>
-            <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border">
-              {company.process.map((stage, i) => (
-                <div key={stage.title} className="flex items-center gap-5 bg-background px-6 py-4">
-                  <span className="label-xs w-8 text-accent font-semibold">0{i + 1}</span>
-                  <div>
-                    <h4 className="text-sm font-medium text-foreground">{stage.title}</h4>
-                    <p className="text-xs text-muted-foreground">{stage.text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+      {/* 5. QUALITY & CERTIFICATION MATRIX */}
+      <section className="container-x section-y">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <SectionHeading
+            index="03"
+            eyebrow="Verified Compliance & Standards"
+            title="Quality & Certification Matrix"
+            description="Accredited registrar certifications, verified scopes of registration, and quality management systems governing all manufacturing operations."
+          />
+          <div className="shrink-0">
+            <ActionLink to="/quality/certifications" variant="outline">
+              VIEW QUALITY MATRIX →
+            </ActionLink>
           </div>
         </div>
+
+        {/* CERTIFICATION MATRIX TABLE (DESKTOP & TABLET) */}
+        <Reveal delay={120} className="mt-10 overflow-hidden rounded-xl border border-border/80 bg-surface shadow-lg">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm">
+              <thead className="border-b border-border/80 bg-background/80 text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
+                <tr>
+                  <th scope="col" className="px-6 py-4">Standard & Accreditation</th>
+                  <th scope="col" className="px-6 py-4">Certificate / IATF No.</th>
+                  <th scope="col" className="px-6 py-4">Issuing Registrar</th>
+                  <th scope="col" className="px-6 py-4">Scope of Registration</th>
+                  <th scope="col" className="px-6 py-4">Validity & Surveillance</th>
+                  <th scope="col" className="px-6 py-4 text-center">Status</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border/60">
+                {certifications.map((cert) => (
+                  <tr key={cert.id} className="transition-colors hover:bg-background/40">
+                    {/* Standard & Logo */}
+                    <td className="px-6 py-5 align-top">
+                      <div className="flex items-center gap-3">
+                        {cert.logo ? (
+                          <div className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-white p-1.5 shadow-sm border border-slate-200">
+                            <img src={cert.logo} alt={`${cert.name} Logo`} className="size-full object-contain" />
+                          </div>
+                        ) : (
+                          <Award className="size-8 text-accent shrink-0" />
+                        )}
+                        <div>
+                          <div className="font-bold text-foreground text-base leading-snug">{cert.name}</div>
+                          <div className="text-xs font-mono text-accent mt-0.5">{cert.standard}</div>
+                        </div>
+                      </div>
+                    </td>
+
+                    {/* Certificate / IATF No. */}
+                    <td className="px-6 py-5 align-top font-mono text-xs">
+                      <div className="font-semibold text-foreground">Cert: {cert.certificateNumber}</div>
+                      {cert.iatfNumber && (
+                        <div className="text-accent mt-1">IATF: {cert.iatfNumber}</div>
+                      )}
+                    </td>
+
+                    {/* Issuing Registrar */}
+                    <td className="px-6 py-5 align-top">
+                      <span className="inline-flex items-center rounded-md bg-background/80 px-2.5 py-1 text-xs font-medium text-foreground border border-border/60">
+                        {cert.issuingBody}
+                      </span>
+                    </td>
+
+                    {/* Scope of Registration */}
+                    <td className="px-6 py-5 align-top max-w-xs text-xs text-muted-foreground leading-relaxed">
+                      {cert.scope}
+                    </td>
+
+                    {/* Validity & Surveillance */}
+                    <td className="px-6 py-5 align-top font-mono text-xs text-muted-foreground">
+                      <div><span className="text-foreground">Issued:</span> {cert.issueDate}</div>
+                      <div className="mt-1"><span className="text-emerald-400 font-semibold">Valid to:</span> {cert.expiryDate}</div>
+                      {cert.surveillance1st && (
+                        <div className="mt-1 text-[11px] text-muted-foreground/80">
+                          Surveillance: {cert.surveillance1st}
+                        </div>
+                      )}
+                    </td>
+
+                    {/* Status Badge */}
+                    <td className="px-6 py-5 align-top text-center">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-400 border border-emerald-500/20">
+                        <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        Verified
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </Reveal>
+
+        {/* QUALITY FIREWALL PROCESS & METRICS MATRIX */}
+        <Reveal delay={200} className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-xl border border-border/80 bg-surface p-5">
+            <span className="label-xs text-accent font-mono">MATRIX METRIC 01</span>
+            <h4 className="mt-2 text-base font-bold text-foreground">0-PPM Goal Focus</h4>
+            <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
+              100% firewall dimensional check against customer drawings before packaging release.
+            </p>
+          </div>
+          <div className="rounded-xl border border-border/80 bg-surface p-5">
+            <span className="label-xs text-accent font-mono">MATRIX METRIC 02</span>
+            <h4 className="mt-2 text-base font-bold text-foreground">Calibrated QA Lab</h4>
+            <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
+              Digital verniers, micrometers, pin gauges and digital lux measuring instruments.
+            </p>
+          </div>
+          <div className="rounded-xl border border-border/80 bg-surface p-5">
+            <span className="label-xs text-accent font-mono">MATRIX METRIC 03</span>
+            <h4 className="mt-2 text-base font-bold text-foreground">12 Verified Presses</h4>
+            <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
+              Operating 100T to 250T presses with controlled injection shot weight and cycle stability.
+            </p>
+          </div>
+          <div className="rounded-xl border border-border/80 bg-surface p-5">
+            <span className="label-xs text-accent font-mono">MATRIX METRIC 04</span>
+            <h4 className="mt-2 text-base font-bold text-foreground">Full Batch Traceability</h4>
+            <p className="mt-1.5 text-xs text-muted-foreground leading-relaxed">
+              Raw polymer masterbatch verification, drying control and scheduled OEM dock dispatches.
+            </p>
+          </div>
+        </Reveal>
       </section>
 
       {/* 10. PRODUCT GALLERY PREVIEW */}

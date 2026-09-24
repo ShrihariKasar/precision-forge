@@ -49,51 +49,79 @@ function GalleryPage() {
       />
 
       <section className="container-x pt-14 pb-20 md:pt-20 md:pb-28">
-        <div className="flex flex-wrap gap-2 border-b border-border pb-6">
-          {galleryCategories.map((c) => (
-            <button
-              key={c}
-              type="button"
-              onClick={() => setCategory(c)}
-              aria-pressed={category === c}
-              className={cn(
-                "min-h-11 rounded-md border px-5 label-xs transition-all duration-300 cursor-pointer",
-                category === c
-                  ? "border-accent bg-accent text-accent-foreground"
-                  : "border-border text-muted-foreground hover:border-border-strong hover:text-foreground",
-              )}
-            >
-              {c}
-            </button>
-          ))}
+        {/* CATEGORY FILTER BUTTONS WITH COUNTS */}
+        <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border pb-6">
+          <div className="flex flex-wrap gap-2">
+            {galleryCategories.map((c) => {
+              const count = c === "ALL" ? galleryItems.length : galleryItems.filter((i) => i.category === c).length;
+              return (
+                <button
+                  key={c}
+                  type="button"
+                  onClick={() => setCategory(c)}
+                  aria-pressed={category === c}
+                  className={cn(
+                    "min-h-11 rounded-lg border px-4 sm:px-5 label-xs font-semibold tracking-wider transition-all duration-300 cursor-pointer flex items-center gap-2",
+                    category === c
+                      ? "border-accent bg-accent text-accent-foreground shadow-md shadow-accent/20"
+                      : "border-border/80 bg-surface/80 text-muted-foreground hover:border-accent/50 hover:text-foreground",
+                  )}
+                >
+                  <span>{c}</span>
+                  <span
+                    className={cn(
+                      "rounded-full px-1.5 py-0.2 text-[10px] font-mono",
+                      category === c ? "bg-accent-foreground/20 text-accent-foreground" : "bg-background/80 text-muted-foreground",
+                    )}
+                  >
+                    {count}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          <span className="text-xs font-mono text-muted-foreground">
+            {items.length} {items.length === 1 ? "Photograph" : "Photographs"} • Click to Expand
+          </span>
         </div>
 
-        <div className="mt-8 grid auto-rows-[14rem] grid-cols-1 sm:grid-cols-2 md:auto-rows-[16rem] md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {/* PROPERLY ALIGNED UNIFORM GRID (ZERO HOLES, BALANCED ROWS) */}
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
           {items.map((item, i) => (
             <button
               key={item.id}
               type="button"
               onClick={() => setLightbox(i)}
-              className={cn(
-                "group relative overflow-hidden rounded-md border border-border bg-surface text-left cursor-pointer",
-                item.aspect === "wide" && "sm:col-span-2",
-                item.aspect === "portrait" && "row-span-2",
-              )}
+              className="group relative flex flex-col overflow-hidden rounded-xl border border-border/80 bg-surface text-left shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/60 hover:shadow-xl cursor-pointer"
             >
-              <img
-                src={item.image}
-                alt={item.title}
-                loading="lazy"
-                className="size-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
-              />
-              <span className="absolute inset-0 bg-background/0 transition-colors duration-500 group-hover:bg-background/60" />
-              <span className="absolute inset-x-0 bottom-0 flex items-end justify-between p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-gradient-to-t from-background via-background/80 to-transparent">
-                <div>
-                  <span className="label-xs text-accent font-mono">{item.category}</span>
-                  <h3 className="text-sm font-semibold text-foreground mt-1">{item.title}</h3>
+              {/* Photo Area with Uniform Aspect Ratio */}
+              <div className="relative aspect-[16/11] w-full overflow-hidden bg-surface-2">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-30 transition-opacity duration-300 group-hover:opacity-60" />
+
+                {/* Top Expand Indicator */}
+                <div className="absolute right-3 top-3 pointer-events-none">
+                  <span className="grid size-7 place-items-center rounded-md bg-background/90 text-foreground border border-border/60 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-md">
+                    <Expand className="size-3.5 text-accent" />
+                  </span>
                 </div>
-                <Expand className="size-5 text-accent shrink-0" />
-              </span>
+              </div>
+
+              {/* Card Caption Footer */}
+              <div className="flex flex-1 flex-col justify-between p-4 bg-surface border-t border-border/60">
+                <h3 className="text-sm font-bold text-foreground leading-snug group-hover:text-accent transition-colors line-clamp-1">
+                  {item.title}
+                </h3>
+                <p className="mt-1 text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+                  {item.caption}
+                </p>
+              </div>
             </button>
           ))}
         </div>

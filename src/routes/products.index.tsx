@@ -32,22 +32,22 @@ function ProductsIndex() {
 
   return (
     <>
-      <section className="relative overflow-hidden pt-36 pb-20 border-b border-border bg-surface">
+      <section className="relative overflow-hidden pt-24 pb-8 md:pt-28 md:pb-10 border-b border-border bg-surface">
         <div className="container-x">
           <Reveal className="label-xs text-accent">PRODUCT CATALOGUE</Reveal>
           <Reveal delay={80}>
-            <h1 className="mt-4 text-[clamp(2.5rem,6vw,5rem)] leading-[0.98] font-medium">
+            <h1 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-tight text-foreground">
               Precision Moulded Components
             </h1>
           </Reveal>
           <Reveal delay={140}>
-            <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground">
+            <p className="mt-3 max-w-2xl text-base md:text-lg leading-relaxed text-muted-foreground">
               Automotive clips, body plugs, holders, appliance fan components, and defence critical parts manufactured to drawing specifications.
             </p>
           </Reveal>
 
           {/* FILTERING TABS */}
-          <Reveal delay={200} className="mt-10 flex flex-wrap gap-2.5">
+          <Reveal delay={200} className="mt-6 md:mt-7 flex flex-wrap gap-2.5">
             {productCategories.map((cat) => (
               <button
                 type="button"
@@ -67,11 +67,11 @@ function ProductsIndex() {
         </div>
       </section>
 
-      <section className="container-x section-y">
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="container-x pt-8 pb-16 md:pt-10 md:pb-24">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4">
           {filteredProducts.map((product, i) => (
-            <Reveal key={product.id} delay={(i % 3) * 60}>
-              <ProductCard product={product} className="h-full" />
+            <Reveal key={product.id} delay={(i % 5) * 40}>
+              <ProductCard product={product} compact className="h-full" />
             </Reveal>
           ))}
         </div>

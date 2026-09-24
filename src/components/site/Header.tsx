@@ -167,11 +167,11 @@ export function Header() {
           onMouseEnter={handleMouseEnterAbout}
           onMouseLeave={handleMouseLeaveAbout}
         >
-          <div className="container-x flex items-center justify-center gap-4 py-2.5">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-accent shrink-0 border-r border-border/60 pr-4">
+          <div className="container-x flex items-center justify-center gap-5 py-4">
+            <span className="text-[11px] font-bold uppercase tracking-widest text-accent shrink-0 border-r border-border/60 pr-5 py-1">
               ABOUT SPIPL
             </span>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2.5">
               {navLinks.find((l) => l.children)?.children?.map((subItem) => {
                 const IconComp = subItemIcons[subItem.to] || Info;
                 const isSubActive =
@@ -183,7 +183,7 @@ export function Header() {
                     key={subItem.to}
                     to={subItem.to}
                     className={cn(
-                      "group flex items-center gap-2.5 rounded-lg px-3.5 py-2 transition-all duration-200",
+                      "group flex items-center gap-3 rounded-lg px-4 py-2.5 transition-all duration-200",
                       isSubActive
                         ? "bg-accent/20 text-accent font-bold border border-accent/40 shadow-sm"
                         : "text-muted-foreground hover:bg-accent/10 hover:text-foreground border border-transparent",
@@ -191,20 +191,20 @@ export function Header() {
                   >
                     <div
                       className={cn(
-                        "grid size-7 shrink-0 place-items-center rounded-md border transition-colors",
+                        "grid size-9 shrink-0 place-items-center rounded-md border transition-colors",
                         isSubActive
                           ? "border-accent/40 bg-accent/30 text-accent"
                           : "border-border/60 bg-surface text-muted-foreground group-hover:border-accent/40 group-hover:bg-accent/10 group-hover:text-accent",
                       )}
                     >
-                      <IconComp className="size-3.5" />
+                      <IconComp className="size-4" />
                     </div>
                     <div className="flex flex-col text-left">
-                      <span className="text-xs font-semibold leading-none tracking-wide text-foreground group-hover:text-accent transition-colors">
+                      <span className="text-xs font-semibold leading-tight tracking-wide text-foreground group-hover:text-accent transition-colors">
                         {subItem.label}
                       </span>
                       {subItem.description && (
-                        <span className="text-[10px] text-muted-foreground font-normal mt-1 max-w-[130px] truncate leading-none">
+                        <span className="text-[11px] text-muted-foreground font-normal mt-1 max-w-[145px] truncate leading-tight">
                           {subItem.description}
                         </span>
                       )}

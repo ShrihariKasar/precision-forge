@@ -1,10 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import shopFloorImg from "@/assets/real/shop_floor_main.jpg";
-import heroPlantImg from "@/assets/real/plant_facade_dng.jpg";
 import { company } from "@/data/company";
 import { materialsList } from "@/data/materials";
 import { Reveal } from "@/components/site/Reveal";
-import { ActionLink, SectionHeading, StatCounter } from "@/components/site/ui";
+import { ActionLink, SectionHeading } from "@/components/site/ui";
 import { CTASection } from "@/components/site/CTASection";
 
 export const Route = createFileRoute("/about")({
@@ -26,16 +25,16 @@ function About() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden pt-36 pb-20 border-b border-border bg-surface">
+      <section className="relative overflow-hidden pt-24 pb-8 md:pt-28 md:pb-10 border-b border-border bg-surface">
         <div className="container-x">
           <Reveal className="label-xs text-accent">ABOUT SANCHIT POLYMER INDUSTRIES</Reveal>
           <Reveal delay={80}>
-            <h1 className="mt-4 text-[clamp(2.5rem,6vw,5rem)] leading-[0.98] font-medium">
+            <h1 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-tight text-foreground">
               About Sanchit Polymer Industries
             </h1>
           </Reveal>
           <Reveal delay={140}>
-            <p className="mt-6 max-w-2xl text-xl leading-relaxed text-muted-foreground">
+            <p className="mt-3 max-w-2xl text-base md:text-lg leading-relaxed text-muted-foreground">
               Engineering plastic components for automotive, commercial and critical applications.
             </p>
           </Reveal>
@@ -43,7 +42,7 @@ function About() {
       </section>
 
       {/* COMPANY HISTORY & PORTFOLIO */}
-      <section className="container-x section-y">
+      <section className="container-x pt-8 pb-16 md:pt-10 md:pb-24">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7 space-y-6 text-base leading-relaxed text-muted-foreground">
             <Reveal>
@@ -68,23 +67,45 @@ function About() {
             </Reveal>
           </div>
 
-          <Reveal delay={140} variant="clip" className="overflow-hidden rounded-lg border border-border lg:col-span-5">
-            <img
-              src={heroPlantImg}
-              alt="SPIPL Plant Infrastructure"
-              className="aspect-[4/3] w-full object-cover"
-            />
-          </Reveal>
-        </div>
-      </section>
+          {/* Compact Stats Grid on the Right */}
+          <div className="lg:col-span-5">
+            <Reveal delay={140} className="grid grid-cols-2 gap-3.5 sm:gap-4 rounded-xl border border-border/80 bg-surface/90 p-4 sm:p-5 shadow-sm">
+              <div className="flex flex-col justify-between rounded-lg border border-border/60 bg-background/80 p-4 transition-all hover:border-accent/40">
+                <div className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-foreground leading-none">
+                  12<span className="text-accent font-semibold">+</span>
+                </div>
+                <p className="mt-2.5 text-xs text-muted-foreground font-medium leading-snug">
+                  Years of Growth
+                </p>
+              </div>
 
-      {/* STATS */}
-      <section className="surface-light border-y border-border py-16">
-        <div className="container-x">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {company.stats.map((s) => (
-              <StatCounter key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
-            ))}
+              <div className="flex flex-col justify-between rounded-lg border border-border/60 bg-background/80 p-4 transition-all hover:border-accent/40">
+                <div className="font-display text-xl sm:text-2xl font-bold tracking-tight text-foreground leading-none">
+                  10,000 <span className="text-accent text-xs sm:text-sm font-semibold">Sq. Ft.</span>
+                </div>
+                <p className="mt-2.5 text-xs text-muted-foreground font-medium leading-snug">
+                  High Tech Facility
+                </p>
+              </div>
+
+              <div className="flex flex-col justify-between rounded-lg border border-border/60 bg-background/80 p-4 transition-all hover:border-accent/40">
+                <div className="font-display text-lg sm:text-xl font-bold tracking-tight text-foreground leading-none">
+                  IATF 16949
+                </div>
+                <p className="mt-2.5 text-xs text-muted-foreground font-medium leading-snug">
+                  Automotive Quality Standard
+                </p>
+              </div>
+
+              <div className="flex flex-col justify-between rounded-lg border border-border/60 bg-background/80 p-4 transition-all hover:border-accent/40">
+                <div className="font-display text-lg sm:text-xl font-bold tracking-tight text-foreground leading-none">
+                  ISO 9001
+                </div>
+                <p className="mt-2.5 text-xs text-muted-foreground font-medium leading-snug">
+                  Quality Management System
+                </p>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>

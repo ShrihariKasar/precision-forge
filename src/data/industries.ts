@@ -1,7 +1,8 @@
 import automotiveClipsImg from "@/assets/spipl/automotive_clips.jpg";
-import applianceComponentsImg from "@/assets/spipl/appliance_components.jpg";
-import defenceComponentsImg from "@/assets/spipl/defence_components.jpg";
-import shopFloorImg from "@/assets/spipl/shop_floor.jpg";
+import applianceComponentsImg from "@/assets/products/ac-fan-components.jpg";
+import defenceComponentsImg from "@/assets/products/radome.jpg";
+import commercialHandleImg from "@/assets/products/grab-handle-support-black.jpg";
+import engineeringPolymersImg from "@/assets/real/polymer_sample_board.jpg";
 
 export type Industry = {
   slug: string;
@@ -50,7 +51,7 @@ export const industries: Industry[] = [
     short: "Injection moulded assemblies and functional plastic components for commercial transport.",
     description:
       "Heavy-duty engineering plastic parts for bus, truck and commercial logistics applications built for high mechanical durability and vibration resistance.",
-    image: shopFloorImg,
+    image: commercialHandleImg,
     components: ["Grab Handle Supports", "Trunk Opener Clips", "Parcel Shelf Clips"],
     requirements: ["Vibration Damping", "High Load-Bearing Capacity", "UV Weatherability"],
   },
@@ -60,7 +61,7 @@ export const industries: Industry[] = [
     short: "Custom molded components across ABS, POM, Nylon 6/66, Polycarbonate and PP polymers.",
     description:
       "Custom injection moulded parts manufactured to client drawings using engineering polymers tailored for specific mechanical, thermal and chemical environments.",
-    image: shopFloorImg,
+    image: engineeringPolymersImg,
     components: ["Washer Assemblies", "Rib Locks", "Specialty Fasteners"],
     requirements: ["Custom Tooling Support", "Engineering Polymer Expertise", "In-Process Inspection Firewall"],
   },

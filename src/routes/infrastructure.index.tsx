@@ -6,6 +6,7 @@ import machineChenHsongImg from "@/assets/real/machine_chen_hsong_250t.jpg";
 import toolMouldMaintenanceImg from "@/assets/real/tool_mould_maintenance.jpg";
 import qualityFirewallImg from "@/assets/real/quality_firewall_lab.jpg";
 import plantOfficeImg from "@/assets/real/plant_office_management.jpg";
+import shopFloorMainBay6528Img from "@/assets/real/shop_floor_main_bay_6528.jpg";
 
 import { company } from "@/data/company";
 import { MachineryTable } from "@/components/site/MachineryTable";
@@ -61,7 +62,7 @@ export function InfrastructurePage() {
             {
               title: "3. Injection Moulding Machinery",
               desc: "12 verified moulding machines ranging from 100T to 250T (TUP Taiwan, L&T Demag, STM, ESM, CHENDE).",
-              img: machineChenHsongImg,
+              img: shopFloorMainBay6528Img,
             },
             {
               title: "4. Tool Room (SPRAJTECH)",

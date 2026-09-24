@@ -211,13 +211,13 @@ export function PageHero({
       <div className="container-x">
         <Reveal className="label-xs text-accent">{eyebrow}</Reveal>
         <Reveal delay={80}>
-          <h1 className="mt-5 max-w-4xl text-[clamp(2.5rem,6.5vw,5.25rem)] leading-[0.98] font-medium">
+          <h1 className="mt-4 max-w-4xl text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-tight text-foreground">
             {title}
           </h1>
         </Reveal>
         {description && (
           <Reveal delay={160}>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
               {description}
             </p>
           </Reveal>

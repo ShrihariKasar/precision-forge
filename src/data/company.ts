@@ -43,8 +43,8 @@ export const company = {
   email: "sanchitoperation@gmail.com",
   hours: "Monday – Saturday, 08:30 – 18:00",
   stats: [
-    { value: "12++", numericValue: 12, suffix: "++", label: "Years of Growth" },
-    { value: "10,000 Sq. Ft.", numericValue: 10000, suffix: " Sq. Ft.", label: "High Tech Facility" },
+    { value: "12+", numericValue: 12, suffix: "", label: "Years of Growth" },
+    { value: "10,000 Sq. Ft.", numericValue: 10000, suffix: "", label: "High Tech Facility" },
     { value: "IATF 16949", numericValue: null, suffix: "", label: "Automotive Quality Standard" },
     { value: "ISO 9001", numericValue: null, suffix: "", label: "Quality Management System" },
   ],

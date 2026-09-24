@@ -1,6 +1,6 @@
 import injectionShopImg from "@/assets/real/shop_floor_main.jpg";
-import automotiveClipsImg from "@/assets/real/automotive_clips_inspection.jpg";
-import toolRoomImg from "@/assets/real/tool_mould_maintenance.jpg";
+import finishedGoodsRacksImg from "@/assets/real/finished_goods_racks.jpg";
+import toolStorageRacks6535Img from "@/assets/real/tool_storage_racks_6535.jpg";
 import qualityImg from "@/assets/real/quality_firewall_lab.jpg";
 import polymerSampleImg from "@/assets/real/polymer_sample_board.jpg";
 
@@ -57,7 +57,7 @@ export const capabilities: Capability[] = [
       "Single & Multi-cavity Tooling",
       "In-line Fixtures & Gauges",
     ],
-    image: automotiveClipsImg,
+    image: finishedGoodsRacksImg,
     highlights: [
       "IATF 16949 Compliant Quality",
       "Tier-1 OEM Approved Parts",
@@ -81,7 +81,7 @@ export const capabilities: Capability[] = [
       "Vertical Milling Machines",
       "Surface Plate & Inspection Jigs",
     ],
-    image: toolRoomImg,
+    image: toolStorageRacks6535Img,
     highlights: [
       "Sister Company Tooling Unit (SPRAJTECH)",
       "Mould Maintenance & Repair",

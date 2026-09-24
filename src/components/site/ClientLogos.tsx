@@ -220,10 +220,14 @@ export function AnkitaPlastLogo(props: SVGProps<SVGSVGElement>) {
 
 export function ClientLogo({ id, className }: { id: string; className?: string }) {
   switch (id) {
+    case "itw":
     case "itw-india":
       return <ITWLogo className={cn("h-6 w-auto", className)} />;
+    case "amber":
     case "amber-enterprises":
       return <AmberLogo className={cn("h-6 w-auto", className)} />;
+    case "eka":
+    case "eka-mobility":
     case "pinnacle-mobility":
       return <EkaLogo className={cn("h-6 w-auto", className)} />;
     case "appl-defence":

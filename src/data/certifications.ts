@@ -1,4 +1,4 @@
-import shopFloorImg from "@/assets/spipl/shop_floor.jpg";
+import qualityFirewallImg from "@/assets/real/quality_firewall_lab.jpg";
 import iatfLogo from "@/assets/logos/iatf-16949.svg";
 import isoLogo from "@/assets/logos/iso-9001.svg";
 
@@ -34,7 +34,7 @@ export const certifications: Certification[] = [
     scope:
       "Manufacturing plastic injection moulding components and their assemblies, with product design excluded from the stated scope.",
     certificateVerified: true,
-    image: shopFloorImg,
+    image: qualityFirewallImg,
     logo: iatfLogo,
   },
   {
@@ -51,7 +51,7 @@ export const certifications: Certification[] = [
     scope:
       "Manufacture and supply of precision plastic injection moulded components, assemblies and engineering plastic products.",
     certificateVerified: true,
-    image: shopFloorImg,
+    image: qualityFirewallImg,
     logo: isoLogo,
   },
 ];
