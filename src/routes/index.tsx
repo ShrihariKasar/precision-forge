@@ -5,11 +5,12 @@ import { ArrowUpRight, CheckCircle2, ShieldCheck, Cpu, Factory, Award, Building2
 import heroPlantImg from "@/assets/real/hero_plant_exterior.jpg";
 import shopFloorImg from "@/assets/real/shop_floor_main.jpg";
 import machinePressImg from "@/assets/real/machine_chen_hsong_250t.jpg";
+import heroSectionHopperImg from "@/assets/images/hero section - Copy.jpeg";
+import factoryBay6528Img from "@/assets/images/factory_shop_floor_main_bay_6528.jpg";
 
 import { company } from "@/data/company";
 import { products } from "@/data/products";
 import { capabilities } from "@/data/capabilities";
-import { certifications } from "@/data/certifications";
 import { galleryItems } from "@/data/gallery";
 import { Reveal } from "@/components/site/Reveal";
 import { ActionLink, SectionHeading, StatCounter, TextLink } from "@/components/site/ui";
@@ -23,6 +24,14 @@ const heroSlides = [
   {
     src: shopFloorImg,
     alt: "Sanchit Polymer Industries 12-press injection moulding shop floor",
+  },
+  {
+    src: heroSectionHopperImg,
+    alt: "Sanchit Polymer Industries automated material hopper dryers and overhead crane bay",
+  },
+  {
+    src: factoryBay6528Img,
+    alt: "Sanchit Polymer Industries factory shop floor main production bay with injection moulding machines",
   },
   {
     src: heroPlantImg,
@@ -166,84 +175,7 @@ function Home() {
           </div>
         </div>
 
-        {/* CERTIFICATION MATRIX TABLE (DESKTOP & TABLET) */}
-        <Reveal delay={120} className="mt-10 overflow-hidden rounded-xl border border-border/80 bg-surface shadow-lg">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
-              <thead className="border-b border-border/80 bg-background/80 text-[11px] font-mono uppercase tracking-wider text-muted-foreground">
-                <tr>
-                  <th scope="col" className="px-6 py-4">Standard & Accreditation</th>
-                  <th scope="col" className="px-6 py-4">Certificate / IATF No.</th>
-                  <th scope="col" className="px-6 py-4">Issuing Registrar</th>
-                  <th scope="col" className="px-6 py-4">Scope of Registration</th>
-                  <th scope="col" className="px-6 py-4">Validity & Surveillance</th>
-                  <th scope="col" className="px-6 py-4 text-center">Status</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-border/60">
-                {certifications.map((cert) => (
-                  <tr key={cert.id} className="transition-colors hover:bg-background/40">
-                    {/* Standard & Logo */}
-                    <td className="px-6 py-5 align-top">
-                      <div className="flex items-center gap-3">
-                        {cert.logo ? (
-                          <div className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-white p-1.5 shadow-sm border border-slate-200">
-                            <img src={cert.logo} alt={`${cert.name} Logo`} className="size-full object-contain" />
-                          </div>
-                        ) : (
-                          <Award className="size-8 text-accent shrink-0" />
-                        )}
-                        <div>
-                          <div className="font-bold text-foreground text-base leading-snug">{cert.name}</div>
-                          <div className="text-xs font-mono text-accent mt-0.5">{cert.standard}</div>
-                        </div>
-                      </div>
-                    </td>
 
-                    {/* Certificate / IATF No. */}
-                    <td className="px-6 py-5 align-top font-mono text-xs">
-                      <div className="font-semibold text-foreground">Cert: {cert.certificateNumber}</div>
-                      {cert.iatfNumber && (
-                        <div className="text-accent mt-1">IATF: {cert.iatfNumber}</div>
-                      )}
-                    </td>
-
-                    {/* Issuing Registrar */}
-                    <td className="px-6 py-5 align-top">
-                      <span className="inline-flex items-center rounded-md bg-background/80 px-2.5 py-1 text-xs font-medium text-foreground border border-border/60">
-                        {cert.issuingBody}
-                      </span>
-                    </td>
-
-                    {/* Scope of Registration */}
-                    <td className="px-6 py-5 align-top max-w-xs text-xs text-muted-foreground leading-relaxed">
-                      {cert.scope}
-                    </td>
-
-                    {/* Validity & Surveillance */}
-                    <td className="px-6 py-5 align-top font-mono text-xs text-muted-foreground">
-                      <div><span className="text-foreground">Issued:</span> {cert.issueDate}</div>
-                      <div className="mt-1"><span className="text-emerald-400 font-semibold">Valid to:</span> {cert.expiryDate}</div>
-                      {cert.surveillance1st && (
-                        <div className="mt-1 text-[11px] text-muted-foreground/80">
-                          Surveillance: {cert.surveillance1st}
-                        </div>
-                      )}
-                    </td>
-
-                    {/* Status Badge */}
-                    <td className="px-6 py-5 align-top text-center">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-400 border border-emerald-500/20">
-                        <span className="size-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        Verified
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Reveal>
 
         {/* QUALITY FIREWALL PROCESS & METRICS MATRIX */}
         <Reveal delay={200} className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

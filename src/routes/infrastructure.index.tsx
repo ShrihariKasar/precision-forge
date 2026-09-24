@@ -55,29 +55,29 @@ export function InfrastructurePage() {
               img: plantFacadeImg,
             },
             {
-              title: "2. Injection Moulding Shop",
+              title: "2. MD - Sanchit Polymers",
+              desc: "Executive management and PPC office overseeing plant operations, customer support, and production scheduling.",
+              img: plantOfficeImg,
+            },
+            {
+              title: "3. Injection Moulding Shop",
               desc: "9,000 sq. ft. built-up shop floor equipped with automated overhead cranes and 12 moulding presses.",
               img: shopFloorMainImg,
             },
             {
-              title: "3. Injection Moulding Machinery",
+              title: "4. Injection Moulding Machinery",
               desc: "12 verified moulding machines ranging from 100T to 250T (TUP Taiwan, L&T Demag, STM, ESM, CHENDE).",
               img: shopFloorMainBay6528Img,
             },
             {
-              title: "4. Tool Room (SPRAJTECH)",
+              title: "5. Tool Room (SPRAJTECH)",
               desc: "Associated tool room facility for mould making, press tools, jigs, fixtures, EDM and wire cutting.",
               img: toolMouldMaintenanceImg,
             },
             {
-              title: "5. QA Laboratory",
+              title: "6. QA Laboratory",
               desc: "Quality control lab equipped with digital verniers, micrometers, pin gauges and digital lux meters.",
               img: qualityFirewallImg,
-            },
-            {
-              title: "6. Office & Administration",
-              desc: "PPC, accounts, customer support and purchasing office for seamless project execution.",
-              img: plantOfficeImg,
             },
           ].map((item, idx) => (
             <Reveal key={item.title} delay={(idx % 3) * 70} className="rounded-lg border border-border bg-surface overflow-hidden">

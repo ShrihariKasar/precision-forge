@@ -1,7 +1,7 @@
-import injectionShopImg from "@/assets/real/shop_floor_main.jpg";
-import finishedGoodsRacksImg from "@/assets/real/finished_goods_racks.jpg";
+import injectionShopImg from "@/assets/images/hero section - Copy.jpeg";
+import automotiveCriticalPartsImg from "@/assets/real/automotive_critical_parts_showcase.jpg";
 import toolStorageRacks6535Img from "@/assets/real/tool_storage_racks_6535.jpg";
-import qualityImg from "@/assets/real/quality_firewall_lab.jpg";
+import qualityImg from "@/assets/images/qaulity.jpeg";
 import polymerSampleImg from "@/assets/real/polymer_sample_board.jpg";
 
 export interface Capability {
@@ -57,7 +57,7 @@ export const capabilities: Capability[] = [
       "Single & Multi-cavity Tooling",
       "In-line Fixtures & Gauges",
     ],
-    image: finishedGoodsRacksImg,
+    image: automotiveCriticalPartsImg,
     highlights: [
       "IATF 16949 Compliant Quality",
       "Tier-1 OEM Approved Parts",
@@ -91,7 +91,7 @@ export const capabilities: Capability[] = [
   },
   {
     slug: "quality-inspection-measurement",
-    name: "Quality Inspection & Measurement",
+    name: "Quality Inspection",
     category: "Quality Assurance",
     summary:
       "Structured quality control laboratory equipped with calibrated digital verniers, micrometers, pin gauges and digital lux meters.",

@@ -15,6 +15,11 @@ import plantOfficeImg from "@/assets/real/plant_office_management.jpg";
 import factoryEntranceImg from "@/assets/real/factory_entrance.jpg";
 import plantSubstationImg from "@/assets/real/plant_electrical_substation.jpg";
 
+// New high-res plant & quality assets
+import qualityLabInspectionImg from "@/assets/images/qaulity.jpeg";
+import heroMouldingMachinesImg from "@/assets/images/hero.jpg";
+import heroHopperDryersImg from "@/assets/images/hero section - Copy.jpeg";
+
 // Newly added plant & shop floor gallery assets
 import manualInspectionBay2105Img from "@/assets/real/shop_floor_manual_inspection_bay_2105.jpg";
 import factoryFinishedGoods6562Img from "@/assets/real/factory_finished_goods_storage_area_6562.jpg";
@@ -37,12 +42,52 @@ export const galleryCategories = ["ALL", "AUTOMOTIVE", "APPLIANCES", "DEFENCE", 
 
 export const galleryItems: GalleryItem[] = [
   {
+    id: "g-fac-md",
+    title: "MD - Sanchit Polymers",
+    category: "FACILITY",
+    aspect: "landscape",
+    image: plantOfficeImg,
+    caption: "Executive management and PPC office overseeing plant operations, customer support, and production scheduling.",
+  },
+  {
     id: "g-fac-1",
     title: "SPIPL Manufacturing Plant Exterior",
     category: "FACILITY",
     aspect: "wide",
     image: heroPlantExteriorImg,
     caption: "10,000 sq. ft. land area and manufacturing facility in Koregaon Bhima, Tal. Shirur, Pune.",
+  },
+  {
+    id: "g-fac-team",
+    title: "SPIPL Production & Engineering Team",
+    category: "FACILITY",
+    aspect: "landscape",
+    image: employeeTeamGroup5656Img,
+    caption: "Dedicated machine operators, quality assurance technicians, and tooling engineers at Sanchit Polymer.",
+  },
+  {
+    id: "g-fac-qa-bay",
+    title: "Quality Inspection & Verification Bay",
+    category: "FACILITY",
+    aspect: "portrait",
+    image: qualityLabInspectionImg,
+    caption: "Dedicated in-plant inspection tables with calibrated lighting for 100% component verification.",
+  },
+  {
+    id: "g-fac-moulding-bay",
+    title: "STM Precision Injection Moulding Presses",
+    category: "FACILITY",
+    aspect: "portrait",
+    image: heroMouldingMachinesImg,
+    caption: "STM 180T and STM 150T automated injection moulding machines operating in production bay.",
+  },
+  {
+    id: "g-fac-hoppers-bay",
+    title: "Material Hopper Dryers & Overhead Crane",
+    category: "FACILITY",
+    aspect: "portrait",
+    image: heroHopperDryersImg,
+    caption: "Dehumidifying material hopper dryers with overhead crane support for automated raw granule feeding.",
   },
   {
     id: "g-fac-2",
@@ -131,14 +176,6 @@ export const galleryItems: GalleryItem[] = [
     aspect: "landscape",
     image: finishedGoodsRacksImg,
     caption: "Multi-tier inventory storage of precision automotive clips, body plugs, and fasteners ready for dispatch.",
-  },
-  {
-    id: "g-def-1",
-    title: "Plant Administration & PPC Office",
-    category: "DEFENCE",
-    aspect: "landscape",
-    image: plantOfficeImg,
-    caption: "Production planning and customer support office for ERP scheduling and dispatch coordination.",
   },
   {
     id: "g-fac-11",

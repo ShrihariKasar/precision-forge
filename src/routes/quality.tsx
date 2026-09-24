@@ -1,8 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import qualityFirewallImg from "@/assets/real/quality_firewall_lab.jpg";
-import plantOfficeImg from "@/assets/real/plant_office_management.jpg";
-import machineChenHsongImg from "@/assets/real/machine_chen_hsong_250t.jpg";
-import finishedGoodsRacksImg from "@/assets/real/finished_goods_racks.jpg";
 import { company } from "@/data/company";
 import { certifications } from "@/data/certifications";
 import { Reveal, useInView } from "@/components/site/Reveal";
@@ -64,72 +61,11 @@ function QualityPage() {
         image={qualityFirewallImg}
       />
 
-      <section className="container-x pt-8 pb-12 md:pt-10 md:pb-16">
-        <SectionHeading
-          index="01"
-          eyebrow="Quality Commitment"
-          title="Zero-Defect Focus & Inspection Protocols"
-          description="In-process checks, first-off approval and quality firewall verification before dispatch."
-        />
-
-        <div className="mt-8 md:mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            {
-              title: "Quality Assurance",
-              desc: "Adherence to documented procedures and quality systems.",
-              img: plantOfficeImg,
-              alt: "Quality assurance documentation and quality systems office",
-            },
-            {
-              title: "Dimensional Inspection",
-              desc: "Calibrated measurement against drawing specifications.",
-              img: qualityFirewallImg,
-              alt: "Dimensional inspection lab with verniers and gauges",
-            },
-            {
-              title: "In-Process Checks",
-              desc: "Regular interval checking of molded component parameters.",
-              img: machineChenHsongImg,
-              alt: "In-process moulding cycle monitoring and machine parameters",
-            },
-            {
-              title: "Final Inspection Firewall",
-              desc: "100% firewall verification before packaging release.",
-              img: finishedGoodsRacksImg,
-              alt: "Final packaging and finished goods dispatch verification",
-            },
-          ].map((item, i) => (
-            <Reveal
-              key={item.title}
-              delay={i * 70}
-              className="group flex flex-col overflow-hidden rounded-xl border border-border/80 bg-surface shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:shadow-lg"
-            >
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface-2">
-                <img
-                  src={item.img}
-                  alt={item.alt}
-                  loading="lazy"
-                  className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent opacity-30" />
-                <span className="absolute top-2.5 left-2.5 rounded bg-background/90 px-2 py-0.5 text-[10px] font-mono text-accent font-semibold border border-border/60 backdrop-blur-sm">
-                  0{i + 1}
-                </span>
-              </div>
-              <div className="flex flex-1 flex-col p-5">
-                <h3 className="text-base font-bold text-foreground leading-snug">{item.title}</h3>
-                <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
       {/* QA EQUIPMENT */}
-      <section className="surface-light border-y border-border">
+      <section className="surface-light border-b border-border">
         <div className="container-x py-10 md:py-14">
           <SectionHeading
-            index="02"
+            index="01"
             eyebrow="QA Laboratory Equipment"
             title="Precision Measuring Instruments"
           />
@@ -145,9 +81,14 @@ function QualityPage() {
         </div>
       </section>
 
-      {/* STAGE PROCESS TIMELINE */}
+      {/* ZERO-DEFECT FOCUS & STAGE PROCESS TIMELINE */}
       <section className="container-x py-10 md:py-14">
-        <SectionHeading index="03" eyebrow="Stage Process" title="Quality Timeline from Material to Delivery" />
+        <SectionHeading
+          index="02"
+          eyebrow="Quality Commitment & Stage Process"
+          title="Zero-Defect Quality Timeline from Material to Delivery"
+          description="In-process checks, first-off approval and quality firewall verification across every manufacturing stage."
+        />
         <QualityTimeline />
       </section>
 
