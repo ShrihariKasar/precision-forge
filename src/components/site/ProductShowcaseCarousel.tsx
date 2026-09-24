@@ -70,11 +70,7 @@ export function ProductShowcaseCarousel() {
       </div>
 
       {/* View All CTA */}
-      <div className="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-border/40 pt-6">
-        <span className="text-xs font-mono text-muted-foreground">
-          Showing {filteredProducts.length} precision components • Hover card to pause train
-        </span>
-
+      <div className="mt-10 flex justify-center border-t border-border/40 pt-6">
         <ActionLink to="/products" variant="outline">
           VIEW ALL PRODUCTS & CATALOGUE
         </ActionLink>

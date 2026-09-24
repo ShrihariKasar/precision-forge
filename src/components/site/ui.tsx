@@ -98,11 +98,11 @@ export function SectionHeading({
         <span className="label-xs text-accent uppercase tracking-wider font-mono">{eyebrow}</span>
       </Reveal>
       <Reveal delay={80}>
-        <h2 className="mt-6 text-[clamp(2rem,4.4vw,3.75rem)] leading-[1.03] font-medium">{title}</h2>
+        <h2 className="mt-2.5 sm:mt-3 text-2xl sm:text-3xl md:text-4xl leading-tight font-medium">{title}</h2>
       </Reveal>
       {description && (
         <Reveal delay={150}>
-          <p className={cn("mt-4 text-base leading-relaxed text-muted-foreground md:text-lg", align === "center" ? "mx-auto max-w-none" : "max-w-2xl")}>
+          <p className={cn("mt-2.5 sm:mt-3 text-base leading-relaxed text-muted-foreground md:text-lg", align === "center" ? "mx-auto max-w-none" : "max-w-2xl")}>
             {description}
           </p>
         </Reveal>
@@ -200,7 +200,7 @@ export function PageHero({
   children?: ReactNode;
 }) {
   return (
-    <header className="relative isolate flex min-h-[58vh] items-end overflow-hidden pt-32 pb-14 md:min-h-[64vh] md:pt-40 md:pb-20">
+    <header className="relative isolate flex min-h-[30vh] items-end overflow-hidden pt-24 pb-8 md:min-h-[36vh] md:pt-28 md:pb-10">
       <img
         src={image}
         alt=""
@@ -211,13 +211,13 @@ export function PageHero({
       <div className="container-x">
         <Reveal className="label-xs text-accent">{eyebrow}</Reveal>
         <Reveal delay={80}>
-          <h1 className="mt-4 max-w-4xl text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-tight text-foreground">
+          <h1 className="mt-2.5 sm:mt-3 max-w-4xl text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight leading-tight text-foreground">
             {title}
           </h1>
         </Reveal>
         {description && (
           <Reveal delay={160}>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p className="mt-2.5 sm:mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
               {description}
             </p>
           </Reveal>

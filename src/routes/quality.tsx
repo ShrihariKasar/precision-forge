@@ -64,7 +64,7 @@ function QualityPage() {
         image={qualityFirewallImg}
       />
 
-      <section className="container-x section-y">
+      <section className="container-x pt-8 pb-12 md:pt-10 md:pb-16">
         <SectionHeading
           index="01"
           eyebrow="Quality Commitment"
@@ -72,7 +72,7 @@ function QualityPage() {
           description="In-process checks, first-off approval and quality firewall verification before dispatch."
         />
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 md:mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             {
               title: "Quality Assurance",
@@ -127,14 +127,14 @@ function QualityPage() {
 
       {/* QA EQUIPMENT */}
       <section className="surface-light border-y border-border">
-        <div className="container-x section-y">
+        <div className="container-x py-10 md:py-14">
           <SectionHeading
             index="02"
             eyebrow="QA Laboratory Equipment"
             title="Precision Measuring Instruments"
           />
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 md:mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {qaEquipment.map((eq) => (
               <Reveal key={eq.name} className="rounded-lg border border-border bg-background p-6">
                 <h3 className="font-mono text-sm font-semibold text-accent">{eq.name}</h3>
@@ -146,13 +146,13 @@ function QualityPage() {
       </section>
 
       {/* STAGE PROCESS TIMELINE */}
-      <section className="container-x section-y">
+      <section className="container-x py-10 md:py-14">
         <SectionHeading index="03" eyebrow="Stage Process" title="Quality Timeline from Material to Delivery" />
         <QualityTimeline />
       </section>
 
       {/* CERTIFICATIONS LINK */}
-      <section className="surface-light border-t border-border py-16">
+      <section className="surface-light border-t border-border py-12 md:py-14">
         <div className="container-x text-center max-w-3xl mx-auto space-y-6">
           <Award className="size-12 text-accent mx-auto" />
           <h2 className="text-3xl font-medium">IATF 16949:2016 & ISO 9001:2015 Certifications</h2>
@@ -176,7 +176,7 @@ function QualityTimeline() {
   const { ref, visible } = useInView<HTMLDivElement>(0.2);
 
   return (
-    <div ref={ref} className="mt-14 md:mt-20">
+    <div ref={ref} className="mt-8 md:mt-12">
       <div className="relative">
         <div className="absolute top-0 left-[7px] h-full w-px bg-border md:top-[7px] md:left-0 md:h-px md:w-full" />
         <div
